@@ -10,6 +10,7 @@ Fortran analogy: a read-only COMMON block filled once from a data file.
 from __future__ import annotations
 
 import csv
+import re
 from dataclasses import dataclass
 from functools import lru_cache
 
@@ -48,11 +49,19 @@ class Chemical:
     kd_l_kg: float | None = None             # soil-water partition coefficient (inorganics), L/kg
     koc_l_kg: float | None = None            # organic carbon partition coefficient, L/kg
     solubility_mg_l: float | None = None     # water solubility, mg/L
+    mcl_ug_l: float | None = None            # maximum contaminant level, ug/L (RSL Summary Table)
+    mcl_text: str | None = None              # MCL cell as printed (may carry a note, e.g. "6.0E+01(G)")
     keys: tuple[tuple[str, str], ...] = ()   # source keys of toxicity values (I = IRIS, P = PPRTV, ...)
 
 
 def _f(text: str | None) -> float | None:
     return float(text) if text not in ("", None) else None
+
+
+def _leading_number(text: str | None) -> float | None:
+    """Numeric part of a cell such as '6.0E+01(G)'; the note is kept separately."""
+    m = re.match(r"\s*([0-9.]+(?:[Ee][+-]?[0-9]+)?)", text or "")
+    return float(m.group(1)) if m else None
 
 
 def _read(table: str, name: str) -> tuple[dict, ...]:
@@ -103,6 +112,7 @@ def lookup(table: str, cas: str | None = None, name: str | None = None) -> Chemi
         vp_mmhg=_f(p.get("vp_mmhg")), mp_c=_f(p.get("mp_c")), density_g_cm3=_f(p.get("density_g_cm3")),
         dia_cm2_s=_f(p.get("dia_cm2_s")), diw_cm2_s=_f(p.get("diw_cm2_s")), kd_l_kg=_f(p.get("kd_l_kg")),
         koc_l_kg=_f(p.get("koc_l_kg")), solubility_mg_l=_f(p.get("solubility_mg_l")),
+        mcl_ug_l=_leading_number(r.get("mcl_ug_l")), mcl_text=r.get("mcl_ug_l") or None,
         keys=tuple((k, r[f"{k}_key"]) for k in ("sfo", "iur", "rfd", "rfc") if r[f"{k}_key"]),
     )
 

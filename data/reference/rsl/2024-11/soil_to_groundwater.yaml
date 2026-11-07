@@ -1,0 +1,13 @@
+# Default parameters for soil screening levels protective of groundwater (SSL).
+# Source: docs/references/rsl_default_exposure_parameters_2024-11.xlsx, worksheet "Soil to Groundwater"
+# (checked by ortam_core/tests/test_rsl_import.py). Equations: RSL UG 4.8; SSG 2002 Eq. 4-10 to 4-14.
+
+rsl_version: "2024-11"
+defaults:
+  daf:          {value: 1,    source: "Soil to Groundwater, row 4"}
+  ed_yr:        {value: 70,   source: "Soil to Groundwater, row 5"}
+  infiltration_m_yr: {value: 0.18, source: "Soil to Groundwater, row 6"}
+  theta_w:      {value: 0.3,  source: "Soil to Groundwater, row 10"}
+  rho_s_kg_l:   {value: 2.65, source: "Soil to Groundwater, row 13"}
+  rho_b_kg_l:   {value: 1.5,  source: "Soil to Groundwater, row 14"}
+  foc:          {value: 0.002, source: "Soil to Groundwater, row 18"}

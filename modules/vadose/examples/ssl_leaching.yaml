@@ -1,0 +1,11 @@
+# Soil screening levels protective of groundwater (Method 1, DAF 20 for a 0.5 acre source).
+# Run: uv run ortam run vadose.ssl-leaching modules/vadose/examples/ssl_leaching.yaml
+method: partitioning
+daf: 20
+chemicals:
+  - cas: "71-43-2"          # Benzene, MCL from the RSL table
+    target: mcl
+  - cas: "7440-38-2"        # Arsenic, MCL
+    target: mcl
+  - cas: "127-18-4"         # Tetrachloroethylene, user target (ug/L)
+    target_ug_l: 5.0

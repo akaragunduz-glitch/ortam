@@ -140,3 +140,10 @@ def test_air_emission_defaults_match_workbook():
                 assert p["value"] == pytest.approx(8.2e8)   # cell text "8.2 x 10^8 (used for unlimited ...)"
                 continue
             assert p["value"] == pytest.approx(raw), (group, key)
+
+
+def test_soil_to_groundwater_defaults_match_workbook():
+    params = yaml.safe_load((DATA_DIR / "soil_to_groundwater.yaml").read_text(encoding="utf-8"))
+    wb = _workbook()
+    for key, p in params["defaults"].items():
+        assert p["value"] == pytest.approx(_cell_value(wb, p["source"])), key

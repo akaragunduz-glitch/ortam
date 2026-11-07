@@ -87,6 +87,7 @@ modules/           Standalone modules (each runs on its own)
 workflows/         Workflows that connect modules
   risk_chain/      Sampling -> modelling -> risk -> remediation
   soil_volatiles/  air.ssl-vf -> risk soil tools (volatile chemicals)
+  soil_to_groundwater/ risk.resident-tapwater -> vadose.ssl-leaching
 engines/           Fortran and external codes (MODFLOW, AERMOD, VLEACH, ...)
 api/               FastAPI server (Phase 2)
 worker/            Celery background workers (Phase 5)
@@ -120,5 +121,8 @@ docs/              Documentation
   `ortam_core/chemicals/`; `air.ssl-vf` (VF, VFsc, Csat), `air.ssl-pef`
   (PEF, PEFsc, PEF'sc); workflow `workflows/soil_volatiles` (volatile soil
   SLs match RSL 308/308 resident and industrial).
-- Next task: D1.2b — `vadose.ssl-leaching`; then D1.2c — Johnson & Ettinger
-  (needs J&E 2017 documentation, VISL User's Guide, OSWER VI guide 2015).
+- D1.2b complete (2026-11-07): `vadose.ssl-leaching` (Method 1/2, DAF);
+  workflow `workflows/soil_to_groundwater`; MCL-based SSL 91/91, risk-based
+  SSL 741/747 (6 documented deviations).
+- Next task: D1.2c — Johnson & Ettinger and VISL (`modules/vapor/`); reference
+  documents are in `docs/references/`.
