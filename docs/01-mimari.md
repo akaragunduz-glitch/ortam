@@ -1,4 +1,4 @@
-# Mimari
+# ORTAM — Mimari
 
 Sürüm: 0.1 · Tarih: 2026-11-07
 
@@ -6,6 +6,14 @@ Ayrıntılı mimari, teknoloji yığını ve yol haritası için ana belge:
 "Entegre Saha Karakterizasyonu, Modelleme ve Risk Değerlendirmesi Yazılımı:
 Mimari ve Yol Haritası" (Claude Docs). Bu dosya, kod deposunda Claude'un
 başvuracağı özet sürümdür.
+
+## Çalışma modları
+
+| Mod | Örnek | Gereken bileşenler |
+|-----|-------|--------------------|
+| Bağımsız modül (komut satırı) | `ortam calistir groundwater.uc-nokta girdi.yaml` | Yalnızca Python + ilgili motor |
+| Bağımsız modül (arayüz) | Yalnızca yeraltı suyu modeli ekranı | Arayüz + API (+ iş kuyruğu, ağır modellerde) |
+| Entegre iş akışı | Örnekleme → modelleme → risk → ıslah | Tüm katmanlar |
 
 ## Katmanlar
 
@@ -34,12 +42,17 @@ başvuracağı özet sürümdür.
 
 ## Tasarım ilkeleri
 
-1. **Önce bilim, sonra arayüz:** `core/` paketi arayüzden bağımsızdır ve tek
-   başına test edilir.
+0. **Her modül tek başına çalışır:** Her modül `ortam_core.model.Modul`
+   sözleşmesine uyar (`dogrula` → `calistir` → `ozet`). Girdi bir YAML/JSON
+   dosyası veya form olabilir; veritabanı isteğe bağlıdır. Ayrıntı:
+   `docs/interfaces/model-sozlesmesi.md`.
+1. **Önce bilim, sonra arayüz:** `modules/` altındaki hesaplar arayüzden
+   bağımsızdır ve tek başına test edilir.
 2. **Sözleşme önce:** Her modülün girdi/çıktı şeması `docs/interfaces/`
    altında, kod yazılmadan tanımlanır.
-3. **Modüller veritabanı üzerinden konuşur:** Bir modülün çıktısı
-   (`model_result`) diğerinin girdisidir.
+3. **Modüller birbirini çağırmaz; iş akışları bağlar:** Bir modülün çıktısını
+   diğerine aktarmak `workflows/` altındaki iş akışlarının görevidir (ör.
+   `workflows/risk_zinciri/`: yeraltı suyu → risk → ıslah).
 4. **Fortran kodları dosya tabanlı sarmalayıcıyla çağrılır**; küçük sayısal
    çekirdekler (Richards çözücü) f2py ile bağlanır.
 5. **Yeniden üretilebilirlik:** Her model çalıştırmasının girdisi, kod

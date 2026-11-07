@@ -1,17 +1,23 @@
 [project]
-name = "site-risk"
+name = "ortam"
 version = "0.0.1"
-description = "Entegre saha karakterizasyonu, çevresel modelleme ve risk değerlendirmesi yazılımı"
+description = "ORTAM — Open Risk, Transport And Modelling: çevresel modelleme, saha karakterizasyonu ve risk değerlendirmesi platformu"
 requires-python = ">=3.12"
 dependencies = [
     "numpy",
     "scipy",
     "pandas",
     "pint",
+    "pydantic>=2",
+    "pyyaml",
 ]
+
+[project.scripts]
+ortam = "ortam_core.cli:main"
 
 [dependency-groups]
 dev = ["pytest"]
 
 [tool.pytest.ini_options]
-testpaths = ["core/tests"]
+testpaths = ["ortam_core/tests", "modules"]
+pythonpath = ["."]

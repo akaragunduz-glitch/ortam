@@ -1,20 +1,28 @@
-# Amaç ve Kapsam
+# ORTAM — Amaç ve Kapsam
 
 Sürüm: 0.1 · Tarih: 2026-11-07
 
 ## 1. Amaç
 
-Kirlenmiş sahaların değerlendirilmesinde örnekleme tasarımından ıslah
-hedeflerinin belirlenmesine kadar uzanan tüm hesap zincirini tek, izlenebilir
-ve görsel bir yazılımda birleştirmek.
+ORTAM (Open Risk, Transport And Modelling — Ortamlar arası Risk, Taşınım,
+Akıbet ve Modelleme), toprak, yeraltı suyu, toprak gazı, hava ve gıda zinciri
+ortamları için **modüler bir çevresel modelleme platformudur**.
 
-Yazılımın çekirdeği Kavramsal Saha Modelidir (KSM): kaynak → taşınım yolu →
-maruziyet yolu → reseptör. Tüm modüller ortak bir veritabanı üzerinden bu
-zincirin bir halkasını hesaplar.
+Platform iki biçimde kullanılır:
+
+1. **Bağımsız modül kullanımı:** Her model tek başına çalıştırılabilir. Örneğin
+   kullanıcı yalnızca yeraltı suyu akış ve taşınım modelini, yalnızca AERMOD
+   hava dağılımını veya yalnızca jeokimyasal türleşme hesabını kullanabilir.
+   Bunun için risk değerlendirmesi, veritabanı veya başka bir modül gerekmez.
+2. **Entegre iş akışı kullanımı:** Modüller, Kavramsal Saha Modeli (kaynak →
+   taşınım yolu → maruziyet yolu → reseptör) çerçevesinde birbirine bağlanır.
+   Örnekleme tasarımından risk tabanlı ıslah hedeflerine uzanan risk zinciri
+   bu iş akışlarından biridir; yeni iş akışları (ör. yalnızca yeraltı suyu
+   izleme ve trend analizi) eklenebilir.
 
 ## 2. Kapsam
 
-### 2.1 Kapsam içi
+### 2.1 Kapsam içi (her modül bağımsız çalışır)
 
 | No | Modül | İçerik |
 |----|-------|--------|
@@ -50,7 +58,9 @@ zincirin bir halkasını hesaplar.
 
 ## 4. Başarı ölçütleri (sürüm 1.0)
 
-1. Bir sahanın verisi girildikten sonra risk sonucu ve ıslah hedefi, aynı
+1. Her modül; komut satırından, Python'dan ve web arayüzünden, yalnızca
+   kendi girdi dosyasıyla tek başına çalıştırılabilmelidir.
+1a. Bir sahanın verisi girildikten sonra risk sonucu ve ıslah hedefi, aynı
    yazılım içinde, kaynağı izlenebilir biçimde üretilebilmelidir.
 2. Her hesap modülü, ilgili EPA/USGS referans çıktılarıyla doğrulanmış
    olmalıdır.

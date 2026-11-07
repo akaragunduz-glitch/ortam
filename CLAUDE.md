@@ -5,9 +5,15 @@ Kısa, güncel ve bağlayıcı tutulmalıdır.
 
 ## Proje
 
-**site-risk**: Toprak, yeraltı suyu ve toprak gazı için entegre saha
-karakterizasyonu, çevresel akıbet ve taşınım modellemesi, insan sağlığı
-risk değerlendirmesi ve risk tabanlı ıslah hedefleri yazılımı.
+**ORTAM** (Open Risk, Transport And Modelling — Ortamlar arası Risk,
+Taşınım, Akıbet ve Modelleme): modüler bir çevresel modelleme platformu.
+Yeraltı suyu, vadoz zon, buhar intrüzyonu, hava dağılımı, yüzey akışı, gıda
+zinciri, jeokimya, istatistik, karakterizasyon, risk ve ıslah modülleri
+içerir.
+
+**Temel ilke: her modül tek başına çalışır.** Kullanıcı yalnızca yeraltı suyu
+modelini kullanabilir; risk değerlendirmesi, modülleri birbirine bağlayan
+iş akışlarından yalnızca biridir (`workflows/risk_zinciri/`).
 
 - Amaç ve kapsam: `docs/00-amac-kapsam.md`
 - Mimari: `docs/01-mimari.md`
@@ -37,8 +43,14 @@ Fortran ile çalışmıştır; yazılım geliştirme deneyimi sınırlıdır.
    (`c_soil_mg_kg`).
 4. **Tespit altı değerler** sıfır veya DL/2 olarak saklanmaz; ayrı bir
    niteleyici alanla tutulur.
-5. **Modüller birbirini doğrudan çağırmaz.** İletişim `docs/interfaces/`
-   altındaki Pydantic şemaları ve veritabanı üzerinden olur.
+5. **Modüller birbirini doğrudan çağırmaz.** Her modül `ortam_core.model.Modul`
+   sözleşmesine uyar (`dogrula`, `calistir`, `ozet`) ve veritabanı olmadan,
+   yalnızca bir girdi dosyasıyla çalışabilmelidir. Modüller arası bağlantı
+   yalnızca `workflows/` altındaki iş akışlarında kurulur.
+5a. **Her modül üç yoldan çalıştırılabilir olmalıdır:** komut satırı
+   (`ortam calistir <modul> <girdi.yaml>`), Python (`modul.calistir(...)`)
+   ve web arayüzü. Her modülde `ornekler/` altında en az bir örnek girdi
+   ve `tests/` altında referans testleri bulunur.
 6. **Fortran kodları** `engines/<model>/` altında, sabit derleyici
    sürümüyle Docker içinde derlenir; kaynak kodu değiştirilmişse fark
    (diff) belgelenir.
@@ -50,31 +62,43 @@ Fortran ile çalışmıştır; yazılım geliştirme deneyimi sınırlıdır.
 ## Klasör yapısı
 
 ```
-core/        Bilimsel hesap paketi (arayüzden bağımsız, saf Python)
-  exposure/  RAGS maruziyet ve risk denklemleri
-  vapor/     Johnson & Ettinger buhar intrüzyonu
-  vadose/    Vadoz zon: SSL sızıntı, VLEACH, Richards çözücü (f2py)
-  foodchain/ HHRAP bitki ve gıda zinciri
-  stats/     ProUCL yöntemleri
-  tests/     pytest testleri
-engines/     Fortran ve harici kodlar + sarmalayıcılar
-  modflow/   MODFLOW 6, MT3D-USGS (FloPy)
-  aermod/    AERMOD, AERMET, AERMAP
-  vadose/    VLEACH, VS2DT, Richards çözücü Fortran kaynağı
-  geochem/   PHREEQC (IPhreeqc), MINTEQA2
-api/         FastAPI sunucusu (Faz 2)
-worker/      Celery arka plan işçileri (Faz 5)
-web/         React + TypeScript arayüzü (Faz 3)
-data/reference/  Doğrulama için referans veri setleri
-docs/        Belgeler
+ortam_core/        Ortak çekirdek: model sözleşmesi, birimler, CLI
+modules/           Bağımsız modüller (her biri tek başına çalışır)
+  groundwater/     Yeraltı suyu: üç-nokta, MODFLOW 6 akış ve GWT taşınım
+  vadose/          Vadoz zon: SSL sızıntı, VLEACH, Richards çözücü, UZF
+  vapor/           Buhar intrüzyonu: Johnson & Ettinger
+  air/             Hava dağılımı: AERMOD, emisyon faktörleri
+  surface/         Yüzey akışı ve erozyon: RUSLE
+  foodchain/       Bitki ve gıda zinciri: HHRAP
+  geochem/         Jeokimya: PHREEQC, MINTEQA2
+  stats/           İstatistik: ProUCL yöntemleri
+  characterization/ Kuyu logu, potansiyometrik yüzey, kriging
+  sampling/        Örnekleme tasarımı (VSP yöntemleri)
+  risk/            Maruziyet ve risk (RAGS)
+  remediation/     Risk tabanlı ıslah hedefleri ve strateji
+  kayit.py         Modül kaydı (CLI ve arayüz buradan okur)
+  <modul>/ornekler/  Örnek girdi dosyaları (YAML)
+  <modul>/tests/     Referans testleri
+workflows/         Modülleri birbirine bağlayan iş akışları
+  risk_zinciri/    Örnekleme → modelleme → risk → ıslah
+engines/           Fortran ve harici kodlar (MODFLOW, AERMOD, VLEACH, ...)
+api/               FastAPI sunucusu (Faz 2)
+worker/            Celery arka plan işçileri (Faz 5)
+web/               React + TypeScript arayüzü (Faz 3)
+data/reference/    Doğrulama için referans veri setleri
+docs/              Belgeler
 ```
 
 ## Komutlar
 
 - Testleri çalıştır: `uv run pytest`
+- Modülleri listele: `uv run ortam liste`
+- Bir modülü tek başına çalıştır:
+  `uv run ortam calistir groundwater.uc-nokta modules/groundwater/ornekler/uc_nokta.yaml`
 - Bağımlılık ekle: `uv add <paket>`
 
 ## Mevcut durum
 
-- Faz 0 başladı (2026-11-07). Klasör yapısı ve kurallar oluşturuldu.
+- Faz 0 başladı (2026-11-07). Klasör yapısı, kurallar, model sözleşmesi ve
+  CLI oluşturuldu. İlk bağımsız araç: `groundwater.uc-nokta` (testli).
 - Sıradaki görev: D0.2 — geliştirme ortamının kurulması ve CI.

@@ -1,0 +1,7 @@
+# Üç-nokta akış yönü örneği. Koordinatlar metrik projeksiyonda (m).
+kuyular:
+  - {ad: MW-1, x_m: 500000.0, y_m: 4500000.0, h_m: 12.40}
+  - {ad: MW-2, x_m: 500120.0, y_m: 4500015.0, h_m: 11.85}
+  - {ad: MW-3, x_m: 500040.0, y_m: 4500110.0, h_m: 12.10}
+K_m_gun: 5.0     # Hidrolik iletkenlik, m/gün
+ne: 0.25         # Etkin porozite

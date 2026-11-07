@@ -11,7 +11,7 @@ olduğunu kanıtlamaya çalışmaktır.
    (`docs/interfaces/`) oku. Uygulama koduna henüz bakma.
 2. Kaynak belgedeki örnek hesaplardan, analitik çözümlerden veya EPA
    hesaplayıcı çıktılarından bağımsız referans testleri yaz
-   (`core/tests/test_<modul>_bagimsiz.py`).
+   (`modules/<modul>/tests/test_<ad>_bagimsiz.py`).
 3. Testleri çalıştır.
 4. Sonra kodu oku ve her denklemi kaynakla karşılaştır: katsayılar, birim
    dönüşümleri, varsayılan parametreler, sınır durumları.
