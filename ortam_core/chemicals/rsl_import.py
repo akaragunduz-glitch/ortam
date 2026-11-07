@@ -15,7 +15,7 @@ those of the RSL tables and are carried in the column names.
 Fortran analogy: this is a one-off pre-processing program that converts a
 vendor input deck into the fixed-format data file the solver reads.
 
-Run:  uv run python -m modules.risk.rsl_import --version 2024-11
+Run:  uv run python -m ortam_core.chemicals.rsl_import --version 2024-11
 """
 
 from __future__ import annotations

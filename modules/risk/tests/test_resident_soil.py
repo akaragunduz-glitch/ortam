@@ -16,7 +16,7 @@ from pathlib import Path
 import pytest
 
 from modules.risk.resident_soil import ResidentSoilModule, age_adjusted_factors, load_exposure_defaults
-from modules.risk.rsl_import import DATA
+from ortam_core.chemicals.rsl_import import DATA
 
 ROOT = Path(__file__).resolve().parents[3]
 

@@ -8,7 +8,7 @@ import csv
 
 import pytest
 
-from modules.risk.rsl_import import DATA
+from ortam_core.chemicals.rsl_import import DATA
 from modules.risk.worker_air import WorkerAirModule
 from modules.risk.worker_soil import WorkerSoilModule
 

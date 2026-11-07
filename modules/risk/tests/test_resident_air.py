@@ -5,7 +5,7 @@ import csv
 import pytest
 
 from modules.risk.resident_air import ResidentAirModule
-from modules.risk.rsl_import import DATA
+from ortam_core.chemicals.rsl_import import DATA
 
 SPECIAL = {"Refractory Ceramic Fibers (units in fibers)"}  # fibre units (RSL UG 5.23)
 

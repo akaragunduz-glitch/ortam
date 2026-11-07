@@ -1,0 +1,8 @@
+# Construction PEFsc for unpaved road traffic (SSG 2002 p. 5-12 example values).
+# Run: uv run ortam run air.ssl-pef modules/air/examples/ssl_pef_traffic.yaml
+method: construction-traffic
+traffic:
+  road_length_ft: 147.6       # 45 m road across a 0.5 acre square site
+  mean_vehicle_weight_t: 8.0  # 20 two-ton cars + 10 twenty-ton trucks
+  rain_days_per_yr: 130       # site-specific (SSG Exhibit 5-2)
+  vkt_km: 175.5

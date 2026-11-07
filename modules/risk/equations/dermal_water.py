@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import math
 
-from modules.risk.toxicity import Chemical
+from ortam_core.chemicals.database import Chemical
 
 
 def in_epd(mw: float, log_kow: float) -> bool:

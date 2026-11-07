@@ -1,0 +1,10 @@
+# Volatilization factor (VF) and Csat, chronic unlimited-source model (RSL defaults).
+# Run: uv run ortam run air.ssl-vf modules/air/examples/ssl_vf.yaml
+scenario: chronic            # chronic | subchronic (construction)
+source_model: unlimited      # unlimited | mass-limit (needs source_depth_m)
+soil:
+  foc: 0.006
+chemicals:
+  - cas: "71-43-2"           # Benzene
+  - cas: "127-18-4"          # Tetrachloroethylene
+  - cas: "79-01-6"           # Trichloroethylene

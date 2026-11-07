@@ -67,7 +67,7 @@ written Fortran in the past; software development experience is limited.
 ## Folder structure
 
 ```
-ortam_core/        Shared core: module contract, units, CLI
+ortam_core/        Shared core: module contract, units, CLI, chemical database
 modules/           Standalone modules (each runs on its own)
   groundwater/     Three-point, analytical solutions, MODFLOW 6 flow + GWT, MODPATH
   vadose/          SSL leaching, VLEACH, Richards solver, UZF
@@ -86,6 +86,7 @@ modules/           Standalone modules (each runs on its own)
   <module>/tests/     Reference tests
 workflows/         Workflows that connect modules
   risk_chain/      Sampling -> modelling -> risk -> remediation
+  soil_volatiles/  air.ssl-vf -> risk soil tools (volatile chemicals)
 engines/           Fortran and external codes (MODFLOW, AERMOD, VLEACH, ...)
 api/               FastAPI server (Phase 2)
 worker/            Celery background workers (Phase 5)
@@ -115,5 +116,9 @@ docs/              Documentation
 - D1.1c complete (2026-11-07): `risk.worker-soil`, `risk.worker-air`,
   `risk.construction-soil`, `risk.recreator-soil`,
   `risk.recreator-surface-water`, `risk.fish`.
-- Next task: D1.1d — doses (CDI, DAD, EC), or D1.2 — VF/PEF (SSL),
-  PEFsc/VFsc and Johnson & Ettinger.
+- D1.2a complete (2026-11-07): chemical database moved to
+  `ortam_core/chemicals/`; `air.ssl-vf` (VF, VFsc, Csat), `air.ssl-pef`
+  (PEF, PEFsc, PEF'sc); workflow `workflows/soil_volatiles` (volatile soil
+  SLs match RSL 308/308 resident and industrial).
+- Next task: D1.2b — `vadose.ssl-leaching`; then D1.2c — Johnson & Ettinger
+  (needs J&E 2017 documentation, VISL User's Guide, OSWER VI guide 2015).

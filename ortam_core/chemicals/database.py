@@ -13,7 +13,7 @@ import csv
 from dataclasses import dataclass
 from functools import lru_cache
 
-from modules.risk.rsl_import import DATA
+from ortam_core.chemicals.rsl_import import DATA
 
 TABLES = {"rsl-2024-11": "2024-11"}
 
@@ -38,6 +38,16 @@ class Chemical:
     b_dimensionless: float | None = None     # permeability ratio B, -
     tau_event_h: float | None = None         # lag time per event, h/event
     t_star_h: float | None = None            # time to reach steady state, h
+    henry_dimensionless: float | None = None # H', dimensionless Henry's law constant at 25 C, -
+    henry_atm_m3_mol: float | None = None    # HLC, atm-m3/mol
+    vp_mmhg: float | None = None             # vapor pressure at 25 C, mmHg
+    mp_c: float | None = None                # melting point, C
+    density_g_cm3: float | None = None       # density, g/cm3
+    dia_cm2_s: float | None = None           # diffusivity in air, cm2/s
+    diw_cm2_s: float | None = None           # diffusivity in water, cm2/s
+    kd_l_kg: float | None = None             # soil-water partition coefficient (inorganics), L/kg
+    koc_l_kg: float | None = None            # organic carbon partition coefficient, L/kg
+    solubility_mg_l: float | None = None     # water solubility, mg/L
     keys: tuple[tuple[str, str], ...] = ()   # source keys of toxicity values (I = IRIS, P = PPRTV, ...)
 
 
@@ -89,6 +99,10 @@ def lookup(table: str, cas: str | None = None, name: str | None = None) -> Chemi
         mw_g_mol=_f(p.get("mw_g_mol")), log_kow=_f(p.get("log_kow")), kp_cm_h=_f(p.get("kp_cm_hr")),
         b_dimensionless=_f(p.get("b_dimensionless")), tau_event_h=_f(p.get("tau_event_hr")),
         t_star_h=_f(p.get("t_star_hr")),
+        henry_dimensionless=_f(p.get("henry_dimensionless")), henry_atm_m3_mol=_f(p.get("henry_atm_m3_mol")),
+        vp_mmhg=_f(p.get("vp_mmhg")), mp_c=_f(p.get("mp_c")), density_g_cm3=_f(p.get("density_g_cm3")),
+        dia_cm2_s=_f(p.get("dia_cm2_s")), diw_cm2_s=_f(p.get("diw_cm2_s")), kd_l_kg=_f(p.get("kd_l_kg")),
+        koc_l_kg=_f(p.get("koc_l_kg")), solubility_mg_l=_f(p.get("solubility_mg_l")),
         keys=tuple((k, r[f"{k}_key"]) for k in ("sfo", "iur", "rfd", "rfc") if r[f"{k}_key"]),
     )
 

@@ -16,6 +16,8 @@ MODULES: dict[str, str] = {
     "risk.recreator-soil":     "modules.risk.recreator_soil:RecreatorSoilModule",
     "risk.recreator-surface-water": "modules.risk.recreator_surface_water:RecreatorSurfaceWaterModule",
     "risk.fish":               "modules.risk.fish:FishModule",
+    "air.ssl-vf":              "modules.air.ssl_vf:SslVfModule",
+    "air.ssl-pef":             "modules.air.ssl_pef:SslPefModule",
     # "groundwater.modflow":  "modules.groundwater.modflow:ModflowModule",       # Phase 5
     # "vadose.ssl-leaching":  "modules.vadose.ssl_leaching:SSLLeachingModule",   # Phase 1
     # "vapor.johnson-ettinger": "modules.vapor.johnson_ettinger:JEModule",       # Phase 1

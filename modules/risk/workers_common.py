@@ -10,7 +10,7 @@ from pydantic import BaseModel, Field
 
 from modules.risk.common import Routes
 from modules.risk.equations.worker import Worker
-from modules.risk.rsl_import import DATA
+from ortam_core.chemicals.rsl_import import DATA
 from ortam_core.model import ModelInput
 
 

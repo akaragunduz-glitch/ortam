@@ -19,7 +19,7 @@ from pydantic import Field
 
 from modules.risk.equations.worker import Worker  # noqa: F401  (documentation)
 from modules.risk.resident_soil import ChemicalInput as _SoilChemical
-from modules.risk.toxicity import subchronic
+from ortam_core.chemicals.database import subchronic
 from modules.risk.worker_soil import run_soil
 from modules.risk.workers_common import SoilResult, WorkerExposure, make_worker, soil_summary
 from ortam_core.model import ModelInput, ModelOutput, Module

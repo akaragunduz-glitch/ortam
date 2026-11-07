@@ -20,5 +20,5 @@ ortam = "ortam_core.cli:main"
 dev = ["pytest"]
 
 [tool.pytest.ini_options]
-testpaths = ["ortam_core/tests", "modules"]
+testpaths = ["ortam_core/tests", "modules", "workflows"]
 pythonpath = ["."]

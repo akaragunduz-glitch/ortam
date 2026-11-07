@@ -37,6 +37,23 @@ RSL tables version: **November 2024** (worksheet names end in `1124`).
 | `rais_chemical_risk_users_guide_2026-11.pdf` | RAIS Chemical Risk Guide | RAIS Chemical Risk Calculator User's Guide (ORNL); web page saved as PDF on 2026-11-06; farmer food chain in §4.8 | 159 | https://rais.ornl.gov/tools/rais_chemical_risk_guide.html |
 | `epa_exposure_assessment_guidelines_2019.pdf` | EPA Exposure Guidelines (2019) | Guidelines for Human Exposure Assessment, EPA/100/B-19/001, October 2019 | 223 | https://www.epa.gov/risk |
 
+## Soil screening
+
+| File | Short name | Document | Pages | Source |
+|------|------------|----------|-------|--------|
+| `ssg_supplemental_2002.pdf` | SSG 2002 | Supplemental Guidance for Developing Soil Screening Levels for Superfund Sites, OSWER 9355.4-24, December 2002 (main text and references; the appendices are separate documents) | 106 | https://semspub.epa.gov/src/document/hq/175878 |
+
+## Vapor intrusion
+
+| File | Short name | Document | Pages | Source |
+|------|------------|----------|-------|--------|
+| `je_documentation_v6_2017.pdf` | J&E v6 (2017) | Documentation for EPA's Implementation of the Johnson and Ettinger Model to Evaluate Site Specific Vapor Intrusion into Buildings, Version 6.0 | 82 | https://semspub.epa.gov/work/HQ/100000489.pdf |
+| `visl_users_guide_2014.pdf` | VISL UG (2014) | Vapor Intrusion Screening Level (VISL) Calculator User's Guide, May 2014 | 11 | https://semspub.epa.gov/work/HQ/196703.pdf |
+| `oswer_vi_technical_guide_2015.pdf` | OSWER VI Guide (2015) | OSWER Technical Guide for Assessing and Mitigating the Vapor Intrusion Pathway from Subsurface Vapor Sources to Indoor Air, OSWER 9200.2-154, June 2015 | 267 | https://www.epa.gov/sites/default/files/2015-09/documents/oswer-vapor-intrusion-technical-guide-final.pdf |
+
+The downloaded SSG file had a damaged cross-reference table (text could be
+read from page 1 only); it was repaired with `qpdf` (content unchanged).
+
 ## Notes
 
 - Part E links point to the EPA web snapshot of 19 January 2025; the

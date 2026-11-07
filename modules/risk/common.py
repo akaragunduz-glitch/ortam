@@ -16,8 +16,8 @@ from functools import lru_cache
 import yaml
 from pydantic import BaseModel, Field, create_model
 
-from modules.risk.rsl_import import DATA
-from modules.risk.toxicity import Chemical, lookup
+from ortam_core.chemicals.rsl_import import DATA
+from ortam_core.chemicals.database import Chemical, lookup
 from ortam_core.model import ModelInput
 
 ONE_HIT_THRESHOLD = 0.01     # RSL UG 2.6.2

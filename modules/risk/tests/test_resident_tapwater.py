@@ -10,7 +10,7 @@ import math
 import pytest
 
 from modules.risk.resident_tapwater import ResidentTapwaterModule
-from modules.risk.rsl_import import DATA
+from ortam_core.chemicals.rsl_import import DATA
 
 # Known deviations from the RSL Summary Table (Nov 2024), investigated and documented
 # in docs/methods/risk.md. Each entry: name -> (RSL value ug/L, reason).

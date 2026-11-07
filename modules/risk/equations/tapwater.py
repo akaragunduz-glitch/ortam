@@ -16,7 +16,7 @@ from __future__ import annotations
 from modules.risk.common import Defaults
 from modules.risk.equations import dermal_water as dw
 from modules.risk.equations.factors import Factors, inh_tce_d
-from modules.risk.toxicity import Chemical
+from ortam_core.chemicals.database import Chemical
 
 Triple = tuple[float | None, float | None, float | None]
 

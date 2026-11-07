@@ -8,7 +8,7 @@ import openpyxl
 import pytest
 import yaml
 
-from modules.risk.rsl_import import DATA, REFERENCES, import_rsl
+from ortam_core.chemicals.rsl_import import DATA, REFERENCES, import_rsl
 
 VERSION = "2024-11"
 DATA_DIR = DATA / VERSION
@@ -124,3 +124,19 @@ def test_recreator_defaults_match_workbook():
             continue
         for v, src in zip(p["values"], p["sources"]):
             assert v == pytest.approx(_cell_value(wb, src)), (key, src)
+
+
+def test_air_emission_defaults_match_workbook():
+    params = yaml.safe_load((DATA_DIR / "air_emission_factors.yaml").read_text(encoding="utf-8"))
+    wb = _workbook()
+    for group, fields in params.items():
+        if not isinstance(fields, dict):
+            continue
+        for key, p in fields.items():
+            if p["source"].startswith("RSL UG"):
+                continue
+            raw = _cell_value(wb, p["source"])
+            if key == "t_s":
+                assert p["value"] == pytest.approx(8.2e8)   # cell text "8.2 x 10^8 (used for unlimited ...)"
+                continue
+            assert p["value"] == pytest.approx(raw), (group, key)

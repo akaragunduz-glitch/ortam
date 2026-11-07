@@ -14,7 +14,7 @@ from modules.risk.recreator_soil import RecreatorSoilModule
 from modules.risk.recreator_surface_water import RecreatorSurfaceWaterModule
 from modules.risk.resident_soil import ResidentSoilModule
 from modules.risk.resident_tapwater import ResidentTapwaterModule
-from modules.risk.rsl_import import DATA
+from ortam_core.chemicals.rsl_import import DATA
 
 RES_SOIL = {"ef_d_yr": [350] * 4, "et_h_d": [24] * 4, "irs_mg_d": [200, 200, 100, 100],
             "sa_soil_cm2_d": [2373, 2373, 6032, 6032], "af_mg_cm2": [0.2, 0.2, 0.07, 0.07]}

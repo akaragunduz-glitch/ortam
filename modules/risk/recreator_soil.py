@@ -21,7 +21,7 @@ from modules.risk.common import (cancer_method, governing, label, linear, load_d
                                  resolve_chemical, routes)
 from modules.risk.equations import factors, recreator, soil
 from modules.risk.resident_soil import ChemicalInput, ChemicalResult
-from modules.risk.rsl_import import DATA
+from ortam_core.chemicals.rsl_import import DATA
 from ortam_core.model import ModelInput, ModelOutput, Module
 
 Four = list[float]

@@ -11,7 +11,7 @@ from __future__ import annotations
 
 from modules.risk.common import Defaults
 from modules.risk.equations.factors import Factors, inh_tce_d
-from modules.risk.toxicity import Chemical
+from ortam_core.chemicals.database import Chemical
 
 
 def noncancer(c: Chemical, d: Defaults, thq: float) -> float | None:

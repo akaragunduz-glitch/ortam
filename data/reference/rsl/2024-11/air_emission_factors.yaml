@@ -1,0 +1,52 @@
+# Default parameters for soil-to-air emission factors (VF, PEF).
+# Source: docs/references/rsl_default_exposure_parameters_2024-11.xlsx ("<worksheet>, row <n>",
+# checked by ortam_core/tests/test_rsl_import.py) and the RSL User's Guide / SSG 2002 where noted.
+
+rsl_version: "2024-11"
+soil:
+  rho_b_g_cm3:  {value: 1.5,   source: "Chronic VF, Csat, row 13"}
+  rho_s_g_cm3:  {value: 2.65,  source: "Chronic VF, Csat, row 17"}
+  theta_w:      {value: 0.15,  source: "Chronic VF, Csat, row 16"}
+  foc:          {value: 0.006, source: "Chronic VF, Csat, row 26"}
+vf_chronic:
+  q_over_c:     {value: 68.18, source: "Chronic VF, Csat, row 5"}      # 0.5 acre source
+  t_s:          {value: 8.2e+8, source: "Chronic VF, Csat, row 11"}     # 26 yr
+  t_yr_mass_limit: {value: 26, source: "Chronic VF, Csat, row 12"}
+vf_subchronic:
+  a:            {value: 2.4538,   source: "Subchronic VF, row 5"}
+  b:            {value: 17.566,   source: "Subchronic VF, row 7"}
+  c:            {value: 189.0426, source: "Subchronic VF, row 8"}
+pef_wind:
+  q_over_c:     {value: 93.77, source: "PEF Wind, row 4"}              # 0.5 acre, Minneapolis
+  v:            {value: 0.5,   source: "PEF Wind, row 5"}
+  um_m_s:       {value: 4.69,  source: "PEF Wind, row 6"}
+  ut_m_s:       {value: 11.32, source: "PEF Wind, row 7"}
+  f_x:          {value: 0.194, source: "PEF Wind, row 8"}   # used with default Um, Ut (see docs/methods/air.md)
+pef_traffic:
+  a:            {value: 12.9351, source: "PEF Mechanical Traffic, row 13"}
+  b:            {value: 5.7383,  source: "PEF Mechanical Traffic, row 15"}
+  c:            {value: 71.7711, source: "PEF Mechanical Traffic, row 16"}
+  road_width_ft: {value: 20,     source: "PEF Mechanical Traffic, row 9"}
+pef_other:
+  a:            {value: 2.4538,  source: "PEF Mechanical Other, row 6"}
+  b:            {value: 17.566,  source: "PEF Mechanical Other, row 7"}
+  c:            {value: 189.0426, source: "PEF Mechanical Other, row 8"}
+  v:            {value: 0,       source: "PEF Mechanical Other, row 12"}
+  um_m_s:       {value: 4.69,    source: "PEF Mechanical Other, row 13"}
+  ut_m_s:       {value: 11.32,   source: "PEF Mechanical Other, row 14"}
+  f_x:          {value: 0.194,   source: "PEF Mechanical Other, row 15"}
+  moisture_excav_pct: {value: 12, source: "PEF Mechanical Other, row 21"}
+  rho_soil_mg_m3: {value: 1.68,  source: "PEF Mechanical Other, row 22"}
+  n_dump:       {value: 2,       source: "PEF Mechanical Other, row 25"}
+  silt_doz_pct: {value: 6.9,     source: "PEF Mechanical Other, row 28"}
+  moisture_doz_pct: {value: 7.9, source: "PEF Mechanical Other, row 29"}
+  speed_doz_kph: {value: 11.4,   source: "PEF Mechanical Other, row 31"}
+  speed_grade_kph: {value: 11.4, source: "PEF Mechanical Other, row 37"}
+  silt_till_pct: {value: 18,     source: "PEF Mechanical Other, row 41"}
+  n_till:       {value: 2,       source: "PEF Mechanical Other, row 45"}
+construction:
+  # Tt = ED*EF*ET*3600 s; tc = ED*EW*7*24 h; Tc = tc*3600 s (RSL UG 4.9.2, p. 200; 4.9.6, p. 214)
+  ed_yr:        {value: 1,   source: "EF, ED, ET, row 27"}
+  ef_d_yr:      {value: 250, source: "EF, ED, ET, row 9"}
+  et_h_d:       {value: 8,   source: "EF, ED, ET, row 41"}
+  ew_wk_yr:     {value: 50,  source: "RSL UG 4.5.1.1, PDF p. 117"}
