@@ -107,5 +107,5 @@ docs/              Documentation
 - Phase 0 started (2026-11-07). Folder structure, rules, module contract and
   CLI in place. First standalone tool: `groundwater.three-point` (tested).
 - D0.1 complete: repository on GitHub (`akaragunduz-glitch/ortam`).
-- D0.2: local tests and CI green; Docker installation pending.
+- D0.2 complete: local tests and CI green; Docker verified.
 - Next task: D1.1 — RAGS exposure and risk equations (needs reference PDFs).
