@@ -1,0 +1,23 @@
+"""Module registry: every module the CLI and the UI can run.
+
+Adding a module requires one line in this dictionary.
+"""
+
+from importlib import import_module
+
+MODULES: dict[str, str] = {
+    "groundwater.three-point": "modules.groundwater.three_point:ThreePointModule",
+    # "groundwater.modflow":  "modules.groundwater.modflow:ModflowModule",       # Phase 5
+    # "vadose.ssl-leaching":  "modules.vadose.ssl_leaching:SSLLeachingModule",   # Phase 1
+    # "vapor.johnson-ettinger": "modules.vapor.johnson_ettinger:JEModule",       # Phase 1
+    # "air.aermod":           "modules.air.aermod:AermodModule",                 # Phase 5
+    # "geochem.phreeqc":      "modules.geochem.phreeqc:PhreeqcModule",           # Phase 5
+    # "risk.rags":            "modules.risk.rags:RagsModule",                    # Phase 1
+}
+
+
+def get_module(name: str):
+    if name not in MODULES:
+        raise KeyError(f"Unknown module: {name}. Available: {', '.join(MODULES)}")
+    path, cls = MODULES[name].split(":")
+    return getattr(import_module(path), cls)()

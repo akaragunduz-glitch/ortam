@@ -1,7 +1,7 @@
 [project]
 name = "ortam"
 version = "0.0.1"
-description = "ORTAM — Open Risk, Transport And Modelling: çevresel modelleme, saha karakterizasyonu ve risk değerlendirmesi platformu"
+description = "ORTAM — Open Risk, Transport And Modelling: a modular environmental modelling, site characterization and risk assessment platform"
 requires-python = ">=3.12"
 dependencies = [
     "numpy",

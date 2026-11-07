@@ -1,21 +1,20 @@
 # ORTAM
 
-**Open Risk, Transport And Modelling** — Ortamlar arası Risk, Taşınım, Akıbet
-ve Modelleme platformu.
+**Open Risk, Transport And Modelling** — a modular environmental modelling
+platform for soil, groundwater, soil gas, air and the food chain.
 
-Toprak, yeraltı suyu, toprak gazı, hava ve gıda zinciri için modüler çevresel
-modelleme yazılımı. Her modül (yeraltı suyu, vadoz zon, buhar intrüzyonu, hava
-dağılımı, jeokimya, istatistik, risk, ıslah ...) **tek başına** çalıştırılabilir
-veya iş akışlarıyla birbirine bağlanabilir.
+Every module (groundwater, vadose zone, vapor intrusion, air dispersion,
+geochemistry, statistics, risk, remediation, ...) runs **standalone** or can
+be connected to others through workflows.
 
 ```bash
-uv run ortam liste
-uv run ortam calistir groundwater.uc-nokta modules/groundwater/ornekler/uc_nokta.yaml
+uv run ortam list
+uv run ortam run groundwater.three-point modules/groundwater/examples/three_point.yaml
 ```
 
-- Amaç ve kapsam: [docs/00-amac-kapsam.md](docs/00-amac-kapsam.md)
-- Mimari: [docs/01-mimari.md](docs/01-mimari.md)
-- Model sözleşmesi: [docs/interfaces/model-sozlesmesi.md](docs/interfaces/model-sozlesmesi.md)
-- Claude çalışma kuralları: [CLAUDE.md](CLAUDE.md)
+- Scope: [docs/00-scope.md](docs/00-scope.md)
+- Architecture: [docs/01-architecture.md](docs/01-architecture.md)
+- Module contract: [docs/interfaces/model-contract.md](docs/interfaces/model-contract.md)
+- Working rules for Claude: [CLAUDE.md](CLAUDE.md)
 
-Durum: Faz 0 — altyapı kurulumu.
+Status: Phase 0 — infrastructure setup.
