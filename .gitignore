@@ -11,3 +11,7 @@ build/
 engines/**/runs/
 *.out
 *.lst
+# macOS
+.DS_Store
+# Project plan document (kept outside the repository)
+*.docx
