@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.egg-info/
+.pytest_cache/
+node_modules/
+dist/
+build/
+# Model çalıştırma çıktıları
+engines/**/runs/
+*.out
+*.lst

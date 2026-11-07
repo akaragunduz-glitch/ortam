@@ -1,0 +1,17 @@
+[project]
+name = "site-risk"
+version = "0.0.1"
+description = "Entegre saha karakterizasyonu, çevresel modelleme ve risk değerlendirmesi yazılımı"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy",
+    "scipy",
+    "pandas",
+    "pint",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["core/tests"]
