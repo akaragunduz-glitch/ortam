@@ -60,9 +60,8 @@ noncancer SL, as in the RSL Generic Tables (verified by the regression test).
   output and in the warnings.
 - **Standalone use:** `toxicity_table: none` runs without the RSL table;
   all values then come from the input file.
-- **Errors rather than wrong numbers:** mutagens (task D1.1b) and volatile
-  chemicals without a user-supplied VF (VF calculation: task D1.2) are
-  rejected.
+- **Errors rather than wrong numbers:** volatile chemicals without a
+  user-supplied VF (VF calculation: task D1.2) are rejected.
 
 ### Verification
 
@@ -79,11 +78,90 @@ noncancer SL, as in the RSL Generic Tables (verified by the regression test).
 are reproduced exactly by the importer and that values and exposure defaults
 match the EPA workbooks.
 
+## Cancer equation sets (task D1.1b)
+
+Selected per chemical (`cancer_method` in the output):
+
+| Method | Applies to | Soil | Tap water | Air |
+|--------|-----------|------|-----------|-----|
+| standard | all other carcinogens | §4.1.1.3, pp. 40-41 | §4.1.2.3, pp. 70-75 | §4.1.3.2, p. 98 |
+| mutagen | RSL mutagen flag "M" (ADAF 10/3/3/1 over ages 0-2, 2-6, 6-16, 16-26) | §4.1.1.4, pp. 42-45 | §4.1.2.4, pp. 75-81 | §4.1.3.3, p. 99 |
+| vinyl chloride | CAS 75-01-4 (early-life term without averaging time) | §4.1.1.5, pp. 46-49 | §4.1.2.5, pp. 81-84 | §4.1.3.4, p. 100 |
+| trichloroethylene | CAS 79-01-6 (CAF/MAF fractions: oral 0.804/0.202, inhalation 0.756/0.244) | §4.1.1.6, pp. 50-56 | §4.1.2.6, pp. 84-90 | §4.1.3.5, p. 101 |
+
+Age-adjusted factors (`modules/risk/equations/factors.py`), checked against
+the values printed in the guide: IFS 36 750 mg/kg, DFS 103 390 mg/kg,
+IFSM 166 833.3 mg/kg, DFSM 428 260 mg/kg, IFW 327.95 L/kg, IFWM 1019.9 L/kg,
+DFW 2 610 650 cm2-event/kg, DFWM 8 191 633 cm2-event/kg,
+ET_event-adj = ET_event-madj = 0.67077 h/event.
+
+## `risk.resident-tapwater` — resident tap water (task D1.1b)
+
+Routes: ingestion; dermal contact (§4.9.8); inhalation of volatiles during
+household use, volatile chemicals only, Andelman K = 0.5 L/m3 (§4.1.2, p. 62).
+
+Dermal route (`modules/risk/equations/dermal_water.py`):
+
+- **Inorganic** (no log Kow in the RSL Chemical Parameters table):
+  SL = DA_event · 1000 / (Kp · ET_event).
+- **Organic**: calculated only inside the effective predictive domain (EPD)
+  and when FA > 0. If ET_event ≤ t*: SL = DA_event · 1000 /
+  (2 · FA · Kp · √(6 · τ · ET_event / π)); otherwise SL = DA_event · 1000 /
+  (FA · Kp · [ET_event/(1+B) + 2τ(1+3B+3B²)/(1+B)²]) (§4.1.2.1, p. 64).
+- **FA**: regression in log B and log τ_event (§4.9.8, p. 221), clipped to
+  [0, 1] and rounded to the nearest tenth (without rounding only 772 of 849
+  chemicals match).
+- B, τ_event and t* are taken from the RSL Chemical Parameters table.
+
+**EPD — correction of the RSL User's Guide.** §4.9.8 (PDF p. 217) prints
+both boundaries as −0.06831 ≤ −5.103·10⁻⁴·MW + 0.05616·log Kow ≤ 0.5577 / 0.1758.
+The primary source, RAGS Part E (2004) p. 3-7, gives:
+
+- Eq. 3.9: −0.06831 ≤ **+**5.103·10⁻⁴·MW + 0.05616·log Kow ≤ 0.5577
+- Eq. 3.10: **−0.3010** ≤ −5.103·10⁻⁴·MW + 0.05616·log Kow ≤ 0.1758
+
+With the RSL UG form, 766 (upper 0.5577) or 805 (upper 0.1758) of 849
+chemicals match the RSL tap water table; with RAGS Part E, 840 match.
+ORTAM uses RAGS Part E.
+
+**Known deviations** (9 of 849, all within 30 %; listed in
+`test_resident_tapwater.py`):
+
+| Chemical | RSL ug/L | ORTAM ug/L | Reason |
+|----------|----------|------------|--------|
+| Aroclor 1242, 1248, 1254, 1260 | 0.0078 | 0.00785 | PCB special case (RSL UG §5.8) |
+| Mercuric chloride (and other mercury salts) | 5.7 | 4.17 | special case (§5.19); RSL appears to treat it as inorganic |
+| Auramine | 0.078 | 0.0766 | dermal parameters; open |
+| Chlordane (alpha) | 3.6 | 3.30 | dermal parameters; open |
+| 4,4'-Methylene-bis(N,N-dimethyl)aniline | 0.7 | 0.745 | dermal parameters; open |
+| p-alpha,alpha,alpha-Tetrachlorotoluene | 0.0017 | 0.00155 | dermal parameters; open |
+
+## `risk.resident-air` — resident air (task D1.1b)
+
+Inhalation of ambient air; no assumption about the source of the air
+concentration (§4.1.3, p. 96). Noncancer uses EDres (26 yr) and
+AT = 365 · EDres; cancer uses AT = 365 · LT.
+
+## Verification summary (RSL Summary Table, November 2024)
+
+| Tool | Chemicals compared | Agreement (2 s.f.) |
+|------|--------------------|--------------------|
+| `risk.resident-soil` (non-volatile, incl. 21 mutagens) | 554 | 554 |
+| `risk.resident-tapwater` | 849 | 840 (+ 9 documented deviations) |
+| `risk.resident-air` | 365 | 365 |
+
+Excluded from the comparisons: rows without toxicity values (lead:
+regulatory levels, RSL UG §5.2) and refractory ceramic fibres (fibre units,
+§5.23). Volatile chemicals in soil (including VC and TCE) need a VF (task
+D1.2); their ingestion, dermal and inhalation equations are verified by hand
+calculation.
+
 ### Planned extensions
 
 | Task | Content |
 |------|---------|
-| D1.1b | Mutagens (ADAF), TCE and vinyl chloride equations; tap water and air |
+| D1.1b | Done: mutagens (ADAF), TCE, vinyl chloride; tap water and air |
+| D1.1d | Doses (CDI, DAD, EC) as outputs, verified against RAGS A/E/F |
 | D1.1c | Composite and construction worker, recreator (sediment, surface water), fish |
 | D1.2 | VF and PEF calculation (SSL), Johnson & Ettinger |
 | D1.3 | `foodchain` module (RAIS farmer, HHRAP) and food ingestion in `risk` |

@@ -1,0 +1,11 @@
+# Resident tap water: screening levels, cancer risk and hazard index.
+# Concentrations are exposure point concentrations, ug/L.
+# Run: uv run ortam run risk.resident-tapwater modules/risk/examples/resident_tapwater.yaml
+toxicity_table: rsl-2024-11   # EPA RSL, November 2024
+chemicals:
+  - cas: "71-43-2"            # Benzene (volatile: inhalation during household use)
+    concentration_ug_l: 2.0
+  - cas: "79-01-6"            # Trichloroethylene (TCE equations)
+    concentration_ug_l: 1.5
+  - cas: "7440-38-2"          # Arsenic, inorganic
+    concentration_ug_l: 4.0

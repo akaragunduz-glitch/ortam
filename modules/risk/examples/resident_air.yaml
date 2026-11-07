@@ -1,0 +1,11 @@
+# Resident air: screening levels, cancer risk and hazard index.
+# Concentrations are measured ambient (or indoor) air concentrations, ug/m3.
+# Run: uv run ortam run risk.resident-air modules/risk/examples/resident_air.yaml
+toxicity_table: rsl-2024-11   # EPA RSL, November 2024
+chemicals:
+  - cas: "71-43-2"            # Benzene
+    concentration_ug_m3: 1.2
+  - cas: "127-18-4"           # Tetrachloroethylene
+    concentration_ug_m3: 4.0
+  - cas: "75-01-4"            # Vinyl chloride (VC equations)
+    concentration_ug_m3: 0.05

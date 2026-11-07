@@ -8,12 +8,13 @@ from importlib import import_module
 MODULES: dict[str, str] = {
     "groundwater.three-point": "modules.groundwater.three_point:ThreePointModule",
     "risk.resident-soil":      "modules.risk.resident_soil:ResidentSoilModule",
+    "risk.resident-tapwater":  "modules.risk.resident_tapwater:ResidentTapwaterModule",
+    "risk.resident-air":       "modules.risk.resident_air:ResidentAirModule",
     # "groundwater.modflow":  "modules.groundwater.modflow:ModflowModule",       # Phase 5
     # "vadose.ssl-leaching":  "modules.vadose.ssl_leaching:SSLLeachingModule",   # Phase 1
     # "vapor.johnson-ettinger": "modules.vapor.johnson_ettinger:JEModule",       # Phase 1
     # "air.aermod":           "modules.air.aermod:AermodModule",                 # Phase 5
     # "geochem.phreeqc":      "modules.geochem.phreeqc:PhreeqcModule",           # Phase 5
-    # "risk.rags":            "modules.risk.rags:RagsModule",                    # Phase 1
 }
 
 

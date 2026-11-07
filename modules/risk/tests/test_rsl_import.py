@@ -60,29 +60,45 @@ def test_toxicity_values_match_workbook(cas):
         assert same(row[col], xl[idx]), (cas, col)
 
 
-def _workbook_defaults() -> dict[str, object]:
-    wb = openpyxl.load_workbook(REFERENCES / f"rsl_default_exposure_parameters_{VERSION}.xlsx", data_only=True)
-    out = {}
-    for ws in wb:
-        for r in ws.iter_rows(values_only=True):
-            if r and len(r) > 2 and r[0] and str(r[0]).strip() not in out:
-                # first occurrence wins (SAres-c: soil row precedes water row)
-                out[str(r[0]).strip()] = r[2]
-    return out
+def _workbook():
+    return openpyxl.load_workbook(REFERENCES / f"rsl_default_exposure_parameters_{VERSION}.xlsx", data_only=True)
+
+
+def _cell_value(wb, source: str) -> float | str:
+    """Read the 'Default' column (C) of '<worksheet>, row <n>' and return its number."""
+    sheet, row = re.fullmatch(r"(.+), row (\d+)", source).groups()
+    raw = wb[sheet].cell(row=int(row), column=3).value
+    if isinstance(raw, (int, float)):
+        return float(raw)
+    m = re.search(r"(?:Resident\s*-?\s*)?([0-9.]+)", str(raw))  # e.g. "Resident - 350", "Resident 2373"
+    return float(m.group(1)) if m else str(raw)
 
 
 def test_exposure_defaults_match_workbook():
     params = yaml.safe_load((DATA_DIR / "exposure_resident.yaml").read_text(encoding="utf-8"))
-    xl = _workbook_defaults()
+    wb = _workbook()
     for key, p in params["parameters"].items():
+        src = p["source"]
         if p["symbol"] == "THQ":
             continue  # summary-table basis, documented in the YAML
-        raw = xl[p["symbol"]]
+        sheet, row = re.fullmatch(r"(.+), row (\d+)", src).groups()
+        raw = wb[sheet].cell(row=int(row), column=3).value
         if p["symbol"] == "TR":
             assert raw == "1 x 10-6"
         elif p["symbol"] == "PEF":
             assert str(raw).startswith("1.36 x 109")
         else:
-            assert p["value"] == pytest.approx(float(raw)), key
-    assert "Arsenic = 0.6" in str(xl["RBA"])
+            assert p["value"] == pytest.approx(_cell_value(wb, src)), key
+        assert str(wb[sheet].cell(row=int(row), column=1).value).strip() == p["symbol"], key
+    assert "Arsenic = 0.6" in str(wb["Miscellaneous Variables"].cell(row=5, column=3).value)
     assert params["rba_by_cas"]["7440-38-2"] == 0.6
+
+
+def test_age_segments_match_workbook():
+    params = yaml.safe_load((DATA_DIR / "exposure_resident.yaml").read_text(encoding="utf-8"))
+    wb = _workbook()
+    for field, sources in params["age_segment_sources"].items():
+        if isinstance(sources, str):
+            continue  # taken from the RSL User's Guide equation images (checked via factors)
+        for seg, src in zip(params["age_segments"], sources):
+            assert seg[field] == pytest.approx(_cell_value(wb, src)), (field, seg["label"])

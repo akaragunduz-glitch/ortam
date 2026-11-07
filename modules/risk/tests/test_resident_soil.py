@@ -80,14 +80,14 @@ def _regression_rows():
     with (DATA / "2024-11" / "toxicity.csv").open(encoding="utf-8") as f:
         for r in csv.DictReader(f):
             has_tox = any(r[k] for k in ("sfo_per_mg_kg_day", "iur_per_ug_m3", "rfd_mg_kg_day", "rfc_mg_m3"))
-            if (r["cas"] and r["sl_resident_soil_mg_kg"] and has_tox
-                    and r["volatile"] != "V" and r["mutagen"] != "M"):
+            if r["cas"] and r["sl_resident_soil_mg_kg"] and has_tox and r["volatile"] != "V":
                 yield r
 
 
-def test_all_nonvolatile_nonmutagenic_chemicals_match_rsl():
+def test_all_nonvolatile_chemicals_match_rsl():
+    # includes the 21 non-volatile mutagens (RSL UG 4.1.1.4)
     rows = list(_regression_rows())
-    assert len(rows) > 500
+    assert len(rows) > 550
     m = ResidentSoilModule()
     misses = []
     for r in rows:
@@ -166,9 +166,41 @@ def test_volatile_with_user_vf_accepted():
     assert "vf_m3_kg" in o.chemicals[0].overridden
 
 
-def test_mutagen_rejected():
-    with pytest.raises(ValueError, match="mutagen"):
-        run([{"cas": "50-32-8"}])  # benzo(a)pyrene
+@pytest.mark.parametrize("cas,expected", [("50-32-8", 0.11), ("18540-29-9", 0.95)])
+def test_mutagens_match_rsl(cas, expected):
+    # Benzo(a)pyrene and chromium(VI): RSL UG 4.1.1.4, ADAF 10/3/3/1
+    c = run([{"cas": cas}]).chemicals[0]
+    assert c.cancer_method == "mutagen"
+    assert sig2(c.sl_mg_kg) == expected
+
+
+VF = 3000.0  # m3/kg, arbitrary user value: VF calculation is task D1.2
+
+
+def test_vinyl_chloride_soil_by_hand():
+    # RSL UG 4.1.1.5 (PDF pp. 46-49); VC: SFO 0.72, IUR 4.4E-06, no ABSd (RSL Nov 2024)
+    sfo, iur, tr = 0.72, 4.4e-6, 1e-6
+    at = 365 * 70
+    ing = tr / (sfo * 1e-6 * 36750 / at + sfo * 1e-6 * 200 / 15)
+    inh = tr / (iur * 1000 * 350 * 26 * 24 / 24 / (at * VF) + iur * 1000 / VF)
+    c = run([{"cas": "75-01-4", "vf_m3_kg": VF}]).chemicals[0]
+    assert c.cancer_method == "vinyl chloride"
+    assert c.sl_ca_mg_kg.ingestion == pytest.approx(ing)
+    assert c.sl_ca_mg_kg.dermal is None
+    assert c.sl_ca_mg_kg.inhalation == pytest.approx(inh)
+
+
+def test_tce_soil_by_hand():
+    # RSL UG 4.1.1.6 (PDF pp. 50-56); TCE: SFO 0.046, IUR 4.1E-06 (RSL Nov 2024)
+    sfo, iur, tr = 0.046, 4.1e-6, 1e-6
+    at = 365 * 70
+    ing = tr * at / (sfo * 1e-6 * (0.804 * 36750 + 0.202 * 166833.3333333))
+    seg = 350 * 2 * 10 + 350 * 4 * 3 + 350 * 10 * 3 + 350 * 10 * 1
+    inh = tr * at / (iur * 1000 * (1 / VF + 1 / 1.36e9) * (350 * 26 * 0.756 + 0.244 * seg))
+    c = run([{"cas": "79-01-6", "vf_m3_kg": VF}]).chemicals[0]
+    assert c.cancer_method == "trichloroethylene"
+    assert c.sl_ca_mg_kg.ingestion == pytest.approx(ing)
+    assert c.sl_ca_mg_kg.inhalation == pytest.approx(inh)
 
 
 def test_ambiguous_cas_requires_name():

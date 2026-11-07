@@ -110,4 +110,7 @@ docs/              Documentation
 - D0.2 complete: local tests and CI green; Docker verified.
 - D1.1 complete (2026-11-07): `risk.resident-soil`; RSL Nov 2024 data in
   `data/reference/rsl/2024-11/`; 533 chemicals match the RSL Summary Table.
-- Next task: D1.1b — mutagens (ADAF), TCE, vinyl chloride; tap water and air.
+- D1.1b complete (2026-11-07): mutagens, TCE, VC; `risk.resident-tapwater`
+  and `risk.resident-air`. Shared equations in `modules/risk/equations/`.
+- Next task: D1.1c — composite/construction worker, recreator, fish
+  (or D1.1d — doses CDI/DAD/EC).

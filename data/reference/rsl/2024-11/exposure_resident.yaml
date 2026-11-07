@@ -1,8 +1,10 @@
-# Default exposure parameters for the resident receptor (soil).
+# Default exposure parameters for the resident receptor (soil, tap water, air).
 # Source: docs/references/rsl_default_exposure_parameters_2024-11.xlsx
-#         (EPA RSL Default Exposure Parameters, November 2024).
-# Each value cites worksheet and row; test_rsl_import.py checks every value
-# against the workbook.
+#         (EPA RSL Default Exposure Parameters, November 2024), cited as
+#         "<worksheet>, row <n>"; test_rsl_import.py checks every such value
+#         against the workbook. Values that the workbook does not list are
+#         taken from the equation images of the RSL User's Guide
+#         (docs/references/rsl_users_guide_2026-03.pdf), cited as "RSL UG".
 #
 # Note: the workbook lists THQ = 0.1 as a user selection. The RSL Summary
 # Table (rsl_summary_table_2024-11.xlsx) is computed with THQ = 1, so ORTAM
@@ -10,27 +12,74 @@
 
 rsl_version: "2024-11"
 parameters:
-  target_risk:        {value: 1.0e-6, unit: "-",          symbol: TR,       source: "Miscellaneous Variables, row 3"}
-  target_hq:          {value: 1.0,    unit: "-",          symbol: THQ,      source: "RSL Summary Table basis (TR = 1E-06, THQ = 1)"}
-  lt_yr:              {value: 70,     unit: "yr",         symbol: LT,       source: "Miscellaneous Variables, row 34"}
-  ef_child_d_yr:      {value: 350,    unit: "day/yr",     symbol: EFres-c,  source: "EF, ED, ET, row 5"}
-  ef_adult_d_yr:      {value: 350,    unit: "day/yr",     symbol: EFres-a,  source: "EF, ED, ET, row 4"}
-  ef_res_d_yr:        {value: 350,    unit: "day/yr",     symbol: EFres,    source: "EF, ED, ET, row 3"}
-  ed_child_yr:        {value: 6,      unit: "yr",         symbol: EDres-c,  source: "EF, ED, ET, row 22"}
-  ed_adult_yr:        {value: 20,     unit: "yr",         symbol: EDres-a,  source: "EF, ED, ET, row 23"}
-  ed_res_yr:          {value: 26,     unit: "yr",         symbol: EDres,    source: "EF, ED, ET, row 21"}
-  et_child_h_d:       {value: 24,     unit: "h/day",      symbol: ETres-c,  source: "EF, ED, ET, row 36"}
-  et_adult_h_d:       {value: 24,     unit: "h/day",      symbol: ETres-a,  source: "EF, ED, ET, row 35"}
-  et_res_h_d:         {value: 24,     unit: "h/day",      symbol: ETres,    source: "EF, ED, ET, row 37"}
-  bw_child_kg:        {value: 15,     unit: "kg",         symbol: BWres-c,  source: "Ingestion and Dermal Rates, row 74"}
-  bw_adult_kg:        {value: 80,     unit: "kg",         symbol: BWres-a,  source: "Ingestion and Dermal Rates, row 75"}
-  irs_child_mg_d:     {value: 200,    unit: "mg/day",     symbol: IRSres-c, source: "Ingestion and Dermal Rates, row 7"}
-  irs_adult_mg_d:     {value: 100,    unit: "mg/day",     symbol: IRSres-a, source: "Ingestion and Dermal Rates, row 8"}
-  sa_child_cm2_d:     {value: 2373,   unit: "cm2/day",    symbol: SAres-c,  source: "Ingestion and Dermal Rates, row 40"}
-  sa_adult_cm2_d:     {value: 6032,   unit: "cm2/day",    symbol: SAres-a,  source: "Ingestion and Dermal Rates, row 41"}
-  af_child_mg_cm2:    {value: 0.2,    unit: "mg/cm2",     symbol: AFres-c,  source: "Ingestion and Dermal Rates, row 63"}
-  af_adult_mg_cm2:    {value: 0.07,   unit: "mg/cm2",     symbol: AFres-a,  source: "Ingestion and Dermal Rates, row 64"}
-  pef_m3_kg:          {value: 1.36e9, unit: "m3/kg",      symbol: PEF,      source: "PEF Wind, row 3"}
+  target_risk:          {value: 1.0e-6, unit: "-",       symbol: TR,            source: "Miscellaneous Variables, row 3"}
+  target_hq:            {value: 1.0,    unit: "-",       symbol: THQ,           source: "RSL Summary Table basis (TR = 1E-06, THQ = 1)"}
+  lt_yr:                {value: 70,     unit: "yr",      symbol: LT,            source: "Miscellaneous Variables, row 34"}
+  ef_child_d_yr:        {value: 350,    unit: "day/yr",  symbol: EFres-c,       source: "EF, ED, ET, row 5"}
+  ef_adult_d_yr:        {value: 350,    unit: "day/yr",  symbol: EFres-a,       source: "EF, ED, ET, row 4"}
+  ef_res_d_yr:          {value: 350,    unit: "day/yr",  symbol: EFres,         source: "EF, ED, ET, row 3"}
+  ed_child_yr:          {value: 6,      unit: "yr",      symbol: EDres-c,       source: "EF, ED, ET, row 22"}
+  ed_adult_yr:          {value: 20,     unit: "yr",      symbol: EDres-a,       source: "EF, ED, ET, row 23"}
+  ed_res_yr:            {value: 26,     unit: "yr",      symbol: EDres,         source: "EF, ED, ET, row 21"}
+  et_child_h_d:         {value: 24,     unit: "h/day",   symbol: ETres-c,       source: "EF, ED, ET, row 36"}
+  et_adult_h_d:         {value: 24,     unit: "h/day",   symbol: ETres-a,       source: "EF, ED, ET, row 35"}
+  et_res_h_d:           {value: 24,     unit: "h/day",   symbol: ETres,         source: "EF, ED, ET, row 37"}
+  bw_child_kg:          {value: 15,     unit: "kg",      symbol: BWres-c,       source: "Ingestion and Dermal Rates, row 74"}
+  bw_adult_kg:          {value: 80,     unit: "kg",      symbol: BWres-a,       source: "Ingestion and Dermal Rates, row 75"}
+  irs_child_mg_d:       {value: 200,    unit: "mg/day",  symbol: IRSres-c,      source: "Ingestion and Dermal Rates, row 7"}
+  irs_adult_mg_d:       {value: 100,    unit: "mg/day",  symbol: IRSres-a,      source: "Ingestion and Dermal Rates, row 8"}
+  sa_child_cm2_d:       {value: 2373,   unit: "cm2/day", symbol: SAres-c,       source: "Ingestion and Dermal Rates, row 40"}
+  sa_adult_cm2_d:       {value: 6032,   unit: "cm2/day", symbol: SAres-a,       source: "Ingestion and Dermal Rates, row 41"}
+  af_child_mg_cm2:      {value: 0.2,    unit: "mg/cm2",  symbol: AFres-c,       source: "Ingestion and Dermal Rates, row 63"}
+  af_adult_mg_cm2:      {value: 0.07,   unit: "mg/cm2",  symbol: AFres-a,       source: "Ingestion and Dermal Rates, row 64"}
+  pef_m3_kg:            {value: 1.36e9, unit: "m3/kg",   symbol: PEF,           source: "PEF Wind, row 3"}
+  # Tap water
+  irw_child_l_d:        {value: 0.78,   unit: "L/day",   symbol: IRWres-c,      source: "Ingestion and Dermal Rates, row 3"}
+  irw_adult_l_d:        {value: 2.5,    unit: "L/day",   symbol: IRWres-a,      source: "Ingestion and Dermal Rates, row 4"}
+  sa_water_child_cm2:   {value: 6365,   unit: "cm2",     symbol: SAres-c,       source: "Ingestion and Dermal Rates, row 42"}
+  sa_water_adult_cm2:   {value: 19652,  unit: "cm2",     symbol: SAres-a,       source: "Ingestion and Dermal Rates, row 43"}
+  ev_child_per_d:       {value: 1,      unit: "event/day", symbol: EVres-c,     source: "EF, ED, ET, row 71"}
+  ev_adult_per_d:       {value: 1,      unit: "event/day", symbol: EVres-a,     source: "EF, ED, ET, row 72"}
+  et_event_child_h:     {value: 0.54,   unit: "h/event", symbol: ETevent-res-c, source: "EF, ED, ET, row 45"}
+  et_event_adult_h:     {value: 0.71,   unit: "h/event", symbol: ETevent-res-a, source: "EF, ED, ET, row 46"}
+  k_andelman_l_m3:      {value: 0.5,    unit: "L/m3",    symbol: K,             source: "Miscellaneous Variables, row 7"}
+
+# Age segments for mutagenic (ADAF) and TCE equations.
+# RSL UG 4.1.1.4 (PDF p. 42-44), 4.1.2.4 (p. 76-80), 4.1.3.3 (p. 99).
+age_segments:
+  - {label: "0-2",   ed_yr: 2,  ef_d_yr: 350, et_h_d: 24, bw_kg: 15, irs_mg_d: 200, sa_soil_cm2_d: 2373, af_mg_cm2: 0.2,
+     irw_l_d: 0.78, sa_water_cm2: 6365,  ev_per_d: 1, et_event_h: 0.54, adaf: 10}
+  - {label: "2-6",   ed_yr: 4,  ef_d_yr: 350, et_h_d: 24, bw_kg: 15, irs_mg_d: 200, sa_soil_cm2_d: 2373, af_mg_cm2: 0.2,
+     irw_l_d: 0.78, sa_water_cm2: 6365,  ev_per_d: 1, et_event_h: 0.54, adaf: 3}
+  - {label: "6-16",  ed_yr: 10, ef_d_yr: 350, et_h_d: 24, bw_kg: 80, irs_mg_d: 100, sa_soil_cm2_d: 6032, af_mg_cm2: 0.07,
+     irw_l_d: 2.5,  sa_water_cm2: 19652, ev_per_d: 1, et_event_h: 0.71, adaf: 3}
+  - {label: "16-26", ed_yr: 10, ef_d_yr: 350, et_h_d: 24, bw_kg: 80, irs_mg_d: 100, sa_soil_cm2_d: 6032, af_mg_cm2: 0.07,
+     irw_l_d: 2.5,  sa_water_cm2: 19652, ev_per_d: 1, et_event_h: 0.71, adaf: 1}
+age_segment_sources:
+  ed_yr:         ["EF, ED, ET, row 31", "EF, ED, ET, row 32", "EF, ED, ET, row 33", "EF, ED, ET, row 34"]
+  ef_d_yr:       ["EF, ED, ET, row 13", "EF, ED, ET, row 15", "EF, ED, ET, row 17", "EF, ED, ET, row 19"]
+  et_h_d:        ["EF, ED, ET, row 51", "EF, ED, ET, row 53", "EF, ED, ET, row 55", "EF, ED, ET, row 57"]
+  bw_kg:         ["Ingestion and Dermal Rates, row 78", "Ingestion and Dermal Rates, row 79",
+                  "Ingestion and Dermal Rates, row 80", "Ingestion and Dermal Rates, row 81"]
+  irs_mg_d:      ["Ingestion and Dermal Rates, row 26", "Ingestion and Dermal Rates, row 27",
+                  "Ingestion and Dermal Rates, row 28", "Ingestion and Dermal Rates, row 29"]
+  sa_soil_cm2_d: ["Ingestion and Dermal Rates, row 51", "Ingestion and Dermal Rates, row 53",
+                  "Ingestion and Dermal Rates, row 55", "Ingestion and Dermal Rates, row 57"]
+  af_mg_cm2:     ["Ingestion and Dermal Rates, row 70", "Ingestion and Dermal Rates, row 71",
+                  "Ingestion and Dermal Rates, row 72", "Ingestion and Dermal Rates, row 73"]
+  sa_water_cm2:  ["Ingestion and Dermal Rates, row 59", "Ingestion and Dermal Rates, row 60",
+                  "Ingestion and Dermal Rates, row 61", "Ingestion and Dermal Rates, row 62"]
+  ev_per_d:      ["EF, ED, ET, row 73", "EF, ED, ET, row 75", "EF, ED, ET, row 77", "EF, ED, ET, row 79"]
+  et_event_h:    ["EF, ED, ET, row 64", "EF, ED, ET, row 65", "EF, ED, ET, row 66", "EF, ED, ET, row 67"]
+  irw_l_d:       "RSL UG 4.1.2.4, PDF p. 76 (IFWMres-adj: 0.78, 0.78, 2.5, 2.5 L/day)"
+  adaf:          "RSL UG 4.1.1.4, PDF p. 42 (IFSMres-adj: 10, 3, 3, 1)"
+
+# Trichloroethylene: cancer (CAF) and mutagenic (MAF) fractions.
+tce_fractions:
+  caf_oral: {value: 0.804, source: "RSL UG 4.1.1.6, PDF p. 52"}
+  maf_oral: {value: 0.202, source: "RSL UG 4.1.1.6, PDF p. 52"}
+  caf_inh:  {value: 0.756, source: "RSL UG 4.1.1.6, PDF p. 54"}
+  maf_inh:  {value: 0.244, source: "RSL UG 4.1.1.6, PDF p. 54"}
 
 # Relative bioavailability (RBA); all other chemicals RBA = 1.
 # Source: Miscellaneous Variables, row 5 ("Arsenic = 0.6; All Others = 1").
