@@ -1,0 +1,18 @@
+rsl_version: 2024-11
+imported_on: '2026-11-07'
+files:
+  toxicity.csv:
+    rows: 890
+    worksheet: Summary 1124
+    source: rsl_summary_table_2024-11.xlsx
+    source_sha256: 0160dc81b4f55d738a354a74de92488f149946ebfa7c6a6c64592f45348043d7
+  chemical_parameters.csv:
+    rows: 890
+    worksheet: Parameters 1124
+    source: rsl_chemical_parameters_2024-11.xlsx
+    source_sha256: 10a5b89421a9d66ee811a12beb08032e0c6371a714cec5ceb2800fd8b57f2017
+  subchronic_toxicity.csv:
+    rows: 638
+    worksheet: Subchronic 1124
+    source: rsl_subchronic_toxicity_2024-11.xlsx
+    source_sha256: c9ac0f141e13be25772c6bffc9bc9f9a2388d44c3da87e94a224415f005cda8c

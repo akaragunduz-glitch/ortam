@@ -108,4 +108,6 @@ docs/              Documentation
   CLI in place. First standalone tool: `groundwater.three-point` (tested).
 - D0.1 complete: repository on GitHub (`akaragunduz-glitch/ortam`).
 - D0.2 complete: local tests and CI green; Docker verified.
-- Next task: D1.1 — RAGS exposure and risk equations (needs reference PDFs).
+- D1.1 complete (2026-11-07): `risk.resident-soil`; RSL Nov 2024 data in
+  `data/reference/rsl/2024-11/`; 533 chemicals match the RSL Summary Table.
+- Next task: D1.1b — mutagens (ADAF), TCE, vinyl chloride; tap water and air.

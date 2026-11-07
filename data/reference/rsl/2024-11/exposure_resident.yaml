@@ -1,0 +1,38 @@
+# Default exposure parameters for the resident receptor (soil).
+# Source: docs/references/rsl_default_exposure_parameters_2024-11.xlsx
+#         (EPA RSL Default Exposure Parameters, November 2024).
+# Each value cites worksheet and row; test_rsl_import.py checks every value
+# against the workbook.
+#
+# Note: the workbook lists THQ = 0.1 as a user selection. The RSL Summary
+# Table (rsl_summary_table_2024-11.xlsx) is computed with THQ = 1, so ORTAM
+# uses THQ = 1 as the default; the user may override it.
+
+rsl_version: "2024-11"
+parameters:
+  target_risk:        {value: 1.0e-6, unit: "-",          symbol: TR,       source: "Miscellaneous Variables, row 3"}
+  target_hq:          {value: 1.0,    unit: "-",          symbol: THQ,      source: "RSL Summary Table basis (TR = 1E-06, THQ = 1)"}
+  lt_yr:              {value: 70,     unit: "yr",         symbol: LT,       source: "Miscellaneous Variables, row 34"}
+  ef_child_d_yr:      {value: 350,    unit: "day/yr",     symbol: EFres-c,  source: "EF, ED, ET, row 5"}
+  ef_adult_d_yr:      {value: 350,    unit: "day/yr",     symbol: EFres-a,  source: "EF, ED, ET, row 4"}
+  ef_res_d_yr:        {value: 350,    unit: "day/yr",     symbol: EFres,    source: "EF, ED, ET, row 3"}
+  ed_child_yr:        {value: 6,      unit: "yr",         symbol: EDres-c,  source: "EF, ED, ET, row 22"}
+  ed_adult_yr:        {value: 20,     unit: "yr",         symbol: EDres-a,  source: "EF, ED, ET, row 23"}
+  ed_res_yr:          {value: 26,     unit: "yr",         symbol: EDres,    source: "EF, ED, ET, row 21"}
+  et_child_h_d:       {value: 24,     unit: "h/day",      symbol: ETres-c,  source: "EF, ED, ET, row 36"}
+  et_adult_h_d:       {value: 24,     unit: "h/day",      symbol: ETres-a,  source: "EF, ED, ET, row 35"}
+  et_res_h_d:         {value: 24,     unit: "h/day",      symbol: ETres,    source: "EF, ED, ET, row 37"}
+  bw_child_kg:        {value: 15,     unit: "kg",         symbol: BWres-c,  source: "Ingestion and Dermal Rates, row 74"}
+  bw_adult_kg:        {value: 80,     unit: "kg",         symbol: BWres-a,  source: "Ingestion and Dermal Rates, row 75"}
+  irs_child_mg_d:     {value: 200,    unit: "mg/day",     symbol: IRSres-c, source: "Ingestion and Dermal Rates, row 7"}
+  irs_adult_mg_d:     {value: 100,    unit: "mg/day",     symbol: IRSres-a, source: "Ingestion and Dermal Rates, row 8"}
+  sa_child_cm2_d:     {value: 2373,   unit: "cm2/day",    symbol: SAres-c,  source: "Ingestion and Dermal Rates, row 40"}
+  sa_adult_cm2_d:     {value: 6032,   unit: "cm2/day",    symbol: SAres-a,  source: "Ingestion and Dermal Rates, row 41"}
+  af_child_mg_cm2:    {value: 0.2,    unit: "mg/cm2",     symbol: AFres-c,  source: "Ingestion and Dermal Rates, row 63"}
+  af_adult_mg_cm2:    {value: 0.07,   unit: "mg/cm2",     symbol: AFres-a,  source: "Ingestion and Dermal Rates, row 64"}
+  pef_m3_kg:          {value: 1.36e9, unit: "m3/kg",      symbol: PEF,      source: "PEF Wind, row 3"}
+
+# Relative bioavailability (RBA); all other chemicals RBA = 1.
+# Source: Miscellaneous Variables, row 5 ("Arsenic = 0.6; All Others = 1").
+rba_by_cas:
+  "7440-38-2": 0.6

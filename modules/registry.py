@@ -7,6 +7,7 @@ from importlib import import_module
 
 MODULES: dict[str, str] = {
     "groundwater.three-point": "modules.groundwater.three_point:ThreePointModule",
+    "risk.resident-soil":      "modules.risk.resident_soil:ResidentSoilModule",
     # "groundwater.modflow":  "modules.groundwater.modflow:ModflowModule",       # Phase 5
     # "vadose.ssl-leaching":  "modules.vadose.ssl_leaching:SSLLeachingModule",   # Phase 1
     # "vapor.johnson-ettinger": "modules.vapor.johnson_ettinger:JEModule",       # Phase 1

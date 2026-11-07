@@ -30,6 +30,13 @@ RSL tables version: **November 2024** (worksheet names end in `1124`).
 | `rsl_chemical_parameters_2024-11.xlsx` | RSL Chemical Parameters (Nov 2024) | Chemical-specific parameters | https://www.epa.gov/risk/regional-screening-levels-rsls-generic-tables |
 | `rsl_subchronic_toxicity_2024-11.xlsx` | RSL Subchronic Toxicity (Nov 2024) | Subchronic RfD and RfC values | https://www.epa.gov/risk/regional-screening-levels-rsls-generic-tables |
 
+## Other guidance
+
+| File | Short name | Document | Pages | Source |
+|------|------------|----------|-------|--------|
+| `rais_chemical_risk_users_guide_2026-11.pdf` | RAIS Chemical Risk Guide | RAIS Chemical Risk Calculator User's Guide (ORNL); web page saved as PDF on 2026-11-06; farmer food chain in §4.8 | 159 | https://rais.ornl.gov/tools/rais_chemical_risk_guide.html |
+| `epa_exposure_assessment_guidelines_2019.pdf` | EPA Exposure Guidelines (2019) | Guidelines for Human Exposure Assessment, EPA/100/B-19/001, October 2019 | 223 | https://www.epa.gov/risk |
+
 ## Notes
 
 - Part E links point to the EPA web snapshot of 19 January 2025; the

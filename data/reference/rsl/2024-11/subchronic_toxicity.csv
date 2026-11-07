@@ -1,0 +1,639 @@
+name,cas,rfdo_mg_kg_day,rfdo_reference,srfdo_mg_kg_day,srfdo_reference,rfci_mg_m3,rfci_reference,srfci_mg_m3,srfci_reference
+Acephate,30560-19-1,0.0003,OPP,0.004,HEAST,,,,
+Acetone,67-64-1,0.9,IRIS,0.6,ATSDR,,,,
+Acetone Cyanohydrin,75-86-5,,,,,0.002,SCREEN,0.02,SCREEN
+Acetonitrile,75-05-8,,,0.06,HEAST,0.06,IRIS,0.5,HEAST
+Acetophenone,98-86-2,0.1,IRIS,0.8,SCREEN,,,,
+Acrolein,107-02-8,0.0005,IRIS,0.002,ATSDR_DRAFT,2e-05,IRIS,0.00092,ATSDR_DRAFT
+Acrylamide,79-06-1,0.002,IRIS,0.001,ATSDR,0.006,IRIS,0.00195,ATSDR_DRAFT
+Acrylic Acid,79-10-7,0.5,IRIS,0.2,PPRTV,0.0002,PPRTV,0.0002,PPRTV
+Acrylonitrile,107-13-1,9e-05,ATSDR_DRAFT,0.02,ATSDR_DRAFT,0.002,IRIS,0.002,ATSDR_DRAFT
+Adiponitrile,111-69-3,,,,,0.006,PPRTV,0.06,PPRTV
+Alachlor,15972-60-8,0.01,IRIS,0.01,HEAST,,,,
+Aldicarb,116-06-3,0.001,IRIS,0.001,HEAST,,,,
+Aldrin,309-00-2,3e-05,IRIS,4e-05,PPRTV,,,,
+Allyl Alcohol,107-18-6,0.004,PPRTV,0.004,PPRTV,0.0001,SCREEN,0.001,PPRTV
+Allyl Chloride,107-05-1,,,,,0.001,IRIS,0.01,HEAST
+Aluminum,7429-90-5,1,PPRTV,1,ATSDR,0.005,PPRTV,,
+Aluminum Phosphide,20859-73-8,0.0004,IRIS,0.0004,HEAST,,,,
+Ametryn,834-12-8,0.009,IRIS,0.09,HEAST,,,,
+"Aminophenol, m-",591-27-5,0.08,PPRTV,0.3,PPRTV,,,,
+"Aminophenol, o-",95-55-6,0.004,SCREEN,0.04,SCREEN,,,,
+"Aminophenol, p-",123-30-8,0.02,PPRTV,0.2,PPRTV,,,,
+Ammonia,7664-41-7,,,,,0.5,IRIS,0.1,PPRTV
+Ammonium Picrate,131-74-8,0.002,SCREEN,0.006,PPRTV,,,,
+"Amyl Alcohol, tert-",75-85-4,,,,,0.003,SCREEN,0.03,SCREEN
+Aniline,62-53-3,0.007,PPRTV,,,0.001,IRIS,0.01,HEAST
+"Anthraquinone, 9,10-",84-65-1,0.002,SCREEN,0.01,SCREEN,,,,
+Antimony (metallic),7440-36-0,0.0004,IRIS,0.0004,PPRTV,0.0003,ATSDR,0.001,ATSDR
+Antimony Pentoxide,1314-60-9,0.0005,HEAST,0.0005,HEAST,,,,
+Antimony Potassium Tartrate,11071-15-1,,,0.0004,PPRTV,,,,
+Antimony Tetroxide,1332-81-6,0.0004,HEAST,0.0004,HEAST,,,,
+Antimony Trichloride,10025-91-9,,,0.0004,PPRTV,,,,
+Antimony Trioxide,1309-64-4,,,0.5,PPRTV,0.0002,IRIS,0.0002,PPRTV
+Atrazine,1912-24-9,0.003,ATSDR,0.003,ATSDR,,,,
+Azinphos-methyl,86-50-0,0.003,ATSDR,0.003,ATSDR,0.01,ATSDR,0.01,ATSDR
+Azodicarbonamide,123-77-3,1,PPRTV,1,PPRTV,7e-06,PPRTV,7e-06,PPRTV
+Barium,7440-39-3,0.2,IRIS,0.2,ATSDR,0.0005,HEAST,0.005,HEAST
+Benfluralin,1861-40-1,0.005,OPP,0.3,HEAST,,,,
+Benzaldehyde,100-52-7,0.1,IRIS,0.2,PPRTV,,,,
+Benzene,71-43-2,0.004,IRIS,0.01,PPRTV,0.03,IRIS,0.08,PPRTV
+"Benzenediamine-2-methyl sulfate, 1,4-",6369-59-1,0.0003,SCREEN,0.003,SCREEN,,,,
+Benzenethiol,108-98-5,0.001,PPRTV,0.01,PPRTV,,,,
+Benzidine,92-87-5,0.003,IRIS,0.003,HEAST,,,,
+Benzoic Acid,65-85-0,4,IRIS,4,PPRTV,,,0.002,PPRTV
+Benzotrichloride,98-07-7,,,5e-05,PPRTV,,,0.005,SCREEN
+Benzyl Alcohol,100-51-6,0.1,PPRTV,0.3,PPRTV,,,,
+Benzyl Chloride,100-44-7,0.002,PPRTV,0.002,PPRTV,0.001,PPRTV,0.004,PPRTV
+Beryllium and compounds,7440-41-7,0.002,IRIS,0.005,HEAST,2e-05,IRIS,,
+Bifenox,42576-02-3,0.009,PPRTV,1,PPRTV,,,,
+"Biphenyl, 1,1'-",92-52-4,0.5,IRIS,0.1,PPRTV,0.0004,SCREEN,0.004,SCREEN
+Bis(2-chloro-1-methylethyl) ether,108-60-1,0.04,IRIS,0.001,SCREEN,,,,
+Bis(2-chloroethoxy)methane,111-91-1,0.003,PPRTV,0.03,PPRTV,,,,
+Bis(2-chloroethyl)ether,111-44-4,,,,,,,0.11698159509203,ATSDR
+Bis(chloromethyl)ether,542-88-1,,,,,,,0.00141055214724,ATSDR
+Bisphenol A,80-05-7,0.05,IRIS,0.6,HEAST,,,,
+Boron And Borates Only,7440-42-8,0.2,IRIS,0.2,ATSDR,0.02,HEAST,0.02,HEAST
+Boron Trichloride,10294-34-5,2,PPRTV,2,PPRTV,0.02,PPRTV,0.02,PPRTV
+Boron Trifluoride,7637-07-2,0.04,CALEPA,,,0.013,CALEPA,0.007,HEAST
+"Bromo-2-chloroethane, 1-",107-04-0,0.0001,SCREEN,0.001,SCREEN,6e-05,SCREEN,0.0006,SCREEN
+"Bromo-3-fluorobenzene, 1-",1073-06-9,0.0003,SCREEN,0.003,SCREEN,,,0.03,SCREEN
+"Bromo-4-fluorobenzene, 1-",460-00-4,0.0003,SCREEN,0.003,SCREEN,,,0.03,SCREEN
+Bromobenzene,108-86-1,0.008,IRIS,0.02,IRIS,0.06,IRIS,0.2,IRIS
+Bromochloromethane,74-97-5,,,,,0.04,SCREEN,0.1,PPRTV
+Bromodichloromethane,75-27-4,0.008,PPRTV,0.008,PPRTV,,,0.02,PPRTV
+Bromoform,75-25-2,0.02,IRIS,0.03,PPRTV,,,,
+Bromomethane,74-83-9,0.0014,IRIS,0.005,PPRTV,0.005,IRIS,0.1,PPRTV
+Bromophos,2104-96-3,0.005,HEAST,0.05,HEAST,,,,
+"Bromopropane, 1-",106-94-5,,,,,0.1,ATSDR,0.5,ATSDR
+Bromoxynil,1689-84-5,0.015,OPP,0.02,HEAST,,,,
+Bromoxynil Octanoate,1689-99-2,0.015,OPP,0.02,HEAST,,,,
+"Butanoic acid, 4-(2,4-dichlorophenoxy)-",94-82-6,,,0.08,HEAST,,,,
+"Butanol, N-",71-36-3,0.1,IRIS,1,HEAST,,,,
+"Butyl Formate, tert-",762-75-4,,,0.008,SCREEN,,,,
+"Butyl alcohol, sec-",78-92-2,2,PPRTV,2,PPRTV,30,PPRTV,30,PPRTV
+Butylate,2008-41-5,0.05,IRIS,0.05,HEAST,,,,
+Butylated hydroxytoluene,128-37-0,0.3,PPRTV,1,PPRTV,,,,
+"Butylbenzene, n-",104-51-8,0.05,PPRTV,0.1,PPRTV,,,,
+"Butylbenzene, sec-",135-98-8,0.1,SCREEN,0.1,SCREEN,,,,
+"Butylbenzene, tert-",98-06-6,0.1,SCREEN,0.1,SCREEN,,,,
+Cadmium (Diet),7440-43-9,0.0001,ATSDR,0.0005,ATSDR,1e-05,ATSDR,,
+Cadmium (Water),7440-43-9,0.0001,ATSDR,0.0005,ATSDR,1e-05,ATSDR,,
+Caprolactam,105-60-2,0.5,IRIS,0.5,HEAST,0.0022,CALEPA,,
+Captafol,2425-06-1,0.002,IRIS,0.002,HEAST,,,,
+Captan,133-06-2,0.13,IRIS,0.13,HEAST,,,,
+Carbaryl,63-25-2,0.1,IRIS,0.1,HEAST,,,,
+Carbofuran,1563-66-2,0.005,IRIS,0.005,HEAST,,,,
+Carbon Disulfide,75-15-0,0.1,IRIS,0.1,HEAST,0.7,IRIS,0.7,HEAST
+Carbon Tetrachloride,56-23-5,0.004,IRIS,0.007,ATSDR,0.1,IRIS,0.18873619631902,ATSDR
+Carbonyl Sulfide,463-58-1,,,,,0.1,PPRTV,1,PPRTV
+Chloral,75-87-6,,,0.02,HEAST,,,,
+Chlordane (technical mixture),12789-03-6,0.0005,IRIS,0.0006,ATSDR,0.0007,IRIS,0.0002,ATSDR
+Chlordecone (Kepone),143-50-0,0.0003,IRIS,0.003,ATSDR,,,,
+Chlorfenvinphos,470-90-6,0.0007,ATSDR,0.002,ATSDR,,,,
+Chlorine,7782-50-5,0.1,IRIS,,,0.00014501022495,ATSDR,0.00580040899796,ATSDR
+Chlorine Dioxide,10049-04-4,0.03,IRIS,,,0.0002,IRIS,0.00275869120654,ATSDR
+Chlorite (Sodium Salt),7758-19-2,0.03,IRIS,0.1,ATSDR,,,,
+"Chloro-1,3-butadiene, 2- (Chloroprene)",126-99-8,0.02,HEAST,0.02,HEAST,0.02,IRIS,0.07,HEAST
+"Chloro-2-methylaniline, 4-",95-69-2,0.003,SCREEN,0.5,PPRTV,,,,
+"Chloroaniline, p-",106-47-8,0.0005,PPRTV,0.0005,PPRTV,,,,
+Chlorobenzene,108-90-7,0.02,IRIS,0.07,PPRTV,0.05,PPRTV,0.5,PPRTV
+"Chlorobenzene sulfonic acid, p-",98-66-8,0.1,SCREEN,1,SCREEN,,,,
+Chlorobenzilate,510-15-6,0.02,IRIS,0.02,HEAST,,,,
+"Chlorobenzoic Acid, p-",74-11-3,0.03,SCREEN,0.08,SCREEN,,,,
+"Chlorobenzotrifluoride, 3-nitro-4-",121-17-5,,,0.0001,SCREEN,,,,
+"Chlorobenzotrifluoride, 4-",98-56-6,0.003,PPRTV,0.03,PPRTV,0.3,PPRTV,3,PPRTV
+"Chlorobutane, 1-",109-69-3,0.04,PPRTV,0.07,PPRTV,,,,
+"Chloroethanol, 2-",107-07-3,0.02,PPRTV,0.2,PPRTV,,,,
+Chloroform,67-66-3,0.01,IRIS,0.1,ATSDR_DRAFT,0.00195,ATSDR_DRAFT,0.00391,ATSDR_DRAFT
+Chloromethane,74-87-3,,,,,0.09,IRIS,3,PPRTV
+"Chloronitrobenzene, o-",88-73-3,0.003,PPRTV,0.02,PPRTV,1e-05,SCREEN,0.0001,PPRTV
+"Chloronitrobenzene, p-",100-00-5,0.0007,PPRTV,0.0007,PPRTV,0.002,PPRTV,0.006,PPRTV
+"Chlorophenol, 2-",95-57-8,0.005,IRIS,0.008,PPRTV,,,,
+"Chlorophenol, 4-",106-48-9,,,0.9,ATSDR,,,,
+Chlorothalonil,1897-45-6,0.015,IRIS,0.015,HEAST,,,,
+"Chlorotoluene, o-",95-49-8,0.02,IRIS,0.02,PPRTV,,,0.8,SCREEN
+"Chlorotoluene, p-",106-43-4,0.02,SCREEN,0.2,PPRTV,,,,
+Chlorpyrifos,2921-88-2,0.001,ATSDR,0.003,ATSDR,,,,
+Chlorpyrifos Methyl,5598-13-0,0.01,HEAST,0.01,HEAST,,,,
+Chlorthal-dimethyl,1861-32-1,0.01,IRIS,0.01,HEAST,,,,
+Chlorthiophos,60238-56-4,0.0008,HEAST,0.0008,HEAST,,,,
+Chromium(III) (Soluble Compounds),16065-83-1,,,,,6e-05,CALEPA,0.0001,ATSDR
+"Chromium(III), Insoluble Salts",16065-83-1,1.5,IRIS,1.5,HEAST,,,0.005,ATSDR
+Chromium(VI),18540-29-9,0.0009,IRIS,0.00174,ATSDR,3e-05,IRIS,,
+Cobalt,7440-48-4,0.0003,PPRTV,0.003,PPRTV,6e-06,PPRTV,2e-05,PPRTV
+Copper,7440-50-8,0.04,HEAST,0.02,ATSDR_DRAFT,,,,
+"Cresol, m-",108-39-4,0.05,IRIS,0.4,PPRTV,0.6,CALEPA,,
+"Cresol, o-",95-48-7,0.05,IRIS,0.2,PPRTV,0.6,CALEPA,,
+"Cresol, p-",106-44-5,0.02,PPRTV,0.02,PPRTV,0.6,CALEPA,,
+"Cresol, p-chloro-m-",59-50-7,0.1,ATSDR,0.1,SCREEN,,,,
+Cresols,1319-77-3,0.1,ATSDR,0.1,ATSDR,0.6,CALEPA,,
+"Crotonaldehyde, trans-",123-73-9,0.001,PPRTV,0.01,PPRTV,,,,
+Cumene,98-82-8,0.1,IRIS,0.4,HEAST,0.4,IRIS,0.09,HEAST
+Cyanazine,21725-46-2,0.002,HEAST,0.002,HEAST,,,,
+Cyanides,,,,,,,,,
+~Calcium Cyanide,592-01-8,0.001,IRIS,0.04,HEAST,0.009,CALEPA,,
+~Copper Cyanide,544-92-3,0.005,IRIS,0.05,HEAST,,,,
+~Cyanide (CN-),57-12-5,0.0006,IRIS,0.02,HEAST,0.0008,SURROGATE,,
+~Cyanogen,460-19-5,0.001,IRIS,0.04,HEAST,,,,
+~Cyanogen Chloride,506-77-4,0.05,IRIS,0.05,HEAST,,,,
+~Potassium Cyanide,151-50-8,0.002,IRIS,0.05,HEAST,0.009,CALEPA,,
+~Potassium Silver Cyanide,506-61-6,0.005,IRIS,0.2,HEAST,,,,
+~Silver Cyanide,506-64-9,0.1,IRIS,0.1,HEAST,,,,
+~Sodium Cyanide,143-33-9,0.001,IRIS,0.05,ATSDR,0.009,CALEPA,,
+~Zinc Cyanide,557-21-1,0.05,IRIS,0.05,HEAST,,,,
+Cyclohexane,110-82-7,,,,,6,IRIS,18,PPRTV
+"Cyclohexane, 1,2,3,4,5-pentabromo-6-chloro-",87-84-3,0.02,SCREEN,0.02,SCREEN,,,,
+Cyclohexanone,108-94-1,5,IRIS,2,PPRTV,0.7,PPRTV,7,PPRTV
+Cyclohexene,110-83-8,0.005,PPRTV,0.05,PPRTV,1,SCREEN,,
+Cyclohexylamine,108-91-8,0.2,IRIS,0.3,HEAST,,,,
+Cyclopentadiene,542-92-7,,,,,,,3,HEAST
+Cyhalothrin,68085-85-8,,,0.01,ATSDR,,,,
+Dalapon,75-99-0,0.03,IRIS,0.03,HEAST,,,,
+"Decabromodiphenyl ether, 2,2',3,3',4,4',5,5',6,6'- (BDE-209)",1163-19-5,0.007,IRIS,0.0002,ATSDR,,,,
+Decane,124-18-5,,,1,SCREEN,,,,
+Diazinon,333-41-5,0.0007,ATSDR,0.002,ATSDR,,,0.01,ATSDR
+Dibenzothiophene,132-65-0,,,0.003,SCREEN,,,,
+"Dibromo-3-chloropropane, 1,2-",96-12-8,0.0002,PPRTV,0.002,PPRTV,0.0002,IRIS,0.002,PPRTV
+"Dibromobenzene, 1,3-",108-36-1,0.0004,SCREEN,0.004,SCREEN,,,,
+"Dibromobenzene, 1,4-",106-37-6,0.01,IRIS,0.1,HEAST,,,,
+Dibromochloromethane,124-48-1,0.02,IRIS,0.07,PPRTV,,,,
+"Dibromoethane, 1,2-",106-93-4,0.009,IRIS,,,0.009,IRIS,0.002,HEAST
+Dibromomethane (Methylene Bromide),74-95-3,,,0.009,PPRTV,0.004,SCREEN,0.04,SCREEN
+Dibutyltin Compounds,E1790661,0.0003,PPRTV,0.0003,PPRTV,,,,
+Dibutyltin dichloride,683-18-1,,,0.005,ATSDR,,,,
+Dicamba,1918-00-9,0.03,IRIS,0.03,HEAST,,,,
+"Dichlorobenzene, 1,2-",95-50-1,0.09,IRIS,0.6,ATSDR,0.2,HEAST,2,HEAST
+"Dichlorobenzene, 1,3-",541-73-1,,,0.02,ATSDR,,,,
+"Dichlorobenzene, 1,4-",106-46-7,0.07,ATSDR,0.07,ATSDR,0.8,IRIS,1.20245398773006,ATSDR
+"Dichlorobenzophenone, 4,4'-",90-98-2,0.009,SCREEN,0.09,SCREEN,,,,
+"Dichlorobenzotrifluoride, 3,4-",328-84-7,,,0.05,SCREEN,,,,
+Dichlorodifluoromethane,75-71-8,0.2,IRIS,0.05,PPRTV,0.1,SCREEN,1,PPRTV
+"Dichlorodiisopropyl ether, 2,2'-",39638-32-9,,,0.04,HEAST,,,,
+"Dichlorodiphenyldichloroethane, p,p'- (DDD)",72-54-8,0.0005,ATSDR,0.0005,ATSDR,,,,
+"Dichlorodiphenyldichloroethylene, p,p'- (DDE)",72-55-9,0.0005,ATSDR,0.0003,PPRTV,,,,
+"Dichlorodiphenyltrichloroethane, p,p'- (DDT)",50-29-3,0.0005,IRIS,0.0005,ATSDR,,,,
+"Dichloroethane, 1,1-",75-34-3,0.2,PPRTV,2,PPRTV,,,,
+"Dichloroethane, 1,2-",107-06-2,0.006,SCREEN,0.02,PPRTV,0.007,PPRTV,0.07,PPRTV
+"Dichloroethylene, 1,1-",75-35-4,0.05,IRIS,0.009,HEAST,0.00396,ATSDR,0.00396,ATSDR
+"Dichloroethylene, cis-1,2-",156-59-2,0.002,IRIS,0.02,PPRTV,0.04,SCREEN,0.4,SCREEN
+"Dichloroethylene, trans-1,2-",156-60-5,0.02,IRIS,0.2,ATSDR_DRAFT,0.04,SCREEN,0.4,SCREEN
+"Dichlorophenol, 2,4-",120-83-2,0.003,IRIS,0.02,PPRTV,,,,
+"Dichlorophenoxy Acetic Acid, 2,4-",94-75-7,0.01,IRIS,0.2,ATSDR,,,,
+"Dichloropropane, 1,2-",78-87-5,0.04,PPRTV,0.04,PPRTV,0.004,IRIS,0.00924,ATSDR
+"Dichloropropane, 1,3-",142-28-9,0.02,PPRTV,0.2,PPRTV,,,,
+"Dichloropropene, 1,3-",542-75-6,0.03,IRIS,0.04,ATSDR,0.02,IRIS,0.03630920245399,ATSDR
+Dichlorvos,62-73-7,0.0005,IRIS,0.003,ATSDR,0.0005,IRIS,0.00271141104294,ATSDR
+Dicyclopentadiene,77-73-6,0.08,PPRTV,0.2,PPRTV,0.0003,SCREEN,0.003,SCREEN
+Dieldrin,60-57-1,5e-05,IRIS,0.0001,ATSDR,,,,
+Diethanolamine,111-42-2,0.002,PPRTV,0.02,PPRTV,0.0002,PPRTV,0.002,PPRTV
+"Diethyl-meta-Toluamide, N,N (DEET)",134-62-3,,,1,ATSDR,,,,
+Diethylene Glycol Monobutyl Ether,112-34-5,0.03,PPRTV,0.3,PPRTV,0.0001,PPRTV,0.001,PPRTV
+Diethylene Glycol Monoethyl Ether,111-90-0,0.06,PPRTV,0.6,PPRTV,0.0003,PPRTV,0.003,PPRTV
+Diethylformamide,617-84-5,0.001,PPRTV,0.001,PPRTV,,,,
+"Difluoropropane, 2,2-",420-45-1,,,,,30,SCREEN,30,SCREEN
+Diisopropyl Ether,108-20-3,,,,,0.7,PPRTV,0.7,PPRTV
+Diisopropyl Methylphosphonate,1445-75-6,0.08,IRIS,1,PPRTV,,,,
+Dimethoate,60-51-5,0.0022,OPP,0.0002,HEAST,,,,
+"Dimethoxybenzidine, 3,3'-",119-90-4,,,0.001,SCREEN,,,,
+Dimethyl Sulfide,75-18-3,0.02,SCREEN,0.2,SCREEN,0.0002,SCREEN,0.002,SCREEN
+Dimethyl methylphosphonate,756-79-6,0.06,PPRTV,0.06,PPRTV,,,,
+"Dimethylaniline, 2,4-",95-68-1,0.002,SCREEN,0.002,SCREEN,,,,
+"Dimethylaniline, N,N-",121-69-7,0.002,IRIS,0.002,PPRTV,,,,
+Dimethylformamide,68-12-2,0.1,PPRTV,0.3,PPRTV,0.03,IRIS,0.07,PPRTV
+"Dimethylhydrazine, 1,1-",57-14-7,0.0001,SCREEN,,,2e-06,SCREEN,8e-06,PPRTV
+"Dimethylhydrazine, 1,2-",540-73-8,,,0.0008,ATSDR,,,,
+"Dimethylphenol, 2,4-",105-67-9,0.02,IRIS,0.05,PPRTV,,,,
+"Dimethylphenol, 2,6-",576-26-1,0.0006,IRIS,0.006,HEAST,,,,
+"Dimethylphenol, 3,4-",95-65-8,0.001,IRIS,0.01,HEAST,,,,
+"Dinitro-o-cresol, 4,6-",534-52-1,8e-05,SCREEN,0.0008,PPRTV,,,,
+"Dinitroaniline, 3,5-",618-87-1,0.0004,SCREEN,0.0007,SCREEN,0.002,SCREEN,0.006,SCREEN
+"Dinitrobenzene, 1,2-",528-29-0,0.0001,PPRTV,0.001,PPRTV,,,,
+"Dinitrobenzene, 1,3-",99-65-0,0.0001,IRIS,0.0005,ATSDR,,,,
+"Dinitrobenzene, 1,4-",100-25-4,0.0001,PPRTV,0.001,PPRTV,,,,
+"Dinitrophenol, 2,4-",51-28-5,0.002,IRIS,0.02,PPRTV,,,,
+"Dinitrotoluene, 2,4-",121-14-2,0.002,IRIS,0.007,ATSDR,,,,
+"Dinitrotoluene, 2,6-",606-20-2,0.0003,SCREEN,0.004,ATSDR,,,,
+"Dinitrotoluene, 2-Amino-4,6-",35572-78-2,0.0001,SCREEN,0.0003,SCREEN,,,,
+"Dinitrotoluene, 4-Amino-2,6-",19406-51-0,0.0001,SCREEN,0.0003,SCREEN,,,,
+"Dinitrotoluene, Technical grade",25321-14-6,0.0009,SCREEN,0.005,SCREEN,,,,
+Dinoseb,88-85-7,0.001,IRIS,0.001,HEAST,,,,
+"Dioxane, 1,4-",123-91-1,0.03,IRIS,0.5,ATSDR,0.03,IRIS,0.72,ATSDR
+Dioxins,,,,,,,,,
+"~TCDD, 2,3,7,8-",1746-01-6,7e-10,IRIS,2e-08,ATSDR,4e-08,CALEPA,,
+Diphenyl Ether,101-84-8,,,,,0.0004,SCREEN,0.004,SCREEN
+Diphenyl Sulfone,127-63-9,0.0008,SCREEN,0.008,SCREEN,,,,
+Diphenylamine,122-39-4,0.1,OPP,0.02,SCREEN,,,,
+"Diphenylhydrazine, 1,2-",122-66-7,,,0.05,ATSDR,,,,
+Disulfoton,298-04-4,4e-05,IRIS,9e-05,ATSDR,,,0.0006,ATSDR
+EPTC,759-94-4,0.05,OPP,0.025,HEAST,,,,
+Endosulfan,115-29-7,0.006,IRIS,0.005,ATSDR,,,,
+Endosulfan Sulfate,1031-07-8,0.006,PPRTV,0.003,SCREEN,,,,
+Endothall,145-73-3,0.02,IRIS,0.02,HEAST,,,,
+Endrin,72-20-8,0.0003,IRIS,0.0006,ATSDR,,,,
+Epichlorohydrin,106-89-8,0.006,PPRTV,0.006,PPRTV,0.001,IRIS,0.01,PPRTV
+"Ethanol, 2-(2-methoxyethoxy)-",111-77-3,0.04,PPRTV,0.04,PPRTV,,,,
+Ethion,563-12-2,0.0005,IRIS,0.002,ATSDR,,,,
+"Ethoxyethanol Acetate, 2-",111-15-9,0.1,PPRTV,1,PPRTV,0.06,PPRTV,0.06,PPRTV
+"Ethoxyethanol, 2-",110-80-5,0.09,PPRTV,0.1,PPRTV,0.04,PPRTV,0.04,PPRTV
+Ethyl Acetate,141-78-6,0.7,PPRTV,0.7,PPRTV,0.07,PPRTV,0.7,PPRTV
+Ethyl Acrylate,140-88-5,0.005,PPRTV,0.06,SCREEN,0.008,PPRTV,0.008,PPRTV
+Ethyl Chloride (Chloroethane),75-00-3,,,0.1,PPRTV,4,PPRTV,4,PPRTV
+Ethyl Ether,60-29-7,0.2,IRIS,0.5,PPRTV,,,3,PPRTV
+Ethyl Methacrylate,97-63-2,,,0.01,SCREEN,0.3,PPRTV,3,PPRTV
+Ethylbenzene,100-41-4,0.05,PPRTV,0.05,PPRTV,1,IRIS,9,PPRTV
+Ethylene Cyanohydrin,109-78-4,0.07,PPRTV,0.3,PPRTV,,,,
+Ethylene Diamine,107-15-3,0.09,PPRTV,0.2,PPRTV,,,,
+Ethylene Glycol,107-21-1,0.8,ATSDR,0.8,ATSDR,0.4,CALEPA,,
+Ethylene Glycol Monobutyl Ether,111-76-2,0.1,IRIS,0.07,ATSDR,1.6,IRIS,14.5006134969325,ATSDR
+Ethylene Oxide,75-21-8,,,,,0.03,CALEPA,0.13,ATSDR
+Ethylene Thiourea,96-45-7,8e-05,IRIS,8e-05,HEAST,,,,
+Fluorine (Soluble Fluoride),7782-41-4,0.06,IRIS,0.06,HEAST,0.013,CALEPA,,
+Fluorobenzene,462-06-6,,,,,,,0.03,SCREEN
+Fluridone,59756-60-4,0.08,IRIS,0.08,HEAST,,,,
+Folpet,133-07-3,0.09,OPP,0.1,HEAST,,,,
+Formaldehyde,50-00-0,0.2,IRIS,0.3,ATSDR,0.007,IRIS,0.03684662576687,ATSDR
+Formic Acid,64-18-6,0.9,PPRTV,0.9,PPRTV,0.0003,SCREEN,0.0009,PPRTV
+Furans,,,,,,,,,
+~Dibenzofuran,132-64-9,0.001,SCREEN,0.004,PPRTV,,,,
+~Furan,110-00-9,0.001,IRIS,0.01,HEAST,,,,
+"~HxCDF, 1,2,3,6,7,8-",57117-44-9,7e-09,WHO/TEF,5e-06,ATSDR,4e-07,WHO/TEF,,
+"~PeCDF, 1,2,3,7,8-",57117-41-6,2.33333333333e-08,WHO/TEF,7e-06,ATSDR,1.33333333333e-06,WHO/TEF,,
+"~PeCDF, 2,3,4,7,8-",57117-31-4,4e-09,ATSDR,7e-09,ATSDR,1.33333333333e-07,WHO/TEF,,
+Furfural,98-01-1,0.003,IRIS,0.03,HEAST,0.05,HEAST,0.5,HEAST
+Gadolinium,7440-54-2,,,0.04,SCREEN,,,,
+Glutaraldehyde,111-30-8,0.1,ATSDR,,,8e-05,CALEPA,0.00012,ATSDR
+Glycidaldehyde,765-34-4,0.0004,IRIS,,,0.001,SCREEN,0.01,SCREEN
+Glyphosate,1071-83-6,0.1,IRIS,1,ATSDR,,,,
+Guanidine,113-00-8,0.01,SCREEN,0.01,SCREEN,,,,
+Guanidine Chloride,50-01-1,0.02,PPRTV,0.02,PPRTV,,,,
+Guanidine Nitrate,506-93-4,0.03,SCREEN,0.03,SCREEN,,,,
+Heptachlor,76-44-8,0.0001,ATSDR,0.0001,ATSDR,,,,
+Heptachlor Epoxide,1024-57-3,1.3e-05,IRIS,1.3e-05,HEAST,,,,
+"Heptanal, n-",111-71-7,,,,,0.003,SCREEN,0.03,SCREEN
+"Heptane, N-",142-82-5,0.0003,SCREEN,0.003,SCREEN,0.4,PPRTV,4,PPRTV
+Hexabromobenzene,87-82-1,0.002,IRIS,0.02,HEAST,,,,
+Hexachlorobenzene,118-74-1,1e-05,PPRTV,1e-05,PPRTV,,,,
+Hexachlorobutadiene,87-68-3,0.001,PPRTV,0.001,PPRTV,,,,
+"Hexachlorocyclohexane, Alpha-",319-84-6,0.0009,ATSDR,0.002,ATSDR,,,,
+"Hexachlorocyclohexane, Beta-",319-85-7,,,0.0006,ATSDR,,,,
+"Hexachlorocyclohexane, Delta-",319-86-8,6e-08,SCREEN,6e-08,SCREEN,,,,
+"Hexachlorocyclohexane, Gamma- (Lindane)",58-89-9,8e-07,ATSDR,8e-07,ATSDR,,,,
+Hexachlorocyclopentadiene,77-47-4,0.006,IRIS,0.1,ATSDR,0.0002,IRIS,0.11156237218814,ATSDR
+Hexachloroethane,67-72-1,0.0007,IRIS,0.01,ATSDR,0.03,IRIS,58.0957055214724,ATSDR
+Hexachlorophene,70-30-4,0.0003,IRIS,0.003,HEAST,,,,
+"Hexahydro-1,3,5-trinitro-1,3,5-triazine (RDX)",121-82-4,0.004,IRIS,0.1,ATSDR,,,,
+"Hexamethylene Diisocyanate, 1,6-",822-06-0,,,,,1e-05,IRIS,0.0002063803681,ATSDR
+Hexamethylphosphoramide,680-31-9,0.0004,PPRTV,0.004,PPRTV,,,,
+"Hexane, Commercial",E5241997,,,,,0.6,PPRTV,27,PPRTV
+"Hexane, N-",110-54-3,,,0.3,PPRTV,0.7,IRIS,2,PPRTV
+Hexanedioic Acid,124-04-9,2,PPRTV,2,PPRTV,,,,
+"Hexanol, 1-,2-ethyl- (2-Ethyl-1-hexanol)",104-76-7,0.07,PPRTV,0.07,PPRTV,0.0004,PPRTV,0.004,PPRTV
+Hydrazine,302-01-2,,,0.0009,SCREEN,3e-05,PPRTV,9e-05,PPRTV
+Hydrogen Sulfide,7783-06-4,,,0.03,HEAST,0.002,IRIS,0.0278773006135,ATSDR
+Hydroquinone,123-31-9,0.04,PPRTV,0.4,PPRTV,,,,
+Iron,7439-89-6,0.7,PPRTV,0.7,PPRTV,,,,
+Isobutyl Alcohol,78-83-1,0.3,IRIS,3,HEAST,0.4,SCREEN,1,SCREEN
+Isophorone,78-59-1,0.2,IRIS,3,ATSDR,2,CALEPA,,
+Isopropalin,33820-53-0,0.015,IRIS,0.15,HEAST,,,,
+Isopropanol,67-63-0,2,PPRTV,2,PPRTV,0.2,PPRTV,7,PPRTV
+"Isopropyltoluene, p-",99-87-6,0.004,SCREEN,0.04,SCREEN,0.04,SCREEN,0.1,SCREEN
+Jet propulsion fuel 4 (JP-4),50815-00-4,,,,,,,9,ATSDR
+Jet propulsion fuel 5 (JP-5),E1833915,,,,,,,2,ATSDR
+Jet propulsion fuel 8 (JP-8),E1833916,,,0.3,ATSDR,,,3,ATSDR
+Kerosene,8008-20-6,,,,,,,0.01,ATSDR
+Lactonitrile,78-97-7,0.0002,SCREEN,0.002,SCREEN,,,,
+Lanthanum,7439-91-0,5e-05,PPRTV,5e-05,PPRTV,,,,
+Lanthanum Acetate Hydrate,100587-90-4,2.08e-05,PPRTV,2.08e-05,PPRTV,,,,
+Lanthanum Chloride Heptahydrate,10025-84-0,1.87e-05,PPRTV,1.87e-05,PPRTV,,,,
+"Lanthanum Chloride, Anhydrous",10099-58-8,2.83e-05,PPRTV,2.83e-05,PPRTV,,,,
+Lanthanum Nitrate Hexahydrate,10277-43-7,1.6e-05,PPRTV,1.6e-05,PPRTV,,,,
+Lewisite,541-25-3,5e-06,PPRTV,5e-06,PPRTV,,,,
+Linuron,330-55-2,0.0077,OPP,0.002,HEAST,,,,
+Lithium,7439-93-2,0.002,PPRTV,0.002,PPRTV,,,,
+Lutetium,7439-94-3,,,0.4,PPRTV,,,,
+MCPA,94-74-6,0.0005,IRIS,0.0005,HEAST,,,,
+MCPB,94-81-5,0.044,OPP,0.1,HEAST,,,,
+MCPP,93-65-2,0.001,IRIS,0.01,HEAST,,,,
+Malathion,121-75-5,0.02,IRIS,0.02,ATSDR,,,0.02,ATSDR
+Maleic Anhydride,108-31-6,0.1,IRIS,0.1,HEAST,0.0007,CALEPA,,
+Maleic Hydrazide,123-33-1,0.5,IRIS,0.5,HEAST,,,,
+Malononitrile,109-77-3,0.0001,PPRTV,0.001,PPRTV,,,,
+Mancozeb,8018-01-7,0.03,HEAST,0.03,HEAST,,,,
+Maneb,12427-38-2,0.005,IRIS,0.05,HEAST,,,,
+Manganese (Diet),7439-96-5,0.14,IRIS,0.14,HEAST,5e-05,IRIS,,
+Mephosfolan,950-10-7,9e-05,HEAST,0.0009,HEAST,,,,
+"Mercaptobenzothiazole, 2-",149-30-4,0.004,PPRTV,0.04,PPRTV,,,,
+Mercury Compounds,,,,,,,,,
+~Mercuric Chloride (and other Mercury salts),7487-94-7,0.0003,IRIS,1e-05,ATSDR_DRAFT,0.0003,SURROGATE,,
+~Mercury (elemental),7439-97-6,,,,,0.0003,IRIS,0.0003,HEAST
+~Methyl Mercury,22967-92-6,0.0001,IRIS,0.0001,HEAST,,,,
+~Phenylmercuric Acetate,62-38-4,8e-05,IRIS,8e-05,HEAST,,,,
+Merphos,150-50-5,3e-05,IRIS,0.0003,HEAST,,,,
+Methacrylonitrile,126-98-7,0.0001,IRIS,0.05,PPRTV,0.03,PPRTV,0.3,PPRTV
+Methanol,67-56-1,2,IRIS,5,HEAST,20,IRIS,,
+Methomyl,16752-77-5,0.025,IRIS,0.025,HEAST,,,,
+Methoxychlor,72-43-5,0.005,IRIS,0.005,ATSDR,,,,
+"Methoxyethanol Acetate, 2-",110-49-6,0.008,PPRTV,0.03,PPRTV,0.001,PPRTV,0.01,PPRTV
+"Methoxyethanol, 2-",109-86-4,0.005,PPRTV,0.02,PPRTV,0.007,PPRTV,0.007,PPRTV
+Methyl Acetate,79-20-9,1,SCREEN,,,,,0.1,SCREEN
+Methyl Acrylate,96-33-3,,,,,0.02,PPRTV,0.02,PPRTV
+Methyl Ethyl Ketone (2-Butanone),78-93-3,0.6,IRIS,2,HEAST,5,IRIS,1,HEAST
+Methyl Hydrazine,60-34-4,0.001,PPRTV,0.001,PPRTV,2e-05,SCREEN,0.0003,SCREEN
+Methyl Isobutyl Ketone (4-methyl-2-pentanone),108-10-1,,,0.8,HEAST,3,IRIS,0.8,HEAST
+Methyl Methacrylate,80-62-6,1.4,IRIS,0.08,HEAST,0.7,IRIS,,
+Methyl Parathion,298-00-0,0.00025,IRIS,0.0007,ATSDR,,,,
+Methyl Phosphonic Acid,993-13-5,0.06,SCREEN,0.06,SCREEN,,,,
+Methyl Styrene (Mixed Isomers),25013-15-4,0.006,HEAST,0.006,HEAST,0.04,HEAST,0.04,HEAST
+Methyl tert-Butyl Ether (MTBE),1634-04-4,,,0.4,ATSDR,3,IRIS,3.61,ATSDR
+"Methyl-1,4-benzenediamine dihydrochloride, 2-",615-45-2,0.0003,SCREEN,0.003,SCREEN,,,,
+"Methyl-2-Pentanol, 4-",108-11-2,,,,,3,SCREEN,3,SCREEN
+Methylarsonic acid,124-58-3,0.01,ATSDR,0.1,ATSDR,,,,
+"Methylbenzene,1-4-diamine monohydrochloride, 2-",74612-12-7,0.0002,SCREEN,0.002,SCREEN,,,,
+"Methylbenzene-1,4-diamine sulfate, 2-",615-50-9,0.0003,SCREEN,0.003,SCREEN,,,,
+Methylcyclohexane,108-87-2,,,0.01,SCREEN,0.095,SCREEN,,
+Methylcyclopentane,96-37-7,,,0.4,PPRTV,,,,
+Methylene Chloride,75-09-2,0.006,IRIS,0.06,HEAST,0.6,IRIS,1.04208588957055,ATSDR
+"Methylene-bis(2-chloroaniline), 4,4'-",101-14-4,0.002,PPRTV,0.002,PPRTV,,,,
+"Methylenebisbenzenamine, 4,4'-",101-77-9,,,0.08,ATSDR,0.02,CALEPA,,
+Methylenediphenyl Diisocyanate,101-68-8,,,,,0.0006,IRIS,2e-05,HEAST
+"Methylstyrene, Alpha-",98-83-9,0.07,HEAST,0.7,HEAST,,,,
+Metolachlor,51218-45-2,0.15,IRIS,0.15,HEAST,,,,
+Midrange Aliphatic Hydrocarbon Streams,E1790669,0.01,SCREEN,0.1,SCREEN,0.1,PPRTV,0.1,PPRTV
+Mineral oils,8012-95-1,3,PPRTV,30,PPRTV,,,,
+Mirex,2385-85-5,0.0002,IRIS,0.0002,HEAST,,,,
+Molinate,2212-67-1,0.002,IRIS,0.002,HEAST,,,,
+Molybdenum,7439-98-7,0.005,IRIS,0.06,ATSDR,0.002,ATSDR,,
+Monobutyltin Compounds,E1790663,,,,,,,0.0004,PPRTV
+Monochloramine,10599-90-3,0.1,IRIS,0.1,HEAST,,,,
+Monomethylaniline,100-61-8,0.002,PPRTV,0.02,PPRTV,,,,
+"N,N'-Diphenyl-1,4-benzenediamine",74-31-7,0.0003,SCREEN,0.0003,SCREEN,,,,
+"Naphtha, High Flash Aromatic (HFAN)",64742-95-6,0.03,SCREEN,0.3,SCREEN,0.1,PPRTV,1,PPRTV
+"Neodymium Chloride (Stable, Nonradioactive)",10024-93-8,,,0.8,PPRTV,,,,
+Nickel Soluble Salts,7440-02-0,0.02,IRIS,0.02,HEAST,1e-05,ATSDR_DRAFT,3e-05,ATSDR_DRAFT
+Nitrate (measured as nitrogen),14797-55-8,1.6,IRIS,4,ATSDR,,,,
+Nitrite (measured as nitrogen),14797-65-0,0.1,IRIS,0.1,ATSDR,,,,
+"Nitroaniline, 2-",88-74-4,0.01,SCREEN,0.1,SCREEN,5e-05,SCREEN,0.0004,PPRTV
+"Nitroaniline, 3-",99-09-2,,,0.001,SCREEN,,,,
+"Nitroaniline, 4-",100-01-6,0.004,PPRTV,0.01,PPRTV,0.006,PPRTV,0.02,PPRTV
+Nitrobenzene,98-95-3,0.002,IRIS,0.02,ATSDR,0.009,IRIS,0.01511,ATSDR
+Nitrocellulose,9004-70-0,3000,PPRTV,3000,PPRTV,,,,
+Nitrofurantoin,67-20-9,0.07,HEAST,0.7,HEAST,,,,
+Nitroglycerin,55-63-0,0.0001,PPRTV,0.0001,PPRTV,,,,
+Nitroguanidine,556-88-7,0.1,IRIS,0.1,PPRTV,,,,
+Nitromethane,75-52-5,,,,,0.005,PPRTV,0.004,PPRTV
+"Nitrophenol, 2-",88-75-5,,,,,,,0.0005,PPRTV
+"Nitropropane, 2-",79-46-9,,,0.001,SCREEN,0.02,IRIS,0.07,PPRTV
+"Nitrosodimethylamine, N-",62-75-9,8e-06,PPRTV,8e-06,PPRTV,4e-05,SCREEN,,
+"Nitrotoluene, m-",99-08-1,0.0001,SCREEN,0.001,PPRTV,,,,
+"Nitrotoluene, o-",88-72-2,0.0009,PPRTV,0.01,PPRTV,,,,
+"Nitrotoluene, p-",99-99-0,0.004,PPRTV,0.004,PPRTV,,,,
+"Nonane, n-",111-84-2,0.0003,SCREEN,0.003,PPRTV,0.02,PPRTV,0.2,PPRTV
+Octabromodiphenyl Ether,32536-52-0,0.003,IRIS,3e-06,ATSDR,,,,
+"Octahydro-1,3,5,7-tetranitro-1,3,5,7-tetrazocine (HMX)",2691-41-0,0.05,IRIS,0.05,ATSDR,,,,
+Octamethylpyrophosphoramide,152-16-9,0.002,HEAST,0.002,HEAST,,,,
+Parathion,56-38-2,0.006,HEAST,0.009,ATSDR,,,2e-05,ATSDR
+Pebulate,1114-71-2,0.05,HEAST,0.05,HEAST,,,,
+Pendimethalin,40487-42-1,0.3,OPP,0.04,HEAST,,,,
+Pentabromodiphenyl Ether,32534-81-9,0.002,IRIS,0.02,HEAST,,,0.006,ATSDR
+Pentachlorobenzene,608-93-5,0.0008,IRIS,0.008,HEAST,,,,
+Pentachloronitrobenzene,82-68-8,0.003,IRIS,0.003,HEAST,,,,
+Pentachlorophenol,87-86-5,0.005,IRIS,0.03,HEAST,,,,
+Pentaerythritol tetranitrate (PETN),78-11-5,0.009,PPRTV,0.009,PPRTV,,,,
+Pentamethylphosphoramide (PMPA),10159-46-3,0.0001,SCREEN,0.001,SCREEN,,,,
+"Pentane, n-",109-66-0,,,,,1,PPRTV,10,PPRTV
+Per- and Polyfluoroalkyl Substances (PFAS),,,,,,,,,
+~Ammonium perfluoro-2-methyl-3-oxahexanoate,62037-80-3,3e-06,DWSHA,3e-05,DWSHA,,,,
+~Ammonium perfluorobutanoate,10495-86-0,0.001,IRIS,0.007,IRIS,,,,
+~Ammonium perfluorodecanoate,3108-42-7,2.07e-09,IRIS,2.07e-09,IRIS,,,,
+~Ammonium perfluorohexanoate,21615-47-4,0.0005,IRIS,0.0005,IRIS,,,,
+~Ammonium perfluorooctanoate,3825-26-1,3e-08,DWSHA,3e-08,DWSHA,,,,
+~Hexafluoropropylene oxide dimer acid (HFPO-DA),13252-13-6,3e-06,DWSHA,3e-05,DWSHA,,,,
+~Perfluoro(2-propoxypropanoate),122499-17-6,3e-06,DWSHA,3e-05,DWSHA,,,,
+~Perfluorobutanesulfonate,45187-15-3,0.0003,PPRTV,0.0009,PPRTV,,,,
+~Perfluorobutanesulfonic acid (PFBS),375-73-5,0.0003,PPRTV,0.0009,PPRTV,,,,
+~Perfluorobutanoate,45048-62-2,0.001,IRIS,0.006,IRIS,,,,
+~Perfluorobutanoic acid (PFBA),375-22-4,0.001,IRIS,0.006,IRIS,,,,
+~Perfluorodecanoate,73829-36-4,2e-09,IRIS,2e-09,IRIS,,,,
+~Perfluorodecanoic acid (PFDA),335-76-2,2e-09,IRIS,2e-09,IRIS,,,,
+~Perfluorohexanesulfonate,108427-53-8,2e-05,ATSDR_PFAS,2e-05,ATSDR,,,,
+~Perfluorohexanesulfonic acid (PFHxS),355-46-4,2e-05,ATSDR_PFAS,2e-05,ATSDR,,,,
+~Perfluorohexanoate,92612-52-7,0.0005,IRIS,0.0005,IRIS,,,,
+~Perfluorohexanoic acid (PFHxA),307-24-4,0.0005,IRIS,0.0005,IRIS,,,,
+~Perfluorononanoate,72007-68-2,3e-06,ATSDR_PFAS,3e-06,ATSDR,,,,
+~Perfluorononanoic acid (PFNA),375-95-1,3e-06,ATSDR_PFAS,3e-06,ATSDR,,,,
+~Perfluorooctanesulfonate,45298-90-6,1e-07,DWSHA,1e-07,DWSHA,,,,
+~Perfluorooctanesulfonic acid (PFOS),1763-23-1,1e-07,DWSHA,1e-07,DWSHA,,,,
+~Perfluorooctanoate,45285-51-6,3e-08,DWSHA,3e-08,DWSHA,,,,
+~Perfluorooctanoic acid (PFOA),335-67-1,3e-08,DWSHA,3e-08,DWSHA,,,,
+~Potassium perfluorobutanesulfonate,29420-49-3,0.0003,PPRTV,0.001,PPRTV,,,,
+~Potassium perfluorobutanoate,2966-54-3,0.002,IRIS,0.007,IRIS,,,,
+~Potassium perfluorodecanoate,51604-85-4,2.15e-09,IRIS,2.15e-09,IRIS,,,,
+~Potassium perfluorooctanesulfonate,2795-39-3,1e-07,DWSHA,1e-07,DWSHA,,,,
+~Sodium perfluorobutanoate,2218-54-4,0.001,IRIS,0.007,IRIS,,,,
+~Sodium perfluorodecanoate,3830-45-3,2.09e-09,IRIS,2.09e-09,IRIS,,,,
+~Sodium perfluorohexanoate,2923-26-4,0.0005,IRIS,0.0005,IRIS,,,,
+Permethrin,52645-53-1,0.05,IRIS,0.2,ATSDR,,,,
+Phenol,108-95-2,0.3,IRIS,0.6,HEAST,0.2,CALEPA,,
+Phenothiazine,92-84-2,0.0005,SCREEN,0.005,SCREEN,,,,
+Phenyl Isothiocyanate,103-72-0,0.0002,SCREEN,0.002,PPRTV,,,,
+"Phenylenediamine, m-",108-45-2,0.006,IRIS,0.06,HEAST,,,,
+"Phenylenediamine, p-",106-50-3,0.001,SCREEN,0.01,SCREEN,,,,
+Phorate,298-02-2,0.0002,HEAST,0.0002,HEAST,,,,
+"Phosphates, Inorganic",,,,,,,,,
+~Aluminum metaphosphate,13776-88-0,2.93,SCREEN,2.93,SCREEN,,,,
+~Aluminum salts of inorganic phosphates,E524680405,0.3,SCREEN,0.3,SCREEN,,,,
+~Calcium hydroxide phosphate,12167-74-7,,,1.48,SCREEN,,,,
+~Calcium pyrophosphate,7790-76-3,,,1.95,SCREEN,,,,
+~Calcium salts of inorganic phosphates,,,,8,SCREEN,,,,
+~Diammonium phosphate,7783-28-0,,,0.09,SCREEN,,,,
+~Dicalcium phosphate,7757-93-9,,,8,SCREEN,,,,
+~Dipotassium phosphate,7758-11-4,1,PPRTV,4,PPRTV,,,,
+~Disodium phosphate,7558-79-4,1,PPRTV,4,PPRTV,,,,
+~Monoaluminum phosphate,13530-50-2,3.54,SCREEN,3.54,SCREEN,,,,
+~Monoammonium phosphate,7722-76-1,,,0.09,SCREEN,,,,
+~Monocalcium phosphate,7758-23-8,,,2.12,SCREEN,,,,
+~Monopotassium phosphate,7778-77-0,1,PPRTV,4,PPRTV,,,,
+~Monosodium phosphate,7558-80-7,1,PPRTV,4,PPRTV,,,,
+~Phosphoric Acid,7664-38-2,1,PPRTV,4,PPRTV,0.01,IRIS,,
+"~Phosphoric acid, aluminum salt (1:1) [aluminum phosphate]",7784-30-7,1.36,SCREEN,1.36,SCREEN,,,,
+"~Phosphoric acid, aluminum sodium salt (1:X:X) [sodium aluminum phosphate acidic (acidic SALP)]",7785-88-8,4.26,SCREEN,4.26,SCREEN,,,,
+~Polyphosphoric acid,8017-16-1,1,PPRTV,4,PPRTV,,,,
+~Potassium salts of inorganic phosphates,E524680403,1,PPRTV,4,PPRTV,,,,
+~Sodium aluminum phosphate (anhydrous),10279-59-1,4.99,SCREEN,4.99,SCREEN,,,,
+~Sodium aluminum phosphate (tetrahydrate),10305-76-7,3.52,SCREEN,3.52,SCREEN,,,,
+~Sodium hexametaphosphate,10124-56-8,1,PPRTV,4,PPRTV,,,,
+~Sodium polyphosphate,68915-31-1,1,PPRTV,4,PPRTV,,,,
+~Sodium pyrophosphate,7758-16-9,1,PPRTV,4,PPRTV,,,,
+~Sodium salts of inorganic phosphates,E524680404,1,PPRTV,4,PPRTV,,,,
+~Sodium trimetaphosphate,7785-84-4,1,PPRTV,4,PPRTV,,,,
+~Sodium tripolyphosphate,7758-29-4,1,PPRTV,4,PPRTV,,,,
+~Tetrapotassium phosphate,7320-34-5,1,PPRTV,4,PPRTV,,,,
+~Tetrasodium pyrophosphate,7722-88-5,1,PPRTV,4,PPRTV,,,,
+~Trialuminum sodium tetra decahydrogenoctaorthophosphate (dihydrate),15136-87-5,3.25,SCREEN,3.25,SCREEN,,,,
+~Tricalcium phosphate,7758-87-4,,,8,SCREEN,,,,
+"~Triphosphoric acid, aluminum salt (1:1) [aluminum triphosphate]",13939-25-8,3.13,SCREEN,3.13,SCREEN,,,,
+~Tripotassium phosphate,7778-53-2,1,PPRTV,4,PPRTV,,,,
+~Trisodium phosphate,7601-54-9,1,PPRTV,4,PPRTV,,,,
+Phosphine,7803-51-2,0.0003,IRIS,0.0003,HEAST,0.0003,IRIS,0.003,HEAST
+Phosphorus,7723-14-0,2e-05,IRIS,0.0002,ATSDR,,,,
+"Phosphorus, white",12185-10-3,2e-05,SURROGATE,0.0002,ATSDR,,,,
+Phthalates,,,,,,,,,
+~Bis(2-ethylhexyl)phthalate,117-81-7,0.02,IRIS,0.0001,ATSDR,,,0.00319,ATSDR
+~Butyl Benzyl Phthalate,85-68-7,0.2,IRIS,2,HEAST,,,,
+~Dibutyl Phthalate,84-74-2,0.1,IRIS,1,HEAST,,,,
+~Diethyl Phthalate,84-66-2,0.8,IRIS,6,ATSDR,,,,
+~Dimethylphthalate,131-11-3,,,0.1,SCREEN,,,,
+~Dimethylterephthalate,120-61-6,0.1,IRIS,0.1,HEAST,,,,
+~Diundecyl Phthalate,3648-20-2,,,0.03,PPRTV,,,,
+"~Octyl Phthalate, di-N-",117-84-0,0.01,PPRTV,0.1,PPRTV,,,,
+"~Phthalic Acid, p-",100-21-0,0.5,SCREEN,0.5,SCREEN,,,,
+~Phthalic Anhydride,85-44-9,2,IRIS,2,HEAST,0.02,CALEPA,0.12,HEAST
+"Picric Acid (2,4,6-Trinitrophenol)",88-89-1,0.002,SCREEN,0.006,PPRTV,,,,
+Polybrominated Biphenyls,36355-01-8,7e-06,HEAST,7e-05,HEAST,,,,
+Polychlorinated Biphenyls (PCBs),,,,,,,,,
+~Aroclor 1254,11097-69-1,2e-05,IRIS,3e-05,ATSDR,,,,
+~Aroclor 5460,11126-42-4,0.0006,SCREEN,0.006,SCREEN,,,,
+Polynuclear Aromatic Hydrocarbons (PAHs),,,,,,,,,
+~Acenaphthene,83-32-9,0.06,IRIS,0.2,PPRTV,,,,
+~Anthracene,120-12-7,0.3,IRIS,1,PPRTV,,,,
+~Benzo[e]pyrene,192-97-2,9e-05,SCREEN,9e-05,SCREEN,2e-06,SCREEN,2e-06,SCREEN
+"~Benzofluorene, 2,3-",243-17-4,0.005,SCREEN,0.0008,SCREEN,,,,
+"~Chloronaphthalene, Beta-",91-58-7,0.08,IRIS,0.2,PPRTV,,,,
+~Fluoranthene,206-44-0,0.04,IRIS,0.1,PPRTV,,,,
+~Fluorene,86-73-7,0.04,IRIS,0.0008,PPRTV,,,,
+"~Methylnaphthalene, 1-",90-12-0,0.07,ATSDR_DRAFT,0.6,ATSDR_DRAFT,3e-06,PPRTV,3e-05,PPRTV
+"~Methylnaphthalene, 2-",91-57-6,0.004,IRIS,0.004,PPRTV,,,0.00174,ATSDR_DRAFT
+~Naphthalene,91-20-3,0.02,IRIS,0.2,ATSDR_DRAFT,0.003,IRIS,,
+~Perylene,198-55-0,9e-05,SCREEN,9e-05,SCREEN,2e-06,SCREEN,2e-06,SCREEN
+~Pyrene,129-00-0,0.03,IRIS,0.3,PPRTV,,,,
+"Praseodymium Chloride (Stable, Nonradioactive)",10361-79-2,,,0.8,PPRTV,,,,
+Profluralin,26399-36-0,0.006,HEAST,0.006,HEAST,,,,
+Pronamide,23950-58-5,0.075,IRIS,0.075,HEAST,,,,
+Propachlor,1918-16-7,0.013,IRIS,0.13,HEAST,,,,
+Propazine,139-40-2,0.02,IRIS,0.02,HEAST,,,,
+Propyl benzene,103-65-1,0.1,SCREEN,0.1,SCREEN,1,SCREEN,1,SCREEN
+Propylene Glycol,57-55-6,20,PPRTV,20,PPRTV,,,0.02801226993865,ATSDR
+Propylene Glycol Dinitrate,6423-43-4,,,,,0.00027172188139,ATSDR,0.00027172188139,ATSDR
+Propylene Glycol Monomethyl Ether,107-98-2,0.7,HEAST,7,HEAST,2,IRIS,20,HEAST
+Propylene Oxide,75-56-9,,,,,0.03,IRIS,0.03,HEAST
+Pyridine,110-86-1,0.001,IRIS,0.01,HEAST,,,,
+Ronnel,299-84-3,0.05,HEAST,0.05,HEAST,,,,
+Rubidium,7440-17-7,,,0.004,SCREEN,,,,
+Rubidium Chloride,7791-11-9,,,0.005,SCREEN,,,,
+Rubidium Hydroxide,1310-82-3,,,0.004,SCREEN,,,,
+Rubidium Iodide,7790-29-6,,,0.009,SCREEN,,,,
+"Samarium Chloride (Stable, Nonradioactive)",10361-82-7,,,0.9,PPRTV,,,,
+"Samarium Nitrate (Stable, Nonradioactive)",10361-83-8,,,4e-05,SCREEN,,,,
+Selenious Acid,7783-00-8,0.005,IRIS,0.005,HEAST,,,,
+Selenium,7782-49-2,0.005,IRIS,0.005,HEAST,0.02,CALEPA,,
+Silver,7440-22-4,0.005,IRIS,0.005,HEAST,,,,
+Simazine,122-34-9,0.005,IRIS,0.005,HEAST,,,,
+Sodium Diethyldithiocarbamate,148-18-5,0.03,IRIS,0.3,HEAST,,,,
+Sodium Metavanadate,13718-26-8,0.001,HEAST,0.01,HEAST,,,,
+Sodium Tungstate,13472-45-2,0.0008,PPRTV,0.008,PPRTV,,,,
+Sodium Tungstate Dihydrate,10213-10-2,0.0008,PPRTV,0.008,PPRTV,,,,
+Stirofos (Tetrachlorovinphos),961-11-5,0.03,IRIS,0.03,HEAST,,,,
+"Strontium, Stable",7440-24-6,0.6,IRIS,2,ATSDR,,,,
+Strychnine,57-24-9,0.0003,IRIS,0.003,HEAST,,,,
+Styrene,100-42-5,0.2,IRIS,,,1,IRIS,3,HEAST
+Styrene-Acrylonitrile (SAN) Trimer (THNA isomer),57964-39-3,0.003,PPRTV,0.008,PPRTV,,,,
+Styrene-Acrylonitrile (SAN) Trimer (THNP isomer),57964-40-6,0.003,PPRTV,0.008,PPRTV,,,,
+Sulfolane,126-33-0,0.001,PPRTV,0.01,PPRTV,0.002,SCREEN,0.02,PPRTV
+"Sulfonylbis(4-chlorobenzene), 1,1'-",80-07-9,0.0008,PPRTV,0.004,PPRTV,,,,
+Sulfur Mustard,505-60-2,,,7e-05,ATSDR,,,2e-05,ATSDR
+"Sulfurous acid, 2-chloroethyl 2-[4-(1,1-dimethylethyl)phenoxy]-1-methylethyl ester",140-57-8,0.05,HEAST,0.1,HEAST,,,,
+Temephos,3383-96-8,0.02,HEAST,0.2,HEAST,,,,
+Terbufos,13071-79-9,2.5e-05,HEAST,2.5e-05,HEAST,,,,
+"Tetrachlorobenzene, 1,2,4,5-",95-94-3,3e-05,PPRTV,3e-05,PPRTV,,,,
+"Tetrachloroethane, 1,1,1,2-",630-20-6,0.03,IRIS,0.09,PPRTV,,,,
+"Tetrachloroethane, 1,1,2,2-",79-34-5,0.02,IRIS,0.05,IRIS,,,,
+Tetrachloroethylene,127-18-4,0.006,IRIS,0.008,ATSDR,0.04,IRIS,0.04069,ATSDR
+"Tetrachlorophenol, 2,3,4,6-",58-90-2,0.03,IRIS,0.01,ATSDR,,,,
+"Tetrachlorotoluene, p- alpha, alpha, alpha-",5216-25-1,6e-05,SCREEN,0.0006,SCREEN,,,5e-05,SCREEN
+Tetraethyl Dithiopyrophosphate,3689-24-5,0.0005,IRIS,0.005,HEAST,,,,
+Tetramethylcyclohexane,30501-43-0,,,3,PPRTV,,,,
+"Tetramethylphosphoramide, -N,N,N',N"" (TMPA)",16853-36-4,0.0001,SCREEN,0.001,SCREEN,,,,
+Tetryl (Trinitrophenylmethylnitramine),479-45-8,0.002,PPRTV,0.02,PPRTV,,,,
+Thallium (I) Nitrate,10102-45-1,1e-05,SCREEN,5e-05,SCREEN,,,,
+Thallium (Soluble Salts),7440-28-0,1e-05,SCREEN,4e-05,SCREEN,,,,
+Thallium Acetate,563-68-8,1e-05,SCREEN,5e-05,SCREEN,,,,
+Thallium Carbonate,6533-73-9,2e-05,SCREEN,5e-05,SCREEN,,,,
+Thallium Chloride,7791-12-0,1e-05,SCREEN,5e-05,SCREEN,,,,
+Thallium Sulfate,7446-18-6,2e-05,SCREEN,5e-05,SCREEN,,,,
+Thiocyanates,E1790665,0.0002,PPRTV,0.0006,PPRTV,,,,
+Thiocyanic Acid,463-56-9,0.0002,SCREEN,0.0006,SCREEN,,,,
+"Thiocyanic acid, (2-benzothiazolylthio)methyl ester (TCMTB)",21564-17-0,0.03,HEAST,0.3,HEAST,,,,
+Thiodiglycol,111-48-8,0.07,SCREEN,0.7,SCREEN,,,,
+Thiofanox,39196-18-4,0.0003,HEAST,0.0003,HEAST,,,,
+Thiram,137-26-8,0.015,OPP,0.006,HEAST,,,,
+Tin,7440-31-5,0.6,HEAST,0.3,ATSDR,,,,
+Titanium Tetrachloride,7550-45-0,,,,,0.0001,ATSDR,0.01,ATSDR
+Toluene,108-88-3,0.08,IRIS,0.8,PPRTV,5,IRIS,5,PPRTV
+"Toluenediamine, 2,3-",2687-25-4,0.0001,SCREEN,0.001,SCREEN,,,,
+"Toluenediamine, 2,5-",95-70-5,0.0002,SCREEN,0.002,SCREEN,,,,
+"Toluenediamine, 3,4-",496-72-0,0.0001,SCREEN,0.001,SCREEN,,,,
+"Toluic Acid, p-",99-94-5,0.005,PPRTV,0.05,PPRTV,,,,
+"Toluidine, o- (Methylaniline, 2-)",95-53-4,,,0.02,SCREEN,,,,
+"Toluidine, p-",106-49-0,0.004,SCREEN,0.004,SCREEN,,,,
+Total Petroleum Hydrocarbons (Aliphatic High),E1790670,3,PPRTV,30,PPRTV,,,,
+Total Petroleum Hydrocarbons (Aliphatic Low),E1790666,0.005,PPRTV,0.05,PPRTV,0.4,PPRTV,2,PPRTV
+Total Petroleum Hydrocarbons (Aliphatic Medium),E1790668,0.01,SCREEN,0.1,SCREEN,0.1,PPRTV,0.1,PPRTV
+Total Petroleum Hydrocarbons (Aromatic High),E1790676,0.0003,PPRTV,0.0003,PPRTV,2e-06,PPRTV,2e-06,PPRTV
+Total Petroleum Hydrocarbons (Aromatic Medium),E1790674,0.01,PPRTV,0.04,PPRTV,0.06,PPRTV,0.2,PPRTV
+Toxaphene,8001-35-2,9e-05,PPRTV,0.0003,PPRTV,,,,
+"Toxaphene, Weathered",E1841606,3e-05,SCREEN,3e-05,SCREEN,,,,
+Tri-n-butyltin,688-73-3,0.0003,ATSDR,0.0003,ATSDR,,,,
+Triacetin,102-76-1,80,SCREEN,80,SCREEN,,,,
+Triallate,2303-17-5,0.025,OPP,0.013,HEAST,,,,
+"Tribromobenzene, 1,2,4-",615-54-3,0.005,IRIS,0.05,HEAST,,,,
+"Tribromophenol, 2,4,6-",118-79-6,0.009,SCREEN,0.09,PPRTV,,,,
+Tribufos,78-48-8,0.0002,OPP,0.003,ATSDR,,,0.04,ATSDR
+Tributyl Phosphate,126-73-8,0.01,PPRTV,0.03,PPRTV,,,,
+Tributyltin Compounds,E1790679,0.0003,PPRTV,0.0003,PPRTV,,,,
+"Trichloro-1,2,2-trifluoroethane, 1,1,2-",76-13-1,30,IRIS,,,5,PPRTV,50,PPRTV
+Trichloro-2'-hydroxydiphenylether,3380-34-5,,,4,HEAST,,,,
+"Trichloroaniline, 2,4,6-",634-93-5,3e-05,SCREEN,0.0003,PPRTV,,,,
+"Trichlorobenzene, 1,2,3-",87-61-6,0.0008,SCREEN,0.008,PPRTV,,,,
+"Trichlorobenzene, 1,2,4-",120-82-1,0.01,IRIS,0.09,PPRTV,0.002,PPRTV,0.02,PPRTV
+"Trichloroethane, 1,1,1-",71-55-6,2,IRIS,7,IRIS,5,IRIS,5,IRIS
+"Trichloroethane, 1,1,2-",79-00-5,0.004,IRIS,0.004,PPRTV,0.0002,SCREEN,0.01091,ATSDR
+Trichloroethylene,79-01-6,0.0005,IRIS,0.0005,ATSDR,0.002,IRIS,0.00215,ATSDR
+Trichlorofluoromethane,75-69-4,0.3,IRIS,,,,,1,PPRTV
+"Trichlorophenol, 2,4,5-",95-95-4,0.1,IRIS,0.3,PPRTV,,,,
+"Trichlorophenol, 2,4,6-",88-06-2,0.001,PPRTV,0.005,ATSDR,,,,
+"Trichlorophenoxyacetic Acid, 2,4,5-",93-76-5,0.01,IRIS,0.1,HEAST,,,,
+"Trichlorophenoxypropionic acid, -2,4,5",93-72-1,0.008,IRIS,0.008,HEAST,,,,
+"Trichloropropane, 1,1,2-",598-77-6,0.005,IRIS,0.01,PPRTV,,,,
+"Trichloropropane, 1,2,3-",96-18-4,0.004,IRIS,0.03,ATSDR,0.0003,IRIS,,
+"Trichloropropene, 1,2,3-",96-19-5,0.003,SCREEN,0.03,PPRTV,0.0003,PPRTV,0.003,PPRTV
+Tricresyl Phosphate (TCP),1330-78-5,0.02,ATSDR,0.04,ATSDR,,,,
+Triethylene Glycol,112-27-6,2,PPRTV,2,PPRTV,,,,
+"Trifluoroethane, 1,1,1-",420-46-2,,,,,20,PPRTV,200,PPRTV
+Trifluralin,1582-09-8,0.0075,IRIS,0.0075,HEAST,,,,
+Trimethyl Phosphate,512-56-1,0.01,PPRTV,0.01,PPRTV,,,,
+"Trimethylbenzene, 1,2,3-",526-73-8,0.01,IRIS,0.04,IRIS,0.06,IRIS,0.2,IRIS
+"Trimethylbenzene, 1,2,4-",95-63-6,0.01,IRIS,0.04,IRIS,0.06,IRIS,0.2,IRIS
+"Trimethylbenzene, 1,3,5-",108-67-8,0.01,IRIS,0.04,IRIS,0.06,IRIS,0.2,IRIS
+"Trimethylpentene, 2,4,4-",25167-70-8,0.01,SCREEN,0.1,SCREEN,,,,
+"Trinitrobenzene, 1,3,5-",99-35-4,0.03,IRIS,0.0005,HEAST,,,,
+"Trinitrotoluene, 2,4,6-",118-96-7,0.0005,IRIS,0.0005,ATSDR,,,,
+Triphenylphosphine Oxide,791-28-6,0.02,PPRTV,0.02,PPRTV,,,,
+"Tris(1,3-Dichloro-2-propyl) Phosphate",13674-87-8,0.02,ATSDR,0.05,ATSDR,,,,
+Tris(1-chloro-2-propyl)phosphate,13674-84-5,0.01,SCREEN,0.1,SCREEN,,,,
+Tris(2-chloroethyl)phosphate,115-96-8,0.007,PPRTV,0.02,PPRTV,,,,
+Trisbutoxyethyl Phosphate,78-51-3,,,0.09,ATSDR,,,,
+Tungsten,7440-33-7,0.0008,PPRTV,0.008,PPRTV,,,,
+Uranium,7440-61-1,0.0002,ATSDR_URANIUM,0.0002,ATSDR,4e-05,ATSDR,0.0001,ATSDR
+Vanadium Pentoxide,1314-62-1,0.009,IRIS,,,7e-06,PPRTV,0.0001,PPRTV
+Vanadium and Compounds,7440-62-2,0.00504,SURROGATE,0.01,ATSDR,0.0001,ATSDR,,
+Vernolate,1929-77-7,0.001,IRIS,0.01,HEAST,,,,
+Vinyl Acetate,108-05-4,1,HEAST,1,HEAST,0.2,IRIS,2.46,ATSDR_DRAFT
+Vinyl Bromide,593-60-2,,,,,0.003,IRIS,0.3,PPRTV
+Vinyl Chloride,75-01-4,0.003,IRIS,,,0.05112,ATSDR,0.05112,ATSDR
+Warfarin,81-81-2,0.0003,IRIS,0.0003,HEAST,,,,
+Xylenes,1330-20-7,0.2,IRIS,0.4,PPRTV,0.1,IRIS,0.4,PPRTV
+Zinc Phosphide,1314-84-7,0.0003,IRIS,0.003,HEAST,,,,
+Zinc and Compounds,7440-66-6,0.3,IRIS,0.3,ATSDR,,,,
+Zineb,12122-67-7,0.05,IRIS,0.05,HEAST,,,,
+Zirconium,7440-67-7,8e-05,SCREEN,8e-05,SCREEN,,,,

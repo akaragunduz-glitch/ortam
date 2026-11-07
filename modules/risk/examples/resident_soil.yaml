@@ -1,0 +1,15 @@
+# Resident soil: screening levels, cancer risk and hazard index.
+# Concentrations are exposure point concentrations (e.g. 95% UCL), mg/kg.
+# Run: uv run ortam run risk.resident-soil modules/risk/examples/resident_soil.yaml
+toxicity_table: rsl-2024-11   # EPA RSL, November 2024
+target_risk: 1.0e-6
+target_hq: 1.0
+chemicals:
+  - cas: "7440-38-2"          # Arsenic, inorganic (RBA = 0.6 by default)
+    concentration_mg_kg: 8.5
+  - cas: "7440-39-3"          # Barium
+    concentration_mg_kg: 420
+  - cas: "7440-50-8"          # Copper
+    concentration_mg_kg: 95
+  - cas: "60-57-1"            # Dieldrin
+    concentration_mg_kg: 0.02

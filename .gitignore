@@ -15,3 +15,5 @@ engines/**/runs/
 .DS_Store
 # Project plan document (kept outside the repository)
 *.docx
+# Temporary renders
+.tmp_render/
