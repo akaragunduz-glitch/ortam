@@ -63,6 +63,17 @@ written Fortran in the past; software development experience is limited.
    plan and wait for approval.
 9. **End of every session:** write a journal entry in `docs/journal/`
    (done, remaining, open questions).
+10. **Every completed deliverable updates the roadmap**
+    `docs/ORTAM_Yol_Haritasi.xlsx` (in Turkish, for the project owner):
+    - `Teslimatlar`: edit only the input cells (yellow, blue text) —
+      Durum, İlerleme (0-1), Tamamlanma tarihi — plus Gerçekleşen sonuç and
+      Commit; add a row for any new sub-deliverable (copy the formulas of
+      columns F and M from the row above);
+    - `Doğrulama`: add one row per verification (reference, compared,
+      matched) and keep the total formulas covering all rows;
+    - `Açık sorular`: add new questions, mark resolved ones `Çözüldü`;
+    - never overwrite formula cells; recalculate (LibreOffice) and check
+      that there are no formula errors before saving.
 
 ## Folder structure
 
