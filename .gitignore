@@ -7,7 +7,7 @@ __pycache__/
 node_modules/
 dist/
 build/
-# Model çalıştırma çıktıları
+# Model run outputs
 engines/**/runs/
 *.out
 *.lst
