@@ -1,0 +1,11 @@
+# Recreator surface water (swimming, wading). EF, EV and ET_event are site-specific.
+# Run: uv run ortam run risk.recreator-surface-water modules/risk/examples/recreator_surface_water.yaml
+exposure:
+  ef_d_yr: [26, 26, 26, 26]
+  ev_per_d: [1, 1, 1, 1]
+  et_event_h: [2, 2, 2, 2]
+chemicals:
+  - cas: "7440-38-2"
+    concentration_ug_l: 15
+  - cas: "79-01-6"
+    concentration_ug_l: 40

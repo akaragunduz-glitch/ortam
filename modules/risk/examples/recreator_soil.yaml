@@ -1,0 +1,15 @@
+# Recreator soil or sediment. EF, ET, IRS, SA and AF are site-specific
+# (four values: ages 0-2, 2-6, 6-16, 16-26). Example: weekend use of a park.
+# Run: uv run ortam run risk.recreator-soil modules/risk/examples/recreator_soil.yaml
+medium: soil
+exposure:
+  ef_d_yr: [104, 104, 104, 104]
+  et_h_d: [2, 2, 2, 2]
+  irs_mg_d: [200, 200, 100, 100]
+  sa_soil_cm2_d: [2373, 2373, 6032, 6032]
+  af_mg_cm2: [0.2, 0.2, 0.07, 0.07]
+chemicals:
+  - cas: "7440-38-2"
+    concentration_mg_kg: 12
+  - cas: "50-32-8"            # Benzo(a)pyrene (mutagen: ADAF)
+    concentration_mg_kg: 0.4

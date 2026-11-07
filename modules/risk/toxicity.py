@@ -91,3 +91,20 @@ def lookup(table: str, cas: str | None = None, name: str | None = None) -> Chemi
         t_star_h=_f(p.get("t_star_hr")),
         keys=tuple((k, r[f"{k}_key"]) for k in ("sfo", "iur", "rfd", "rfc") if r[f"{k}_key"]),
     )
+
+
+@lru_cache(maxsize=None)
+def _subchronic(table: str) -> dict[tuple[str, str], dict]:
+    return {(r["cas"], r["name"]): r for r in _read(table, "subchronic_toxicity.csv")}
+
+
+def subchronic(table: str, c: Chemical) -> tuple[float | None, float | None]:
+    """Subchronic oral RfD (mg/kg-day) and inhalation RfC (mg/m3), or None if not listed.
+
+    Source: RSL Subchronic Toxicity table (rsl_subchronic_toxicity_<version>.xlsx);
+    RSL UG 2.3.1.2 and 2.3.2.2.
+    """
+    if table == "none":
+        return None, None
+    r = _subchronic(table).get((c.cas, c.name), {})
+    return _f(r.get("srfdo_mg_kg_day")), _f(r.get("srfci_mg_m3"))

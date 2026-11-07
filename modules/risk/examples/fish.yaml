@@ -1,0 +1,8 @@
+# Ingestion of fish: concentrations in fish tissue, mg/kg (wet weight).
+# Run: uv run ortam run risk.fish modules/risk/examples/fish.yaml
+irf_mg_d: 54000               # site-specific fish ingestion rate, mg/day (example)
+chemicals:
+  - cas: "60-57-1"            # Dieldrin
+    concentration_mg_kg: 0.002
+  - cas: "7440-50-8"          # Copper
+    concentration_mg_kg: 1.5

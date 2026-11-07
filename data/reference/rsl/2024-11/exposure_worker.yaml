@@ -1,0 +1,42 @@
+# Default exposure parameters for worker receptors (soil and air).
+# Source: docs/references/rsl_default_exposure_parameters_2024-11.xlsx, cited as
+# "<worksheet>, row <n>" and checked by test_rsl_import.py; values not listed in
+# the workbook are taken from the RSL User's Guide equation images ("RSL UG").
+# Equations: RSL UG 4.2 (composite), 4.3 (outdoor), 4.4 (indoor), 4.5 (construction).
+
+rsl_version: "2024-11"
+receptors:
+  composite:
+    ef_d_yr:     {value: 250,  unit: "day/yr",  symbol: EFcom, source: "EF, ED, ET, row 6"}
+    ed_yr:       {value: 25,   unit: "yr",      symbol: EDcom, source: "EF, ED, ET, row 24"}
+    et_h_d:      {value: 8,    unit: "h/day",   symbol: ETcom, source: "EF, ED, ET, row 38"}
+    bw_kg:       {value: 80,   unit: "kg",      symbol: BWcom, source: "Ingestion and Dermal Rates, row 85"}
+    irs_mg_d:    {value: 100,  unit: "mg/day",  symbol: IRcom, source: "Ingestion and Dermal Rates, row 14"}
+    sa_cm2_d:    {value: 3527, unit: "cm2/day", symbol: SAcom, source: "Ingestion and Dermal Rates, row 46"}
+    af_mg_cm2:   {value: 0.12, unit: "mg/cm2",  symbol: AFcom, source: "Ingestion and Dermal Rates, row 66"}
+  outdoor:
+    ef_d_yr:     {value: 225,  unit: "day/yr",  symbol: EFout, source: "EF, ED, ET, row 8"}
+    ed_yr:       {value: 25,   unit: "yr",      symbol: EDout, source: "EF, ED, ET, row 26"}
+    et_h_d:      {value: 8,    unit: "h/day",   symbol: ETout, source: "EF, ED, ET, row 40"}
+    bw_kg:       {value: 80,   unit: "kg",      symbol: BWout, source: "Ingestion and Dermal Rates, row 82"}
+    irs_mg_d:    {value: 100,  unit: "mg/day",  symbol: IRout, source: "Ingestion and Dermal Rates, row 12"}
+    sa_cm2_d:    {value: 3527, unit: "cm2/day", symbol: SAout, source: "Ingestion and Dermal Rates, row 44"}
+    af_mg_cm2:   {value: 0.12, unit: "mg/cm2",  symbol: AFout, source: "Ingestion and Dermal Rates, row 65"}
+  indoor:
+    # No dermal contact with outdoor soil (RSL UG 4.4.1, PDF p. 112)
+    ef_d_yr:     {value: 250,  unit: "day/yr",  symbol: EFind, source: "EF, ED, ET, row 7"}
+    ed_yr:       {value: 25,   unit: "yr",      symbol: EDind, source: "EF, ED, ET, row 25"}
+    et_h_d:      {value: 8,    unit: "h/day",   symbol: ETind, source: "EF, ED, ET, row 39"}
+    bw_kg:       {value: 80,   unit: "kg",      symbol: BWind, source: "Ingestion and Dermal Rates, row 84"}
+    irs_mg_d:    {value: 50,   unit: "mg/day",  symbol: IRind, source: "Ingestion and Dermal Rates, row 11"}
+  construction:
+    # EF = EW*DW = 250 day/yr; noncancer AT = EW*7*ED = 350 day (RSL UG 4.5.1.1, PDF p. 117)
+    ew_wk_yr:    {value: 50,   unit: "wk/yr",   symbol: EWcon, source: "RSL UG 4.5.1.1, PDF p. 117"}
+    dw_d_wk:     {value: 5,    unit: "day/wk",  symbol: DWcon, source: "RSL UG 4.5.1.1, PDF p. 117"}
+    ef_d_yr:     {value: 250,  unit: "day/yr",  symbol: EFcon, source: "EF, ED, ET, row 9"}
+    ed_yr:       {value: 1,    unit: "yr",      symbol: EDcon, source: "EF, ED, ET, row 27"}
+    et_h_d:      {value: 8,    unit: "h/day",   symbol: ETcon, source: "EF, ED, ET, row 41"}
+    bw_kg:       {value: 80,   unit: "kg",      symbol: BWcon, source: "Ingestion and Dermal Rates, row 83"}
+    irs_mg_d:    {value: 330,  unit: "mg/day",  symbol: IRcon, source: "Ingestion and Dermal Rates, row 13"}
+    sa_cm2_d:    {value: 3527, unit: "cm2/day", symbol: SAcon, source: "Ingestion and Dermal Rates, row 45"}
+    af_mg_cm2:   {value: 0.3,  unit: "mg/cm2",  symbol: AFcon, source: "Ingestion and Dermal Rates, row 67"}

@@ -1,0 +1,7 @@
+# Worker air. Run: uv run ortam run risk.worker-air modules/risk/examples/worker_air.yaml
+receptor: composite
+chemicals:
+  - cas: "79-01-6"            # Trichloroethylene
+    concentration_ug_m3: 2.0
+  - cas: "127-18-4"           # Tetrachloroethylene
+    concentration_ug_m3: 15.0

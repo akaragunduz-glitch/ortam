@@ -1,0 +1,25 @@
+# Recreator (soil or sediment; surface water) - default values by age segment.
+# Most recreator parameters are site-specific in the RSL (no defaults); the
+# fields marked "site-specific" must be supplied in the input file.
+# Child, adult and age-adjusted values are ED-weighted means of the segments
+# (RSL UG 4.6.1.7, PDF pp. 149-152; 4.6.2.7, pp. 178-182).
+# Source: docs/references/rsl_default_exposure_parameters_2024-11.xlsx ("<worksheet>, row <n>").
+
+rsl_version: "2024-11"
+segments: ["0-2", "2-6", "6-16", "16-26"]
+defaults:
+  ed_yr:         {values: [2, 4, 10, 10],                 unit: "yr",
+                  sources: ["EF, ED, ET, row 31", "EF, ED, ET, row 32", "EF, ED, ET, row 33", "EF, ED, ET, row 34"]}
+  bw_kg:         {values: [15, 15, 80, 80],               unit: "kg",
+                  sources: ["Ingestion and Dermal Rates, row 78", "Ingestion and Dermal Rates, row 79",
+                            "Ingestion and Dermal Rates, row 80", "Ingestion and Dermal Rates, row 81"]}
+  sa_water_cm2:  {values: [6365, 6365, 19652, 19652],     unit: "cm2",
+                  sources: ["Ingestion and Dermal Rates, row 59", "Ingestion and Dermal Rates, row 60",
+                            "Ingestion and Dermal Rates, row 61", "Ingestion and Dermal Rates, row 62"]}
+  irw_l_h:       {values: [0.12, 0.12, 0.124, 0.0985],    unit: "L/h",
+                  sources: ["Ingestion and Dermal Rates, row 18", "Ingestion and Dermal Rates, row 19",
+                            "Ingestion and Dermal Rates, row 20", "Ingestion and Dermal Rates, row 21"]}
+  adaf:          {values: [10, 3, 3, 1],                  unit: "-", sources: "RSL UG 4.6.1.4, PDF p. 131"}
+site_specific:
+  soil:  [ef_d_yr, et_h_d, irs_mg_d, sa_soil_cm2_d, af_mg_cm2]
+  water: [ef_d_yr, ev_per_d, et_event_h]

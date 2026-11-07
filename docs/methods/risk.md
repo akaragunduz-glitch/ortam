@@ -156,12 +156,52 @@ regulatory levels, RSL UG §5.2) and refractory ceramic fibres (fibre units,
 D1.2); their ingestion, dermal and inhalation equations are verified by hand
 calculation.
 
+## Worker, construction worker, recreator and fish (task D1.1c)
+
+| Tool | RSL User's Guide | Parameters | Verification |
+|------|------------------|------------|--------------|
+| `risk.worker-soil` (composite, outdoor, indoor) | §4.2.1, 4.3.1, 4.4.1; pp. 101-114 | `exposure_worker.yaml` | composite = RSL Industrial Soil, 554/554 |
+| `risk.worker-air` (composite, outdoor, indoor) | §4.2.2, 4.3.2, 4.4.2; pp. 105-116 | `exposure_worker.yaml` | composite = RSL Industrial Air, 365/365 |
+| `risk.construction-soil` (traffic / other activities) | §4.5; pp. 116-124 | `exposure_worker.yaml` | hand calculations |
+| `risk.recreator-soil` (soil or sediment) | §4.6.1; pp. 124-153 | `exposure_recreator.yaml` + site-specific input | equivalence with resident soil, 554 chemicals |
+| `risk.recreator-surface-water` | §4.6.2; pp. 153-182 | `exposure_recreator.yaml` + site-specific input | equivalence with resident tap water (ingestion, dermal) |
+| `risk.fish` (fish tissue) | §4.7; pp. 182-183 | resident EF, ED, BW; site-specific IRF | hand calculations |
+
+**Workers.** One equation form (`equations/worker.py`) with receptor
+parameters; noncancer AT = 365·ED. Mutagenic, VC and TCE adjustments do not
+apply to adult workers; the standard equations reproduce the Industrial
+tables for all chemicals, including mutagens, VC and TCE. The indoor worker
+has no dermal route (§4.4.1, p. 112).
+
+**Construction worker.** Same form with EF = EW·DW (250 day/yr), noncancer
+AT = EW·7·ED (350 day), ED = 1 yr, IRS 330 mg/day, AF 0.3 mg/cm2
+(EW and DW from §4.5.1.1, p. 117). PEFsc (traffic, §4.9.2) or PEF'sc
+(other activities, §4.9.3) and VFsc are **user inputs**; their calculation
+belongs to task D1.2 (requires EPA Supplemental Soil Screening Guidance 2002).
+Noncancer toxicity: subchronic RfD/RfC by default (RSL subchronic table);
+where none exists the chronic value is used and flagged.
+
+**Recreator.** The recreator equations have the resident form with
+recreator parameters. Child, adult and age-adjusted parameters are
+ED-weighted means of the four age segments (§4.6.1.7, §4.6.2.7);
+surface-water ingestion uses IRW_day = EV · ET_event · IRW (L/h).
+`equations/recreator.py` maps the recreator inputs onto the resident
+parameter structure, so that the verified resident soil and tap water
+equations (including mutagen, VC and TCE sets and the dermal water model)
+are reused. Surface water has no inhalation route (§4.6.2, p. 153).
+Site-specific inputs: soil — EF, ET, IRS, SA, AF; water — EF, EV, ET_event.
+The equivalence tests set these to the resident values and require
+identical results.
+
+**Fish.** SL in fish tissue (mg/kg), adult resident, not age-adjusted;
+IRF is site-specific (§4.7).
+
 ### Planned extensions
 
 | Task | Content |
 |------|---------|
 | D1.1b | Done: mutagens (ADAF), TCE, vinyl chloride; tap water and air |
 | D1.1d | Doses (CDI, DAD, EC) as outputs, verified against RAGS A/E/F |
-| D1.1c | Composite and construction worker, recreator (sediment, surface water), fish |
+| D1.1c | Done: workers, construction worker, recreator (soil/sediment, surface water), fish |
 | D1.2 | VF and PEF calculation (SSL), Johnson & Ettinger |
 | D1.3 | `foodchain` module (RAIS farmer, HHRAP) and food ingestion in `risk` |

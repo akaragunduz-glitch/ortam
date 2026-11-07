@@ -1,0 +1,9 @@
+# Worker soil. Run: uv run ortam run risk.worker-soil modules/risk/examples/worker_soil.yaml
+receptor: composite           # composite | outdoor | indoor
+chemicals:
+  - cas: "7440-38-2"          # Arsenic, inorganic
+    concentration_mg_kg: 8.5
+  - cas: "7439-92-1"          # Lead: no RSL toxicity values -> warning only
+    name: "~Lead and Compounds"
+  - cas: "60-57-1"            # Dieldrin
+    concentration_mg_kg: 0.05

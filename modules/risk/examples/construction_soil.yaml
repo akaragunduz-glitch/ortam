@@ -1,0 +1,10 @@
+# Construction worker soil. PEFsc must be supplied (its calculation is task D1.2).
+# Run: uv run ortam run risk.construction-soil modules/risk/examples/construction_soil.yaml
+activity: traffic             # traffic (PEFsc, RSL UG 4.5.1) | other (PEF'sc, 4.5.2)
+pef_sc_m3_kg: 2.5e6           # example value, m3/kg
+toxicity_duration: subchronic
+chemicals:
+  - cas: "7440-38-2"          # Arsenic, inorganic (no subchronic value -> chronic, flagged)
+    concentration_mg_kg: 25
+  - cas: "7440-50-8"          # Copper
+    concentration_mg_kg: 900

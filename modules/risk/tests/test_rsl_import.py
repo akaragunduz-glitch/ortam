@@ -102,3 +102,25 @@ def test_age_segments_match_workbook():
             continue  # taken from the RSL User's Guide equation images (checked via factors)
         for seg, src in zip(params["age_segments"], sources):
             assert seg[field] == pytest.approx(_cell_value(wb, src)), (field, seg["label"])
+
+
+def test_worker_defaults_match_workbook():
+    params = yaml.safe_load((DATA_DIR / "exposure_worker.yaml").read_text(encoding="utf-8"))
+    wb = _workbook()
+    for receptor, fields in params["receptors"].items():
+        for key, p in fields.items():
+            if p["source"].startswith("RSL UG"):
+                continue  # EWcon, DWcon: equation images; EF = EW*DW checked below
+            assert p["value"] == pytest.approx(_cell_value(wb, p["source"])), (receptor, key)
+    con = params["receptors"]["construction"]
+    assert con["ew_wk_yr"]["value"] * con["dw_d_wk"]["value"] == con["ef_d_yr"]["value"]
+
+
+def test_recreator_defaults_match_workbook():
+    params = yaml.safe_load((DATA_DIR / "exposure_recreator.yaml").read_text(encoding="utf-8"))
+    wb = _workbook()
+    for key, p in params["defaults"].items():
+        if isinstance(p["sources"], str):
+            continue
+        for v, src in zip(p["values"], p["sources"]):
+            assert v == pytest.approx(_cell_value(wb, src)), (key, src)

@@ -112,5 +112,8 @@ docs/              Documentation
   `data/reference/rsl/2024-11/`; 533 chemicals match the RSL Summary Table.
 - D1.1b complete (2026-11-07): mutagens, TCE, VC; `risk.resident-tapwater`
   and `risk.resident-air`. Shared equations in `modules/risk/equations/`.
-- Next task: D1.1c — composite/construction worker, recreator, fish
-  (or D1.1d — doses CDI/DAD/EC).
+- D1.1c complete (2026-11-07): `risk.worker-soil`, `risk.worker-air`,
+  `risk.construction-soil`, `risk.recreator-soil`,
+  `risk.recreator-surface-water`, `risk.fish`.
+- Next task: D1.1d — doses (CDI, DAD, EC), or D1.2 — VF/PEF (SSL),
+  PEFsc/VFsc and Johnson & Ettinger.
