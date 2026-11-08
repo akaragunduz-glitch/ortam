@@ -1,0 +1,4 @@
+# Treat documents and workbooks as binary (no line diffs)
+*.pdf binary
+*.xlsx binary
+*.xlsm binary
