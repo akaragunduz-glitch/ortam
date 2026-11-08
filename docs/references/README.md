@@ -83,6 +83,27 @@ tables (text could be read from page 1 only); they were repaired with `qpdf`
 | `vleach_2.2_users_guide.pdf` | VLEACH UG | Ravi, V. and Johnson, J.A., VLEACH: A One-Dimensional Finite Difference Vadose Zone Leaching Model, Version 2.2, EPA CSMOS | 71 | https://www.epa.gov/sites/production/files/2014-08/documents/vleach.pdf |
 | `vleach_2.2a_setup.exe` | VLEACH setup | VLEACH 2.2a Windows setup (May 2007 release); contains the executable and the EPA sample problem used as reference (see `modules/vadose/tests/generate_vleach_reference.py`) | - | https://19january2025snapshot.epa.gov/sites/default/files/2014-07/vleachsetup.exe |
 
+## NAPL (LNAPL, petroleum fuels)
+
+| File | Short name | Document | Pages | Source |
+|------|------------|----------|-------|--------|
+| `hssm_vol1_users_guide.pdf` | HSSM Vol. 1 | Weaver, Charbeneau, Tauxe, Lien, Provost (1994), The Hydrocarbon Spill Screening Model (HSSM) Volume 1: User's Guide, EPA/600/R-94/039a; Raoult's law (App. 3.2), RAOULT utility (App. 6) | 237 | EPA HSSM web page (Center for Exposure Assessment Modeling) |
+| `hssm_vol2_theory_source.pdf` | HSSM Vol. 2 | Charbeneau, Weaver, Lien (1994), HSSM Volume 2: Theoretical Background and Source Codes, EPA/600/R-94/039b (Fortran source of KOPT, OILENS, TSGPLUME, RAOULT) | 345 | EPA HSSM web page |
+| `hssm_readme.pdf` | HSSM readme | HSSM release notes | 8 | EPA HSSM web page |
+| `hssm_1.1_dos.zip` | HSSM 1.1 DOS | HSSM 1.1 for DOS with example data sets and outputs (x1stf, x2bt); reference for `napl.hssm` (D1.5c) | - | EPA HSSM web page |
+| `hssm_1.20a_setup.exe` | HSSM-Win 1.20a | HSSM for MS Windows 3.x (NE executable) | - | EPA HSSM web page |
+| `hssm_vol2_datasets.zip` | HSSM Vol. 2 data | 95 data sets used in HSSM Vol. 2 | - | EPA HSSM web page |
+| `bioscreen_users_manual_1996.pdf` | BIOSCREEN manual | Newell, McLeod, Gonzales (1996), BIOSCREEN Natural Attenuation Decision Support System, User's Manual Version 1.3, EPA/600/R-96/087, with the Version 1.4 revisions (July 1997) | 100 | EPA BIOSCREEN web page (NEPIS P1007K50) |
+| `bioscreen_1.4.zip` | BIOSCREEN 1.4 | BIOSCREEN 1.4 Excel model (BIOSCRN4.xls) and manuals; reference for `napl.source-plume` (D1.5b) | - | EPA BIOSCREEN web page |
+| `epa_pvi_guide_2015.pdf` | PVI Guide (2015) | Technical Guide for Addressing Petroleum Vapor Intrusion at Leaking Underground Storage Tank Sites, EPA 510-R-15-001, June 2015; LNAPL indicators p. 58 | 129 | EPA Office of Underground Storage Tanks |
+
+## Surface water
+
+| File | Short name | Document | Pages | Source |
+|------|------------|----------|-------|--------|
+| `mills_1985_wq_screening_part1.pdf` | Mills 1985 Part I | Mills et al. (1985), Water Quality Assessment: A Screening Procedure for Toxic and Conventional Pollutants in Surface and Ground Water, Part I (Revised 1985), EPA/600/6-85/002a | 1321 | EPA (file WQASP.PDF) |
+| `mills_1985_wq_screening_part2.pdf` | Mills 1985 Part II | Same, Part II (Revised 1985), EPA/600/6-85/002b: impoundments (lakes), estuaries, groundwater | 494 | https://nepis.epa.gov/Exe/ZyPDF.cgi?Dockey=30000XF4.PDF |
+
 ## Notes
 
 - Part E links point to the EPA web snapshot of 19 January 2025; the

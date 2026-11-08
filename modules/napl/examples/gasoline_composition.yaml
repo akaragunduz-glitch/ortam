@@ -1,0 +1,15 @@
+# NAPL/water partition coefficients of a gasoline of known composition.
+# Composition: HSSM Vol. 1 Table 106 (default RAOULT.DAT, Baehr and Corapcioglu 1987).
+# Run: uv run ortam run napl.equilibrium modules/napl/examples/gasoline_composition.yaml
+basis: napl
+chemical_table: none
+components:
+  - {name: benzene,         napl_g_cm3: 0.0082, solubility_mg_l: 1750, mw_g_mol: 78,  groundwater_mg_l: 4.2}
+  - {name: toluene,         napl_g_cm3: 0.0426, solubility_mg_l: 535,  mw_g_mol: 92}
+  - {name: xylenes,         napl_g_cm3: 0.0718, solubility_mg_l: 167,  mw_g_mol: 106}
+  - {name: 1-hexene,        napl_g_cm3: 0.0159, solubility_mg_l: 0,    mw_g_mol: 84}
+  - {name: cyclohexane,     napl_g_cm3: 0.0021, solubility_mg_l: 0,    mw_g_mol: 84}
+  - {name: n-hexane,        napl_g_cm3: 0.0204, solubility_mg_l: 0,    mw_g_mol: 86}
+  - {name: other aromatics, napl_g_cm3: 0.0740, solubility_mg_l: 0,    mw_g_mol: 106}
+  - {name: other paraffins, napl_g_cm3: 0.3367, solubility_mg_l: 0,    mw_g_mol: 97.2}
+  - {name: heavy ends,      napl_g_cm3: 0.1451, solubility_mg_l: 0,    mw_g_mol: 128}

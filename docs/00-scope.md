@@ -41,12 +41,16 @@ The platform is used in two ways:
 | M14 | Exposure and risk | RAGS A/B/E/F; HQ, HI, ILCR; Monte Carlo |
 | M15 | Remediation goals and strategy | Risk-based back-calculation, technology screening, remediation volume (m3) |
 | M16 | Reporting | PDF and Word reports |
+| M17 | NAPL | Raoult equilibrium and effective solubility, BIOSCREEN source-plume, HSSM (KOPT, OILENS, TSGPLUME) |
+| M18 | Surface water | Watershed loading and water body (HHRAP B-4), rivers and lakes (Mills et al. 1985) |
 
 ### 2.2 Out of scope (version 1.0)
 
 - Ecological risk assessment (to be considered in later versions)
 - Radionuclides
-- Multiphase flow (numerical modelling of NAPL migration)
+- Multiphase flow (numerical, finite-difference/finite-element modelling of NAPL
+  migration); NAPL equilibrium (Raoult) and the semi-analytical HSSM screening model
+  are in scope (module `napl`, D1.5)
 - Real-time sensor data streams
 
 ## 3. Target users

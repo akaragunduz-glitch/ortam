@@ -1,0 +1,20 @@
+# Indicators of LNAPL at petroleum UST sites.
+# Source: EPA (2015) Technical Guide for Addressing Petroleum Vapor Intrusion at Leaking
+# Underground Storage Tank Sites, EPA 510-R-15-001 (docs/references/epa_pvi_guide_2015.pdf),
+# Chapter 6 (LNAPL), printed page 58 [PDF 64]; thresholds adopted from EPA (2013), the
+# effective-solubility indicator from Bruce et al. (1991) (footnote 29).
+# The guide states that there is no precise threshold and recommends multiple lines of evidence.
+
+source: "EPA 510-R-15-001 (2015), p. 58 [64]"
+groundwater_mg_l:
+  benzene: {value: 5.0, cas: "71-43-2", source: "p. 58 [64]; EPA (2013)"}
+  tph: {value: 30.0, source: "p. 58 [64]; EPA (2013)"}
+soil_mg_kg:
+  benzene: {value: 10.0, cas: "71-43-2", source: "p. 58 [64]; EPA (2013)"}
+  tph:
+    unweathered-gasoline: {value: 100.0, source: "p. 58 [64]; EPA (2013)"}
+    weathered-gasoline: {value: 250.0, source: "p. 58 [64]; EPA (2013)"}
+    diesel: {value: 250.0, source: "p. 58 [64]; EPA (2013)"}
+effective_solubility_fraction:
+  value: 0.2
+  source: "p. 58 [64], footnote 29; Bruce et al. (1991): groundwater > 0.2 x effective solubility"

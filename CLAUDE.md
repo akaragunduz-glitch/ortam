@@ -86,6 +86,8 @@ modules/           Standalone modules (each runs on its own)
   air/             AERMOD, emission factors
   surface/         RUSLE, surface runoff
   foodchain/       HHRAP plant and food chain uptake
+  napl/            LNAPL: Raoult equilibrium, BIOSCREEN, HSSM
+  surfacewater/    Watershed (HHRAP B-4), rivers and lakes (Mills et al. 1985)
   geochem/         PHREEQC, MINTEQA2
   stats/           ProUCL methods
   characterization/ Boring logs, potentiometric surface, kriging
@@ -153,5 +155,11 @@ docs/              Documentation
 - D1.3b complete (2026-11-08): `risk.farmer` (RAIS §4.8, food and soil
   scenarios) matches the RAIS calculator output for 8 chemicals; three RAIS
   internal deviations documented in `docs/methods/foodchain.md`.
-- Milestone M1 deliverables complete (D1.1-D1.3). Next: Phase 2, D2.1 —
-  database schema and API (plan to be approved).
+- Milestone M1 deliverables complete (D1.1-D1.3).
+- Scope extended 2026-11-08 (owner): milestone M1b, LNAPL (service stations) and
+  surface water (rivers and lakes) before Phase 2. Order: D1.5a, D1.5b, D1.4a,
+  D1.4b, D1.5c; then D2.1 (database and API).
+- D1.5a complete (2026-11-08): `napl.equilibrium` (Raoult's law Ko HSSM Eq. 44-45,
+  effective solubility, NAPL presence/composition/saturation in soil, PVI LNAPL
+  indicators); HSSM RAOULT 9/9, BIOSCREEN 15/16 (1 source misprint), RSL Csat
+  206/206. Next: D1.5b `napl.source-plume` (BIOSCREEN 1.4).

@@ -1,0 +1,18 @@
+# Is gasoline NAPL present in a soil sample from a gas station, and what is in the pore water?
+# BTEX and TPH measured in the same sample (illustrative values). The non-BTEX part of the TPH
+# is represented by one insoluble pseudo-component with the molecular weight of the
+# "other paraffins (C4-C8)" class of HSSM Vol. 1 Table 99 (97.2 g/mol).
+# Chemical properties of BTEX: RSL Chemical Parameters table (Nov 2024). Soil: RSL defaults.
+# Run: uv run ortam run napl.equilibrium modules/napl/examples/gas_station_soil.yaml
+basis: soil
+napl_density_g_cm3: 0.74          # average gasoline density used by Cline et al. (HSSM Vol. 1 p. 173)
+residual_saturation: 0.05         # site-specific value required; illustrative
+fuel: unweathered-gasoline
+tph_soil_mg_kg: 1500
+soil: {rho_b_g_cm3: 1.6, theta_w: 0.12, foc: 0.002}
+components:
+  - {cas: "71-43-2",   soil_mg_kg: 12,  groundwater_mg_l: 3.1}    # benzene
+  - {cas: "108-88-3",  soil_mg_kg: 90}                            # toluene
+  - {cas: "100-41-4",  soil_mg_kg: 25}                            # ethylbenzene
+  - {cas: "1330-20-7", soil_mg_kg: 140}                           # xylenes
+  - {name: other gasoline hydrocarbons, mw_g_mol: 97.2, solubility_mg_l: 0, soil_mg_kg: 1233}
