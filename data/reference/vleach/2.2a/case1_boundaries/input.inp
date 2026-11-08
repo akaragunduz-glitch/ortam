@@ -1,0 +1,11 @@
+Case 1: TCE, recharge conc., atmosphere and groundwater gas boundaries
+  1
+         1        50         5        10
+       100       0.4      1100       0.7
+Column
+      1000         1         1       1.6       0.4       0.3     0.005
+      0.05     0.001      0.01
+   30Y        50
+    1   10       500
+   11   20       100
+   21   30         0

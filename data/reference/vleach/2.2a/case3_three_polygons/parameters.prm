@@ -1,0 +1,70 @@
+ |------------------------------------------------------------|
+ |                VLEACH (Version 2.2a, 1996)                 |
+ |                                                            |
+ |                           By:                              |
+ |        Varadhan Ravi and Jeffrey A. Johnson                |
+ |                  (USEPA Contractors)                       |
+ |        Center for Subsurface Modeling Support              |
+ |        Robert S. Kerr Environmental Research Laboratory    |
+ |        U.S. Environmental Protection Agency                |
+ |        P.O. Box 1198                                       |
+ |        Ada, OK 74820                                       |
+ |                                                            |
+ |        Based on the original VLEACH (version 1.0)          |
+ |        developed by CH2M Hill, Redding, California         |
+ |        for USEPA Region IX                                 |
+ |------------------------------------------------------------|
+ 
+Case 3: benzene, three polygons                                                 
+  3 polygons.
+Timestep =   0.50 years.  Simulation length =   30.00 years.
+Printout every   5.00 years.  Vertical profile stored every  15.00 years.
+Koc =      60.000    ml/g,      0.21189E-02cu.ft./g
+Kh =     0.22000     (dimensionless).
+Aqueous solubility =     1790.0     mg/l,      50.687     g/cu.ft
+Free air diffusion coefficient = .76000     sq. m/day,  2986.0     sq.ft./yr
+
+
+Polygon   1
+Sand                                                                            
+Polygon area =      5000.0    sq. ft.
+ 20 cells, each cell  1.000 ft. thick.
+Soil Properties:
+ Bulk density =     1.6500    g/ml,       46723.    g/cu.ft.
+ Porosity = 0.3800 Volumetric water content = 0.1200
+ Organic carbon content = 0.00100000
+Recharge Rate = 2.00000000 ft/yr
+Conc. in recharge water =      0.0000    mg/l,       0.0000    g/cu.ft
+Atmospheric concentration =      0.0000    mg/l,       0.0000    g/cu.ft
+Water table has a fixed concentration of      0.0000    mg/l,       0.0000    g/cu.ft.
+   with respect to gas diffusion.
+
+
+Polygon   2
+Loam                                                                            
+Polygon area =      2500.0    sq. ft.
+ 20 cells, each cell  1.000 ft. thick.
+Soil Properties:
+ Bulk density =     1.4500    g/ml,       41060.    g/cu.ft.
+ Porosity = 0.4500 Volumetric water content = 0.3000
+ Organic carbon content = 0.01000000
+Recharge Rate = 0.80000001 ft/yr
+Conc. in recharge water =      0.0000    mg/l,       0.0000    g/cu.ft
+Atmospheric concentration =      0.0000    mg/l,       0.0000    g/cu.ft
+Water table has a fixed concentration of      0.0000    mg/l,       0.0000    g/cu.ft.
+   with respect to gas diffusion.
+
+
+Polygon   3
+Clay                                                                            
+Polygon area =      800.00    sq. ft.
+ 10 cells, each cell  2.000 ft. thick.
+Soil Properties:
+ Bulk density =     1.3000    g/ml,       36812.    g/cu.ft.
+ Porosity = 0.5000 Volumetric water content = 0.4200
+ Organic carbon content = 0.02000000
+Recharge Rate = 0.20000000 ft/yr
+Conc. in recharge water =      0.0000    mg/l,       0.0000    g/cu.ft
+Atmospheric concentration =      0.0000    mg/l,       0.0000    g/cu.ft
+Water table has a fixed concentration of      0.0000    mg/l,       0.0000    g/cu.ft.
+   with respect to gas diffusion.

@@ -1,0 +1,33 @@
+# VLEACH 2.2a: TCE leaching through a 10 m sandy vadose zone (SI units).
+# Chemical values: RSL Chemical Parameters, November 2024 (data/reference/rsl/2024-11):
+#   Koc 60.7 L/kg, H' 0.4027, S 1280 mg/L, Dia 0.06866 cm2/s = 0.5932 m2/day (x 8.64).
+# Run: uv run ortam run vadose.vleach modules/vadose/examples/vleach.yaml
+# An original EPA input file can be converted with:
+#   uv run python -m modules.vadose.vleach_inp FILE.INP > input.yaml
+title: TCE source 0-2 m, 10 m to groundwater
+time_step_yr: 0.05            # Courant number q*dt/dz = 0.3*0.05/0.25 = 0.06
+simulation_time_yr: 30
+output_interval_yr: 1
+profile_interval_yr: 5
+chemical:
+  name: Trichloroethylene
+  koc_ml_g: 60.7
+  henry_dimensionless: 0.4027
+  solubility_mg_l: 1280
+  dair_m2_d: 0.5932
+polygons:
+  - name: Source area
+    area_m2: 400
+    cell_thickness_m: 0.25
+    depth_to_water_m: 10
+    recharge_m_yr: 0.3
+    bulk_density_g_cm3: 1.6
+    porosity: 0.38
+    water_content: 0.15
+    foc: 0.002
+    recharge_conc_mg_l: 0
+    atmosphere_gas_mg_l: 0        # null = surface sealed (impermeable to gas)
+    groundwater_mg_l: 0           # null = water table impermeable to gas
+    initial:
+      - {top_m: 0, bottom_m: 2, soil_ug_kg: 5000}
+      - {top_m: 2, bottom_m: 10, soil_ug_kg: 0}

@@ -1,0 +1,40 @@
+ |------------------------------------------------------------|
+ |                VLEACH (Version 2.2a, 1996)                 |
+ |                                                            |
+ |                           By:                              |
+ |        Varadhan Ravi and Jeffrey A. Johnson                |
+ |                  (USEPA Contractors)                       |
+ |        Center for Subsurface Modeling Support              |
+ |        Robert S. Kerr Environmental Research Laboratory    |
+ |        U.S. Environmental Protection Agency                |
+ |        P.O. Box 1198                                       |
+ |        Ada, OK 74820                                       |
+ |                                                            |
+ |        Based on the original VLEACH (version 1.0)          |
+ |        developed by CH2M Hill, Redding, California         |
+ |        for USEPA Region IX                                 |
+ |------------------------------------------------------------|
+ 
+Case 4: vinyl chloride, no recharge (diffusion only)                            
+  1 polygons.
+Timestep =   0.05 years.  Simulation length =    5.00 years.
+Printout every   0.50 years.  Vertical profile stored every   1.00 years.
+Koc =      22.000    ml/g,      0.77692E-03cu.ft./g
+Kh =      1.1000     (dimensionless).
+Aqueous solubility =     8800.0     mg/l,      249.19     g/cu.ft
+Free air diffusion coefficient = .92000     sq. m/day,  3614.7     sq.ft./yr
+
+
+Polygon   1
+Dry                                                                             
+Polygon area =      1000.0    sq. ft.
+ 25 cells, each cell  1.000 ft. thick.
+Soil Properties:
+ Bulk density =     1.6000    g/ml,       45307.    g/cu.ft.
+ Porosity = 0.3600 Volumetric water content = 0.0800
+ Organic carbon content = 0.00100000
+Recharge Rate = 0.00000000 ft/yr
+Conc. in recharge water =      0.0000    mg/l,       0.0000    g/cu.ft
+Atmospheric concentration =      0.0000    mg/l,       0.0000    g/cu.ft
+Water table has a fixed concentration of      0.0000    mg/l,       0.0000    g/cu.ft.
+   with respect to gas diffusion.

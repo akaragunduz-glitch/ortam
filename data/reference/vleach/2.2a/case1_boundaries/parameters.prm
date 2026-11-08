@@ -1,0 +1,40 @@
+ |------------------------------------------------------------|
+ |                VLEACH (Version 2.2a, 1996)                 |
+ |                                                            |
+ |                           By:                              |
+ |        Varadhan Ravi and Jeffrey A. Johnson                |
+ |                  (USEPA Contractors)                       |
+ |        Center for Subsurface Modeling Support              |
+ |        Robert S. Kerr Environmental Research Laboratory    |
+ |        U.S. Environmental Protection Agency                |
+ |        P.O. Box 1198                                       |
+ |        Ada, OK 74820                                       |
+ |                                                            |
+ |        Based on the original VLEACH (version 1.0)          |
+ |        developed by CH2M Hill, Redding, California         |
+ |        for USEPA Region IX                                 |
+ |------------------------------------------------------------|
+ 
+Case 1: TCE, recharge conc., atmosphere and groundwater gas boundaries          
+  1 polygons.
+Timestep =   1.00 years.  Simulation length =   50.00 years.
+Printout every   5.00 years.  Vertical profile stored every  10.00 years.
+Koc =      100.00    ml/g,      0.35314E-02cu.ft./g
+Kh =     0.40000     (dimensionless).
+Aqueous solubility =     1100.0     mg/l,      31.149     g/cu.ft
+Free air diffusion coefficient = .70000     sq. m/day,  2750.3     sq.ft./yr
+
+
+Polygon   1
+Column                                                                          
+Polygon area =      1000.0    sq. ft.
+ 30 cells, each cell  1.000 ft. thick.
+Soil Properties:
+ Bulk density =     1.6000    g/ml,       45307.    g/cu.ft.
+ Porosity = 0.4000 Volumetric water content = 0.3000
+ Organic carbon content = 0.00500000
+Recharge Rate = 1.00000000 ft/yr
+Conc. in recharge water =     0.50000E-01mg/l,      0.14159E-02g/cu.ft
+Atmospheric concentration =     0.10000E-02mg/l,      0.28317E-04g/cu.ft
+Water table has a fixed concentration of     0.10000E-01mg/l,      0.28317E-03g/cu.ft.
+   with respect to gas diffusion.

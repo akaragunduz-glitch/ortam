@@ -143,4 +143,9 @@ docs/              Documentation
 - D1.1d complete (2026-11-08): doses (CDI, DAD, EC) by route and age segment
   in all nine risk tools (`modules/risk/equations/dose.py`); RAGS E Exhibit B-3
   209/209 within rounding; risk/HQ from doses = tool risk/HQ for all chemicals.
-- Next task: D1.3 — food chain (RAIS farmer, HHRAP 2005) and VLEACH.
+- D1.3a complete (2026-11-08): `vadose.vleach` (VLEACH 2.2a, SI units; .INP
+  converter); scheme identified from EPA's executable under Wine; 6 reference
+  cases (EPA sample + 5 generated) within 5e-4; workflow
+  `soil_to_groundwater.vleach_to_groundwater`.
+- Next task: D1.3b — food chain module (HHRAP 2005 Appendix B/C, RAIS farmer);
+  HHRAP documents and companion database are in `docs/references/`.

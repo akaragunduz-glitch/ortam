@@ -57,6 +57,26 @@ The downloaded SSG and J&E documentation files had damaged cross-reference
 tables (text could be read from page 1 only); they were repaired with `qpdf`
 (content unchanged).
 
+## Food chain (HHRAP 2005)
+
+| File | Short name | Document | Pages | Source |
+|------|------------|----------|-------|--------|
+| `hhrap_2005_ch5.pdf` | HHRAP ch. 5 | Human Health Risk Assessment Protocol for Hazardous Waste Combustion Facilities, Final, EPA530-R-05-006, September 2005: Chapter 5, Estimation of Media Concentrations | 90 | https://archive.epa.gov/epawaste/hazard/tsd/td/web/pdf/05hhrap5.pdf |
+| `hhrap_2005_ch6.pdf` | HHRAP ch. 6 | Chapter 6, Quantifying Exposure | 24 | https://archive.epa.gov/epawaste/hazard/tsd/td/web/pdf/05hhrap6.pdf |
+| `hhrap_2005_ch7.pdf` | HHRAP ch. 7 | Chapter 7, Risk and Hazard Characterization | 17 | https://archive.epa.gov/epawaste/hazard/tsd/td/web/pdf/05hhrap7.pdf |
+| `hhrap_2005_appendix_a.pdf` | HHRAP App. A | Appendix A, Chemical-Specific Parameter Values | 81 | https://archive.epa.gov/epawaste/hazard/tsd/td/web/pdf/05hhrapapa.pdf |
+| `hhrap_2005_appendix_b.pdf` | HHRAP App. B | Appendix B, Equations and Default Values for Estimating Media Concentrations | 285 | https://archive.epa.gov/epawaste/hazard/tsd/td/web/pdf/05hhrapapb.pdf |
+| `hhrap_2005_appendix_c.pdf` | HHRAP App. C | Appendix C, Equations and Default Values for Cancer Risk and Non-Cancer Effects | 53 | https://archive.epa.gov/epawaste/hazard/tsd/td/web/pdf/05hhrapapc.pdf |
+| `hhrap_2005_chemical_database.mdb` | HHRAP database | HHRAP Companion Database (chemical-specific parameters, MS Access) | - | https://archive.epa.gov/epawaste/hazard/tsd/td/web/mdb/05hhrapchemdat.mdb |
+| `hhrap_2005_cattle_btf_report.pdf` | Cattle BTF report | Methodology for Predicting Cattle Biotransfer Factors (HHRAP support document) | - | https://archive.epa.gov/epawaste/hazard/tsd/td/web/pdf/btfreportfull05.pdf |
+
+## Vadose zone transport (VLEACH)
+
+| File | Short name | Document | Pages | Source |
+|------|------------|----------|-------|--------|
+| `vleach_2.2_users_guide.pdf` | VLEACH UG | Ravi, V. and Johnson, J.A., VLEACH: A One-Dimensional Finite Difference Vadose Zone Leaching Model, Version 2.2, EPA CSMOS | 71 | https://www.epa.gov/sites/production/files/2014-08/documents/vleach.pdf |
+| `vleach_2.2a_setup.exe` | VLEACH setup | VLEACH 2.2a Windows setup (May 2007 release); contains the executable and the EPA sample problem used as reference (see `modules/vadose/tests/generate_vleach_reference.py`) | - | https://19january2025snapshot.epa.gov/sites/default/files/2014-07/vleachsetup.exe |
+
 ## Notes
 
 - Part E links point to the EPA web snapshot of 19 January 2025; the

@@ -1,0 +1,39 @@
+ |------------------------------------------------------------|
+ |                VLEACH (Version 2.2a, 1996)                 |
+ |                                                            |
+ |                           By:                              |
+ |        Varadhan Ravi and Jeffrey A. Johnson                |
+ |                  (USEPA Contractors)                       |
+ |        Center for Subsurface Modeling Support              |
+ |        Robert S. Kerr Environmental Research Laboratory    |
+ |        U.S. Environmental Protection Agency                |
+ |        P.O. Box 1198                                       |
+ |        Ada, OK 74820                                       |
+ |                                                            |
+ |        Based on the original VLEACH (version 1.0)          |
+ |        developed by CH2M Hill, Redding, California         |
+ |        for USEPA Region IX                                 |
+ |------------------------------------------------------------|
+ 
+Case 5: non-volatile (H = 0, Dair = 0), advection only                          
+  1 polygons.
+Timestep =   0.20 years.  Simulation length =   40.00 years.
+Printout every   4.00 years.  Vertical profile stored every   8.00 years.
+Koc =      30000.    ml/g,       1.0594    cu.ft./g
+Kh =      0.0000     (dimensionless).
+Aqueous solubility =     10.000     mg/l,     0.28317     g/cu.ft
+Free air diffusion coefficient = 0.0000     sq. m/day,  0.0000     sq.ft./yr
+
+
+Polygon   1
+Column                                                                          
+Polygon area =      1000.0    sq. ft.
+ 50 cells, each cell  1.000 ft. thick.
+Soil Properties:
+ Bulk density =     1.6000    g/ml,       45307.    g/cu.ft.
+ Porosity = 0.4000 Volumetric water content = 0.3000
+ Organic carbon content = 0.00100000
+Recharge Rate = 3.00000000 ft/yr
+Conc. in recharge water =      0.0000    mg/l,       0.0000    g/cu.ft
+Atmospheric concentration =     -1.0000    mg/l,     -0.28317E-01g/cu.ft
+Water table is impermeable to gas diffusion.

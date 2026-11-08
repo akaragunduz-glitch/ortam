@@ -1,0 +1,10 @@
+Case 2: PCE, both boundaries impermeable, fine cells
+  1
+       0.1        20         2         5
+       265       1.0       200      0.62
+Fine
+      1000       0.5       0.5       1.7      0.35      0.15     0.002
+         0        -1        -1
+   40Y        20
+    1    5      2000
+    6   40         0
