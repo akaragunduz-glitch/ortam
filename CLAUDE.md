@@ -150,6 +150,8 @@ docs/              Documentation
 - D1.3b part 1 (2026-11-08): HHRAP database import; `foodchain.media` (App. B),
   `risk.foodchain-ingestion` (App. C), workflow `workflows/foodchain`; App. A-2
   correlations reproduce the database (2139 of 2141 values).
-- Next task: D1.3b part 2 — RAIS farmer (§4.8), verified against a RAIS
-  calculator output (`docs/references/rais_farmer_soil_output_2026-11-08.*`, to be
-  downloaded by the owner).
+- D1.3b complete (2026-11-08): `risk.farmer` (RAIS §4.8, food and soil
+  scenarios) matches the RAIS calculator output for 8 chemicals; three RAIS
+  internal deviations documented in `docs/methods/foodchain.md`.
+- Milestone M1 deliverables complete (D1.1-D1.3). Next: Phase 2, D2.1 —
+  database schema and API (plan to be approved).

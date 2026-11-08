@@ -1,0 +1,19 @@
+# RAIS farmer, soil scenario (RAIS User's Guide 4.8.3): soil -> produce, beef, dairy + direct soil contact.
+# Transfer factors must be supplied (here: the RAIS values for arsenic and benzo[a]pyrene,
+# docs/references/rais_farmer_soil_output_2026-11-08.xlsx). Toxicity: RSL Nov 2024.
+# Run: uv run ortam run risk.farmer modules/risk/examples/farmer.yaml
+scenario: soil
+chemicals:
+  - cas: "7440-38-2"       # arsenic (RBA 0.6, ABSd 0.03)
+    soil_mg_kg: 20
+    rba: 0.6
+    bv_wet: 0.01
+    bv_dry: 0.04
+    tf_beef_d_kg: 0.002
+    tf_dairy_d_kg: 6.0e-5
+  - cas: "50-32-8"         # benzo[a]pyrene (mutagen)
+    soil_mg_kg: 1.5
+    bv_wet: 0.00214
+    bv_dry: 0.0107
+    tf_beef_d_kg: 0.0337
+    tf_dairy_d_kg: 0.0107

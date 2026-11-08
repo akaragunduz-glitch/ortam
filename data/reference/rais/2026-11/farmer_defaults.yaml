@@ -1,0 +1,52 @@
+# RAIS farmer (Chemical Risk Calculator, site-specific mode) default exposure parameters.
+# Sources: RAIS Chemical Risk Calculator User's Guide (docs/references/rais_chemical_risk_users_guide_2026-11.pdf),
+#   section 4.8 (PDF pp. 69-108), and the input sheets of the RAIS output saved on 2026-11-08
+#   (docs/references/rais_farmer_soil_output_2026-11-08.xlsx, sheets "Contaminated Food Products I(nputs)"
+#   and "Contaminated Soil Inputs"). Values agree between the two sources unless noted.
+ef_d_yr: 350
+ed_farmer_yr: 40          # EDfar
+ed_child_yr: 6            # EDfar-c
+ed_adult_yr: 34           # EDfar-a
+bw_child_kg: 15
+bw_adult_kg: 80
+lt_yr: 70
+et_h_d: 24
+# intake rates, mg/day (fresh weight)
+ir_fruit: {child: 68100, adult: 176800}
+ir_vegetable: {child: 41700, adult: 125700}
+ir_dairy: {child: 349500, adult: 445600}
+ir_beef: {child: 40100, adult: 178000}
+contaminated_fraction: {produce: 1, dairy: 1, beef: 1}       # CFfar-produce, -dairy, -beef
+# age segments for mutagens, food (4.8.1.5, PDF p. 72-73): 0-2, 2-6, 6-16, 16-40
+food_segments:
+  ed_yr: [2, 4, 10, 24]
+  bw_kg: [15, 15, 80, 80]
+  adaf: [10, 3, 3, 1]
+  rates: [child, child, adult, adult]
+# soil (4.8.3, PDF pp. 94-107)
+irs_mg_d: {child: 200, adult: 100}
+sa_cm2_d: {child: 2373, adult: 6032}
+af_mg_cm2: {child: 0.2, adult: 0.07}
+pef_m3_kg: 1.36e+9
+# Age-adjusted soil factors as RAIS computes them (output input sheet):
+#   IFSfar-adj 42875 = 350*6*200/15 + 350*34*100/80       (adult 34 yr, consistent)
+#   DFSfar-adj 103390 = 350*6*2373*0.2/15 + 350*20*6032*0.07/80   (adult 20 yr, the resident value,
+#                       although the guide equation shows EDfar-a 34 yr)
+#   IFSMfar-adj 166833.3 and DFSMfar-adj 428260: segments 0-2, 2-6, 6-16, 16-26 with 10 yr for the last
+#                       segment (the guide shows 24 yr); inhalation mutagenic CDI uses 24 yr.
+soil_dermal_adult_ed_yr: 20
+soil_mutagen_segments:
+  ed_yr: [2, 4, 10, 10]
+  bw_kg: [15, 15, 80, 80]
+  adaf: [10, 3, 3, 1]
+  ages: [child, child, adult, adult]
+inhalation_mutagen_segments:
+  ed_yr: [2, 4, 10, 24]
+  adaf: [10, 3, 3, 1]
+mlf_produce: 0.0135
+mlf_pasture: 0.25
+animals:
+  beef: {qp_kg_d: 11.77, qs_kg_d: 0.5, fp: 1, fs: 1}
+  dairy: {qp_kg_d: 20.3, qs_kg_d: 0.4, fp: 1, fs: 1}
+# TCE (4.8.1.6, 4.8.3.6; PDF pp. 73-74, 104-106)
+tce: {caf_oral: 0.804, maf_oral: 0.202, caf_inh: 0.756, maf_inh: 0.244}

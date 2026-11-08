@@ -70,6 +70,12 @@ tables (text could be read from page 1 only); they were repaired with `qpdf`
 | `hhrap_2005_chemical_database.mdb` | HHRAP database | HHRAP Companion Database (chemical-specific parameters, MS Access) | - | https://archive.epa.gov/epawaste/hazard/tsd/td/web/mdb/05hhrapchemdat.mdb |
 | `hhrap_2005_cattle_btf_report.pdf` | Cattle BTF report | Methodology for Predicting Cattle Biotransfer Factors (HHRAP support document) | - | https://archive.epa.gov/epawaste/hazard/tsd/td/web/pdf/btfreportfull05.pdf |
 
+## RAIS calculator outputs (reference values)
+
+| File | Short name | Document | Pages | Source |
+|------|------------|----------|-------|--------|
+| `rais_farmer_soil_output_2026-11-08.xlsx` | RAIS farmer output | RAIS Chemical Risk Calculator, site-specific farmer: contaminated food products and contaminated soil, 8 chemicals, default parameters; saved 2026-11-08 | - | https://rais.ornl.gov/cgi-bin/prg/RISK_search?select=chem |
+
 ## Vadose zone transport (VLEACH)
 
 | File | Short name | Document | Pages | Source |

@@ -71,4 +71,36 @@ mutagens are flagged.
   (database value corresponds to log Kow 8.2, its log Kow is 8.0) and 1,1-dichloroethane
   Br_rootveg (Kds stored 0.06, the value implies 0.0635).
 - Appendix B and C equations by hand (benzene, arsenic, BEHP; all foods and receptors).
-- RAIS farmer comparison: pending (D1.3b part 2).
+- RAIS farmer: see below.
+
+## `risk.farmer` — RAIS farmer scenario (task D1.3b part 2)
+
+Source: RAIS Chemical Risk Calculator User's Guide §4.8 (PDF pp. 69-108; the guide is a saved
+web page). Defaults: `data/reference/rais/2026-11/farmer_defaults.yaml`.
+
+- **Food scenario (§4.8.1):** produce, beef and dairy concentrations given.
+- **Soil scenario (§4.8.3):** produce = C_soil·(BV_wet + MLF_produce 0.0135); dairy and beef
+  = TF·[Qp·fp·fs·(BV_dry + MLF_pasture 0.25) + Qs·fp]·C_soil (Qp 20.3 / 11.77, Qs 0.4 / 0.5
+  kg/day); plus soil ingestion (RBA), dermal contact and inhalation of particulates and vapors.
+- CDIs for child (ED 6 yr), adult (ED 40 yr, cancels), age-adjusted (child 6 + adult 34 yr) and
+  cancer (LT 70 yr); mutagens with ADAF segments 0-2, 2-6, 6-16, 16-40 yr; TCE with
+  CAF/MAF 0.804/0.202 (oral) and 0.756/0.244 (inhalation); vinyl chloride with the early-life
+  term. Risk one-hit per route and for the total.
+- RAIS transfer factors (BV_wet, BV_dry, TF_beef, TF_dairy) are inputs: they are RAIS
+  database values that ORTAM does not hold.
+
+**Verification** (`modules/risk/tests/test_farmer.py`): RAIS calculator output of
+2026-11-08 (`docs/references/rais_farmer_soil_output_2026-11-08.xlsx`), 8 chemicals
+(arsenic, benzene, benzo[a]pyrene, cadmium, dieldrin, TCE, vinyl chloride, zinc), both
+scenarios, with the RAIS toxicity values, transfer factors and VF from the output: every
+CDI (cancer, child, adult, age-adjusted), risk and HQ, per route, agrees to 3 significant
+figures (food scenario) or 1 % (soil scenario; transfer factors printed with 3 figures).
+
+**Findings (RAIS internals differ from its guide):**
+1. DFS_far-adj = 103 390 mg/kg uses an adult ED of 20 yr (the resident value); the guide
+   equation shows ED_far-a = 34 yr (IFS_far-adj uses 34 yr).
+2. IFSM and DFSM for soil use the 16-26 segment with 10 yr; the guide shows 24 yr; the
+   mutagenic inhalation CDI uses 24 yr.
+3. In the soil scenario the RAIS "Total HI" omits the soil ingestion HQ (the total risk
+   includes the ingestion risk). ORTAM reports the full sum (RAGS A p. 8-13).
+ORTAM keeps 1 and 2 as documented parameters (to reproduce RAIS) and does not reproduce 3.
