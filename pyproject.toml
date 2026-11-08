@@ -17,6 +17,16 @@ dependencies = [
 [project.scripts]
 ortam = "ortam_core.cli:main"
 
+# A build system makes uv install the project itself (editable), so that the
+# `ortam` command above exists. Without it uv treats the folder as a plain
+# collection of scripts and `uv run ortam` fails with "Failed to spawn: ortam".
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ortam_core", "modules", "workflows"]
+
 [dependency-groups]
 dev = ["pytest"]
 

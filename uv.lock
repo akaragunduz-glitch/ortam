@@ -177,7 +177,7 @@ wheels = [
 [[package]]
 name = "ortam"
 version = "0.0.1"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "access-parser" },
     { name = "numpy" },
