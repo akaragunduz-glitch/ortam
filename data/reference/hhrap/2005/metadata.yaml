@@ -1,0 +1,6 @@
+source: hhrap_2005_chemical_database.mdb
+document: HHRAP Companion Database, U.S. EPA 2005 (EPA530-R-05-006)
+source_sha256: 38f3ea27866db1528bbab142ff83f5772d62b03c63ea4b1c9177e18f2950e085
+imported_on: '2026-11-08'
+chemicals: 204
+rows: 7344

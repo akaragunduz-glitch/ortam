@@ -147,5 +147,9 @@ docs/              Documentation
   converter); scheme identified from EPA's executable under Wine; 6 reference
   cases (EPA sample + 5 generated) within 5e-4; workflow
   `soil_to_groundwater.vleach_to_groundwater`.
-- Next task: D1.3b — food chain module (HHRAP 2005 Appendix B/C, RAIS farmer);
-  HHRAP documents and companion database are in `docs/references/`.
+- D1.3b part 1 (2026-11-08): HHRAP database import; `foodchain.media` (App. B),
+  `risk.foodchain-ingestion` (App. C), workflow `workflows/foodchain`; App. A-2
+  correlations reproduce the database (2139 of 2141 values).
+- Next task: D1.3b part 2 — RAIS farmer (§4.8), verified against a RAIS
+  calculator output (`docs/references/rais_farmer_soil_output_2026-11-08.*`, to be
+  downloaded by the owner).

@@ -1,0 +1,10 @@
+# Food chain concentrations from soil and surface water (HHRAP 2005 Appendix B).
+# Run: uv run ortam run foodchain.media modules/foodchain/examples/media.yaml
+chemicals:
+  - cas: "7440-38-2"            # arsenic
+    soil_mg_kg: 25
+  - cas: "50-32-8"              # benzo[a]pyrene
+    soil_mg_kg: 0.8
+  - cas: "71-43-2"              # benzene: soil and pond water
+    soil_mg_kg: 0.5
+    surface_water_dissolved_mg_l: 0.002

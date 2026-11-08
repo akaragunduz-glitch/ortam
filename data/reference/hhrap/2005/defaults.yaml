@@ -1,0 +1,56 @@
+# HHRAP 2005 default parameter values used by foodchain.media and risk.foodchain-ingestion.
+# Source: HHRAP 2005 (EPA530-R-05-006); "App. B/C table, printed page [PDF page]".
+# docs/references/hhrap_2005_appendix_b.pdf, hhrap_2005_appendix_c.pdf.
+plants:
+  vg_rootveg:
+    value_log_kow_gt_4: 0.01
+    value_otherwise: 1.0
+    source: "App. B Table B-2-10, p. B-85 [88]"
+  # aboveground produce, forage, silage and grain from root uptake: Pr = Cs * Br (no VG)
+  # Table B-2-9, p. B-80 [83]; Table B-3-9, p. B-134 [137]
+animals:
+  beef:
+    qp_kg_dw_d: {forage: 8.8, silage: 2.5, grain: 0.47}
+    qs_kg_d: 0.5
+    source: "App. B Table B-3-10, pp. B-137 to B-140 [140-143]"
+  milk:
+    qp_kg_dw_d: {forage: 13.2, silage: 4.1, grain: 3.0}
+    qs_kg_d: 0.4
+    source: "App. B Table B-3-11, pp. B-144 to B-147 [147-150]"
+  pork:
+    qp_kg_dw_d: {silage: 1.4, grain: 3.3}
+    qs_kg_d: 0.37
+    source: "App. B Table B-3-12, pp. B-151 to B-154 [154-157]"
+  eggs:
+    qp_kg_dw_d: {grain: 0.2}
+    qs_kg_d: 0.022
+    source: "App. B Table B-3-13, pp. B-158 to B-160 [161-163]"
+  chicken:
+    qp_kg_dw_d: {grain: 0.2}
+    qs_kg_d: 0.022
+    source: "App. B Table B-3-14, pp. B-163 to B-165 [166-168]"
+  fraction_contaminated_feed: {value: 1.0, source: "App. B Table B-3-10, p. B-137 [140] (F_i)"}
+  soil_bioavailability: {value: 1.0, source: "App. B Table B-3-10, p. B-140 [143] (Bs)"}
+  metabolism_factor:
+    default: 1.0
+    by_cas: {"117-81-7": 0.01}      # bis(2-ethylhexyl)phthalate
+    applies_to: [beef, milk, pork]
+    source: "App. B Table B-3-10, p. B-140 [143] (MF)"
+fish:
+  oc_sediment: {value: 0.04, source: "App. B Table B-4-28, p. B-274 [277]"}
+  lipid_fraction: {value: 0.07, range: [0.03, 0.07], source: "App. B Table B-4-28, p. B-274 [277]"}
+consumption:
+  # kg/kg-day; produce DW (App. C Table C-1-2, p. C-8 [9]); animal tissue FW (Table C-1-3, p. C-11 [12]);
+  # fish FW (Table C-1-4, p. C-15 [16])
+  farmer:          {ag: 0.00047, pp: 0.00064, bg: 0.00017, beef: 0.00122, milk: 0.01367, chicken: 0.00066, eggs: 0.00075, pork: 0.00055}
+  farmer_child:    {ag: 0.00113, pp: 0.00157, bg: 0.00028, beef: 0.00075, milk: 0.02268, chicken: 0.00045, eggs: 0.00054, pork: 0.00042}
+  resident:        {ag: 0.00032, pp: 0.00061, bg: 0.00014}
+  resident_child:  {ag: 0.00077, pp: 0.00150, bg: 0.00023}
+  fisher:          {ag: 0.00032, pp: 0.00061, bg: 0.00014, fish: 0.00125}
+  fisher_child:    {ag: 0.00077, pp: 0.00150, bg: 0.00023, fish: 0.00088}
+  fraction_contaminated: {value: 1.0, source: "App. C Tables C-1-2 to C-1-4 (F_ag, F_j, F_fish)"}
+exposure:
+  # App. C Table C-1-7, p. C-24 [25] and Table C-1-8, p. C-26 [27]
+  ed_yr: {farmer: 40, farmer_child: 6, resident: 30, resident_child: 6, fisher: 30, fisher_child: 6}
+  ef_d_yr: 350
+  at_cancer_yr: 70

@@ -1,0 +1,48 @@
+id,short,citation
+11,NA,Not Applicable; parameter value not applicable for particular contaminant
+13,ND,No Data; used for some parameters to indicate value has been researched and is not available in the references at the time of review; typically not assigned to calculated parameter values.
+53,*U.S. EPA,"U.S. EPA.  2000.  Exposure and Human Health Reassessment of 2,3,7,8-Tetrachlorodibenzo-p-Dioxin (TCDD) and Related Compounds.  Draft Final Report.  Office of Research and Development.  Washington, D.C.  EPA/600/P-00/001 Bc.  September."
+95,"*Baes, et al.","Baes, C.F., R.D. Sharp, A.L. Sjoreen, and R.W. Shor.  1984.   Review and Analysis of Parameters and Assessing Transport of Environmentally Released Radionuclides through Agriculture.   Oak Ridge National Laboratory.  Oak Ridge, Tennessee."
+96,*SRC,"Syracuse Research Corporation (SRC).  2005a.  CHEMFATE Database.  SRC.  Syracuse, NY.  (http://esc.syrres.com/efdb/chemfate.htm)."
+97,"*Lide, D.R.","Lide, D.R.  2003.  CRC Handbook of Chemistry and Physics, 83rd Edition.  CRC Press.  Boca Raton, Florida."
+98,*U.S. EPA,U.S. EPA.  2005a.  Integrated Risk Information System (IRIS).  Values updated monthly on line at http://www.epa.gov/iris/.  Accessed July 2005
+99,*Lyman et al,"Lyman, W.J., W.F. Reehl, and D.H. Rosenblatt.  1990.  Handbook of Chemical Property Estimation Methods:  Environmental Behavior of Organic Compounds.  McGraw-Hill Book Company.  New York, New York."
+100,*Howard et al.,"Howard, P.H., R.S. Boethling, W.F. Jarvis, W.M. Meylan, and E.M. Michalenko, 1991.  Handbook of Environmental Degradation Rates.  Lewis Publishers.  Chelsea, Michigan."
+102,*U.S. EPA,U.S. EPA.  1997a.  Mercury Study Report to Congress.  Volume III: Fate and Transport in the Environment.  OAQPS and ORD.  EPA-452/R-97-005.  December.
+103,*O Neil and Smith,"O Neil, M., and A. Smith.  2001.  The Merck Index:  An Encyclopedia of Chemicals, Drugs, and Biologicals.  13th Edition.  Merck and Company, Inc.  Rahway,  New Jersey."
+104,*SRC,"Syracuse Research Corporation (SRC).  2005b.  PHYSPROP Database.  SRC.  Syracuse, NY.  (http://esc.syrres.com/interkow/physdemo.htm)."
+105,*U.S. EPA,"U.S. EPA.  2004a.  Superfund Chemical Data Matrix.  OERR.  Washington, D.C.  January."
+106,*U.S. EPA,"U.S. EPA.  1996.  Soil Screening Guidance: Technical Background Document and User's Guide.  Office of Solid Waste and Emergency Response.  Washington, D.C.  EPA/540/R-95/128.  May."
+107,*U.S. EPA,U.S. EPA.  2004.  WATER9-Air Emissions Models Wastewater Treatment.  Version 2.0.0.  OAQPS.  Research Triangle Park.  North Carolina.  July 1.
+108,*U.S. EPA,Provisional Peer Reviewed Toxicity Value.  EPA/ORD/NCEA. Accessed July 2005
+109,CalEPA,California Environmental Protection Agency
+110,*CalEPA,"California EPA Office of Environmental Health Hazard Assessment, Chronic Reference Exposure Levels Database (http://www.oehha.ca.gov/risk/chemicalDB//index.asp), accessed July 2005"
+111,*U.S. EPA,"""Health Effects Assessment Summary Tables (HEAST). Fiscal Year 1997 Update"".  Office of Solid Waste and Emergency Response. EPA-540-R-97-036. July"
+112,*CalEPA,"California EPA Office of Environmental Health Hazard Assessment, Acute Reference Exposure Levels Database (http://www.oehha.ca.gov/air/acute_rels/acuterel.html#download), accessed June 2005"
+113,*U.S. DoE,"U.S. Department of Energy, Subcommittee on Consequence Assessment and Protective Actions (SCAPA) Temporary Emergency Exposure Limits, Revision 20 (http://www.eh.doe.gov/chem_safety//teel.html), April"
+114,*U.S. EPA,"U.S. EPA Acute Inhalation Exposure Guideline Levels - Level 1 (AEGL-1s) Database (http://www.epa.gov/oppt/aegl/chemlist.htm), Accessed June 2005"
+115,*U.S. DoE,"U.S. Department of Energy, Subcommittee on Consequence Assessment and Protective Actions (SCAPA) Level 1 emergency planning guidelines (ERPG-1), Revision 20 (http://www.eh.doe.gov/chem_safety//teel.html), April"
+117,*Briggs et al.,"Briggs, G.G., R.H. Bromilow, and A.A. Evans, 1982.  ""Relationships Between Lipophilicity and Root Uptake and Translocation of Non-ionized Chemicals by Barley.""  Pesticide Science.  Volume 13.  Pages 495-504."
+118,*CalEPA,"California Environmental Protection Agency (CEPA).  1993.  Parameter Values and Ranges for CALTOX.  Draft.  Office of Scientific Affairs.  California Department of Toxic Substances Control.  Sacramento, CA.  July."
+120,*Junge,"Junge, C. E.  1977.  Fate of Pollutants in the Air and Water Environments, Part I.  Suffet, I. H., Ed. Wiley.  New York.  Pages 7-26."
+121,"*Meylan, et al.","Meylan, W., P.H. Howard, R.S. Boethling, D. Aronson, H. Printup, and S. Gouchie.  1999.   Improved Method for Estimating Bioconcentration/Bioaccumulation Factor from Octanol/Water Partition Coefficient .  Environmental Toxicology and Chemistry.  18(4):664-672."
+122,"*Stephens, et al.","Stephens, R.D., M. Petreas, and G.H. Hayward.  1995.   Biotransfer and Bioaccumulation of Dioxins and Furans from Soil:  Chickens as a Model for Foraging Animals.   The Science of the Total Environment.  175: 253-273.  July 20."
+123,*U.S. EPA,"U.S. EPA.  1992.  Technical Support Document for the Land Application of Sewage Sludge. Volumes I and II.  EPA 822/R-93-001a.  Office of Water.  Washington, D.C."
+124,*U.S. EPA,"U.S. EPA. 1994.  Revised Draft Guidance for Performing Screening Level Risk Analyses at Combustion Facilities Burning Hazardous Wastes:  Attachment C, Draft Exposure Assessment Guidance for RCRA Hazardous Waste Combustion Facilities.  OERR.  Office of Solid Waste.  December 14."
+125,*U.S. EPA,"U.S. EPA.  1995a.  Memorandum Regarding Further Studies for Modeling the Indirect Exposure Impacts from Combustor Emissions.  From Mathew Lorber, Exposure Assessment Group, and Glenn Rice, Indirect Exposure Team, Environmental Criteria and Assessment Office.  Washington, D.C.  January 20."
+126,*U.S. EPA,U.S. EPA.  1995b.  Review Draft Development of Human Health-Based and Ecologically-Based Exit Criteria for the Hazardous Waste Identification Project.  Volumes I and II.  Office of Solid Waste.  March 3.
+127,*Montgomery & Welcome,"Montgomery, J.H., and L.M. Welkom.  1991.  Groundwater Chemicals Desk Reference.  Lewis Publishers.  Chelsea, Michigan."
+128,*Chemfinder,CambridgeSoft. 2005.  Chemfinder database (http://chemfinder.cambridgesoft.com/).  Accessed July.
+129,*Howard,"Howard, P.H.  1989-1993.  Handbook of Environmental Fate and Exposure Data For Organic Chemicals.  Volume I:  Large Production and Priority Pollutants (1989).  Volume II:  Solvents (1990).  Volume III:  Pesticides (1991).  Volume IV:  Solvents2 (1993).  Lewis Publishers.  Chelsea, Michigan."
+130,*Default Value,Default value
+131,*U.S. EPA,U.S. EPA.  1993a.  Review Draft Addendum to the Methodology for Assessing Health Risks Associated with Indirect Exposure to Combustor Emissions.  Office of Health and Environmental Assessment.  Office of Research and Development.  EPA-600-AP-93-003.  November 10.
+132,Calculated,Calculated Value:
+133,*WHO,"World Health Organization (WHO).  1998.   Assessment of the Health Risk of Dioxins: Re-evaluation of the Tolerable Daily Intake (TDI).   World Health Organization, European Centre for Environment and Health; International Programme on Chemical Safety.  WHO Consultation. May 25-29, 1998.  Geneva, Switzerland."
+134,*Travis and Arms,"Travis, C.C. and A.D. Arms.  1988.  Bioconcentration of Organics in Beef, Milk, and Vegetation.  Environmental Science and Technology.  22:271-274."
+135,*Lorber and Pinsky,"Lorber, M., and P. Pinsky.  1999.   An Evaluation of Three Empirical Air-to-Leaf Models for Polychlorinated Dibenzo-p-Dioxins and Dibenzofurans.   National Center for Environmental Assessment (NCEA).  U. S. EPA, 401 M St. SW, Washington, DC.  Accepted for Publication in Chemosphere."
+136,*Bacci et al.,"Bacci E., M. Cerejeira, C. Gaggi, G. Chemello, D. Calamari, and M. Vighi.  1992.   Chlorinated Dioxins:  Volatilization from Soils and Bioconcentration in Plant Leaves.   Bulletin of Environmental Contamination and Toxicology.  Volume 48.  Pages 401-408."
+137,*RTI,Research Triangle Institute (RTI).  2003.  Methodology for Predicting Cattle Biotransfer Factors.  Prepared for the U.S. EPA National Center for Environmental Assessment
+138,*U.S. EPA,U.S. EPA.  1999.  Screening Level Ecological Risk Assessment Protocol for Hazardous Waste Combustion Facilities. Volume III:  Appendices B-H.  Office of Solid Waste and Emergency Response. EPA530-D-99-001C.  Peer Review Draft.  August.
+139,ATSDR,Agency for Toxic Substances and Disease Registry (ATSDR) Minimal Risk Level database (http://www.atsdr.cdc.gov/mrls.html). July
+140,*EPA-NCEA,pre-PPRTV risk assessment issues papers
+141,*U.S. EPA,U.S. EPA.  1993b.  Provisional Guidance for Quantitative Risk Assessment of Polycyclic Aromatic Hydrocarbons.  EPA/600/R-93/089.  July.
