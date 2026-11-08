@@ -10,6 +10,8 @@ build/
 # Model run outputs
 engines/**/runs/
 *.out
+# Reference outputs used by verification tests must be tracked
+!data/reference/**/*.out
 *.lst
 # macOS
 .DS_Store

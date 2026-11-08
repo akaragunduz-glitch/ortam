@@ -1,0 +1,306 @@
+ |------------------------------------------------------------|
+ |                VLEACH (Version 2.2a, 1996)                 |
+ |                                                            |
+ |                           By:                              |
+ |        Varadhan Ravi and Jeffrey A. Johnson                |
+ |                  (USEPA Contractors)                       |
+ |        Center for Subsurface Modeling Support              |
+ |        Robert S. Kerr Environmental Research Laboratory    |
+ |        U.S. Environmental Protection Agency                |
+ |        P.O. Box 1198                                       |
+ |        Ada, OK 74820                                       |
+ |                                                            |
+ |        Based on the original VLEACH (version 1.0)          |
+ |        developed by CH2M Hill, Redding, California         |
+ |        for USEPA Region IX                                 |
+ |------------------------------------------------------------|
+ 
+Case 1: TCE, recharge conc., atmosphere and groundwater gas boundaries          
+
+
+Polygon   1
+At time =       0.00, total mass in vadose zone =    0.27183    g/sq.ft.
+Mass in gas phase     =      0.95380E-02g/sq.ft.
+Mass in liquid phase  =      0.71535E-01g/sq.ft.
+Mass sorbed           =      0.19076    g/sq.ft.
+
+
+Polygon   1
+At time =       5.00, total mass in vadose zone =    0.25362    g/sq.ft.
+Mass in gas phase     =      0.88989E-02g/sq.ft.
+Mass in liquid phase  =      0.66742E-01g/sq.ft.
+Mass sorbed           =      0.17798    g/sq.ft.
+
+Since last printout at time =       0.00
+               Change in Total Mass =    -0.18216E-01g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.17238E-02g/sq.ft.
+                    Diffusion in from atmosphere =     -0.19729E-01g/sq.ft.
+                    Diffusion in from water table =    -0.38423E-02g/sq.ft.
+               Total inflow at boundaries =    -0.18216E-01g/sq.ft.
+               Mass discrepancy =     0.81956E-07g/sq.ft.
+
+Since beginning of run at time = 0.0
+               Change in Total Mass =    -0.18216E-01g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.17238E-02g/sq.ft.
+                    Diffusion in from atmosphere =     -0.19729E-01g/sq.ft.
+                    Diffusion in from water table =    -0.38423E-02g/sq.ft.
+               Total inflow at boundaries =    -0.18216E-01g/sq.ft.
+               Mass discrepancy =     0.81956E-07g/sq.ft.
+
+
+Polygon   1
+At time =      10.00, total mass in vadose zone =    0.23257    g/sq.ft.
+Mass in gas phase     =      0.81605E-02g/sq.ft.
+Mass in liquid phase  =      0.61204E-01g/sq.ft.
+Mass sorbed           =      0.16321    g/sq.ft.
+
+Since last printout at time =       5.00
+               Change in Total Mass =    -0.21043E-01g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.90315E-02g/sq.ft.
+                    Diffusion in from atmosphere =     -0.12242E-01g/sq.ft.
+                    Diffusion in from water table =    -0.68489E-02g/sq.ft.
+               Total inflow at boundaries =    -0.21043E-01g/sq.ft.
+               Mass discrepancy =     0.94995E-07g/sq.ft.
+
+Since beginning of run at time = 0.0
+               Change in Total Mass =    -0.39259E-01g/sq.ft.
+                    Advection in from atmosphere =      0.14158E-01g/sq.ft.
+                    Advection in from water table =    -0.10755E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.31971E-01g/sq.ft.
+                    Diffusion in from water table =    -0.10691E-01g/sq.ft.
+               Total inflow at boundaries =    -0.39259E-01g/sq.ft.
+               Mass discrepancy =     0.17881E-06g/sq.ft.
+
+
+Polygon   1
+At time =      15.00, total mass in vadose zone =    0.20301    g/sq.ft.
+Mass in gas phase     =      0.71232E-02g/sq.ft.
+Mass in liquid phase  =      0.53424E-01g/sq.ft.
+Mass sorbed           =      0.14246    g/sq.ft.
+
+Since last printout at time =      10.00
+               Change in Total Mass =    -0.29564E-01g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.19528E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.79519E-02g/sq.ft.
+                    Diffusion in from water table =    -0.91636E-02g/sq.ft.
+               Total inflow at boundaries =    -0.29564E-01g/sq.ft.
+               Mass discrepancy =     0.63330E-07g/sq.ft.
+
+Since beginning of run at time = 0.0
+               Change in Total Mass =    -0.68823E-01g/sq.ft.
+                    Advection in from atmosphere =      0.21238E-01g/sq.ft.
+                    Advection in from water table =    -0.30283E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.39923E-01g/sq.ft.
+                    Diffusion in from water table =    -0.19855E-01g/sq.ft.
+               Total inflow at boundaries =    -0.68823E-01g/sq.ft.
+               Mass discrepancy =     0.23842E-06g/sq.ft.
+
+
+Polygon   1
+At time =      20.00, total mass in vadose zone =    0.16647    g/sq.ft.
+Mass in gas phase     =      0.58412E-02g/sq.ft.
+Mass in liquid phase  =      0.43809E-01g/sq.ft.
+Mass sorbed           =      0.11682    g/sq.ft.
+
+Since last printout at time =      15.00
+               Change in Total Mass =    -0.36537E-01g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.28266E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.54078E-02g/sq.ft.
+                    Diffusion in from water table =    -0.99421E-02g/sq.ft.
+               Total inflow at boundaries =    -0.36537E-01g/sq.ft.
+               Mass discrepancy =     0.55879E-07g/sq.ft.
+
+Since beginning of run at time = 0.0
+               Change in Total Mass =    -0.10536    g/sq.ft.
+                    Advection in from atmosphere =      0.28317E-01g/sq.ft.
+                    Advection in from water table =    -0.58549E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.45331E-01g/sq.ft.
+                    Diffusion in from water table =    -0.29797E-01g/sq.ft.
+               Total inflow at boundaries =    -0.10536    g/sq.ft.
+               Mass discrepancy =     0.29802E-06g/sq.ft.
+
+
+Polygon   1
+At time =      25.00, total mass in vadose zone =    0.12912    g/sq.ft.
+Mass in gas phase     =      0.45304E-02g/sq.ft.
+Mass in liquid phase  =      0.33978E-01g/sq.ft.
+Mass sorbed           =      0.90608E-01g/sq.ft.
+
+Since last printout at time =      20.00
+               Change in Total Mass =    -0.37358E-01g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.31437E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.38746E-02g/sq.ft.
+                    Diffusion in from water table =    -0.91257E-02g/sq.ft.
+               Total inflow at boundaries =    -0.37358E-01g/sq.ft.
+               Mass discrepancy =     0.29802E-07g/sq.ft.
+
+Since beginning of run at time = 0.0
+               Change in Total Mass =    -0.14272    g/sq.ft.
+                    Advection in from atmosphere =      0.35396E-01g/sq.ft.
+                    Advection in from water table =    -0.89986E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.49206E-01g/sq.ft.
+                    Diffusion in from water table =    -0.38922E-01g/sq.ft.
+               Total inflow at boundaries =    -0.14272    g/sq.ft.
+               Mass discrepancy =     0.32783E-06g/sq.ft.
+
+
+Polygon   1
+At time =      30.00, total mass in vadose zone =    0.97029E-01g/sq.ft.
+Mass in gas phase     =      0.34045E-02g/sq.ft.
+Mass in liquid phase  =      0.25534E-01g/sq.ft.
+Mass sorbed           =      0.68090E-01g/sq.ft.
+
+Since last printout at time =      25.00
+               Change in Total Mass =    -0.32087E-01g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.28861E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.29556E-02g/sq.ft.
+                    Diffusion in from water table =    -0.73501E-02g/sq.ft.
+               Total inflow at boundaries =    -0.32088E-01g/sq.ft.
+               Mass discrepancy =     0.37253E-07g/sq.ft.
+
+Since beginning of run at time = 0.0
+               Change in Total Mass =    -0.17481    g/sq.ft.
+                    Advection in from atmosphere =      0.42475E-01g/sq.ft.
+                    Advection in from water table =    -0.11885    g/sq.ft.
+                    Diffusion in from atmosphere =     -0.52161E-01g/sq.ft.
+                    Diffusion in from water table =    -0.46273E-01g/sq.ft.
+               Total inflow at boundaries =    -0.17481    g/sq.ft.
+               Mass discrepancy =     0.38743E-06g/sq.ft.
+
+
+Polygon   1
+At time =      35.00, total mass in vadose zone =    0.73174E-01g/sq.ft.
+Mass in gas phase     =      0.25675E-02g/sq.ft.
+Mass in liquid phase  =      0.19256E-01g/sq.ft.
+Mass sorbed           =      0.51350E-01g/sq.ft.
+
+Since last printout at time =      30.00
+               Change in Total Mass =    -0.23855E-01g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.23119E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.24167E-02g/sq.ft.
+                    Diffusion in from water table =    -0.53986E-02g/sq.ft.
+               Total inflow at boundaries =    -0.23855E-01g/sq.ft.
+               Mass discrepancy =     0.22352E-07g/sq.ft.
+
+Since beginning of run at time = 0.0
+               Change in Total Mass =    -0.19866    g/sq.ft.
+                    Advection in from atmosphere =      0.49555E-01g/sq.ft.
+                    Advection in from water table =    -0.14197    g/sq.ft.
+                    Diffusion in from atmosphere =     -0.54578E-01g/sq.ft.
+                    Diffusion in from water table =    -0.51671E-01g/sq.ft.
+               Total inflow at boundaries =    -0.19866    g/sq.ft.
+               Mass discrepancy =     0.43213E-06g/sq.ft.
+
+
+Polygon   1
+At time =      40.00, total mass in vadose zone =    0.57352E-01g/sq.ft.
+Mass in gas phase     =      0.20124E-02g/sq.ft.
+Mass in liquid phase  =      0.15093E-01g/sq.ft.
+Mass sorbed           =      0.40247E-01g/sq.ft.
+
+Since last printout at time =      35.00
+               Change in Total Mass =    -0.15821E-01g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.17017E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.21096E-02g/sq.ft.
+                    Diffusion in from water table =    -0.37746E-02g/sq.ft.
+               Total inflow at boundaries =    -0.15821E-01g/sq.ft.
+               Mass discrepancy =     0.16764E-07g/sq.ft.
+
+Since beginning of run at time = 0.0
+               Change in Total Mass =    -0.21448    g/sq.ft.
+                    Advection in from atmosphere =      0.56634E-01g/sq.ft.
+                    Advection in from water table =    -0.15898    g/sq.ft.
+                    Diffusion in from atmosphere =     -0.56687E-01g/sq.ft.
+                    Diffusion in from water table =    -0.55446E-01g/sq.ft.
+               Total inflow at boundaries =    -0.21448    g/sq.ft.
+               Mass discrepancy =     0.44703E-06g/sq.ft.
+
+
+Polygon   1
+At time =      45.00, total mass in vadose zone =    0.47731E-01g/sq.ft.
+Mass in gas phase     =      0.16748E-02g/sq.ft.
+Mass in liquid phase  =      0.12561E-01g/sq.ft.
+Mass sorbed           =      0.33495E-01g/sq.ft.
+
+Since last printout at time =      40.00
+               Change in Total Mass =    -0.96213E-02g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.12127E-01g/sq.ft.
+                    Diffusion in from atmosphere =     -0.19394E-02g/sq.ft.
+                    Diffusion in from water table =    -0.26339E-02g/sq.ft.
+               Total inflow at boundaries =    -0.96213E-02g/sq.ft.
+               Mass discrepancy =     0.13039E-07g/sq.ft.
+
+Since beginning of run at time = 0.0
+               Change in Total Mass =    -0.22410    g/sq.ft.
+                    Advection in from atmosphere =      0.63713E-01g/sq.ft.
+                    Advection in from water table =    -0.17111    g/sq.ft.
+                    Diffusion in from atmosphere =     -0.58627E-01g/sq.ft.
+                    Diffusion in from water table =    -0.58080E-01g/sq.ft.
+               Total inflow at boundaries =    -0.22410    g/sq.ft.
+               Mass discrepancy =     0.46194E-06g/sq.ft.
+
+
+Polygon   1
+At time =      50.00, total mass in vadose zone =    0.42235E-01g/sq.ft.
+Mass in gas phase     =      0.14819E-02g/sq.ft.
+Mass in liquid phase  =      0.11115E-01g/sq.ft.
+Mass sorbed           =      0.29639E-01g/sq.ft.
+
+Since last printout at time =      45.00
+               Change in Total Mass =    -0.54957E-02g/sq.ft.
+                    Advection in from atmosphere =      0.70793E-02g/sq.ft.
+                    Advection in from water table =    -0.88088E-02g/sq.ft.
+                    Diffusion in from atmosphere =     -0.18471E-02g/sq.ft.
+                    Diffusion in from water table =    -0.19190E-02g/sq.ft.
+               Total inflow at boundaries =    -0.54957E-02g/sq.ft.
+               Mass discrepancy =     0.24214E-07g/sq.ft.
+
+Since beginning of run at time = 0.0
+               Change in Total Mass =    -0.22960    g/sq.ft.
+                    Advection in from atmosphere =      0.70792E-01g/sq.ft.
+                    Advection in from water table =    -0.17992    g/sq.ft.
+                    Diffusion in from atmosphere =     -0.60474E-01g/sq.ft.
+                    Diffusion in from water table =    -0.59999E-01g/sq.ft.
+               Total inflow at boundaries =    -0.22960    g/sq.ft.
+               Mass discrepancy =     0.47684E-06g/sq.ft.
+
+
+GROUNDWATER IMPACT OF POLYGON   1
+
+ Time        Mass flux (g/yr/sq.ft.)      Total Mass(g/yr)
+      5.00         0.17655E-02                1.7655    
+     10.00         0.42032E-02                4.2032    
+     15.00         0.66845E-02                6.6845    
+     20.00         0.80809E-02                8.0809    
+     25.00         0.79397E-02                7.9397    
+     30.00         0.66783E-02                6.6783    
+     35.00         0.50504E-02                5.0504    
+     40.00         0.36102E-02                3.6102    
+     45.00         0.25691E-02                2.5691    
+     50.00         0.19075E-02                1.9075    
+****************************************************
+
+****************************************************
+TOTAL GROUNDWATER IMPACT
+
+ Time (yr)          Mass (g/yr)     Cumulative Mass (g)
+      5.00          1.7655            5.5661    
+     10.00          4.2032            21.446    
+     15.00          6.6845            50.138    
+     20.00          8.0809            88.346    
+     25.00          7.9397            128.91    
+     30.00          6.6783            165.12    
+     35.00          5.0504            193.64    
+     40.00          3.6102            214.43    
+     45.00          2.5691            229.19    
+     50.00          1.9075            239.92    
