@@ -9,6 +9,7 @@ import yaml
 from pydantic import BaseModel, Field
 
 from modules.risk.common import Routes
+from modules.risk.equations.dose import Dose
 from modules.risk.equations.worker import Worker
 from ortam_core.chemicals.rsl_import import DATA
 from ortam_core.model import ModelInput
@@ -62,6 +63,7 @@ class SoilResult(BaseModel):
     hq: Routes | None = None
     overridden: list[str] = []
     toxicity_keys: dict[str, str] = {}
+    doses: list[Dose] | None = Field(None, description="CDI/DAD (mg/kg-day) and EC (ug/m3) by route, basis and age segment")
 
 
 def soil_summary(title: str, o) -> str:

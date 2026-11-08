@@ -13,6 +13,7 @@ from pydantic import Field
 
 from modules.risk.common import (governing, label, linear, load_defaults, one_hit, ratio, resolve_chemical,
                                  routes)
+from modules.risk.equations import dose
 from modules.risk.equations import worker as eq
 from modules.risk.resident_soil import ChemicalInput
 from modules.risk.workers_common import SoilResult, WorkerExposure, make_worker, soil_summary
@@ -72,6 +73,7 @@ def run_soil(inputs, w, pef, vf_field: str, warnings: list[str], noncancer_tox=N
         if ci.concentration_mg_kg is not None:
             C = r.concentration_mg_kg = ci.concentration_mg_kg
             r.risk, r.hq = ratio(C, tr, ca, risk=True), ratio(C, thq, nc)
+            r.doses = dose.worker_soil(C, c.absd, rba, vf, pef, w)
         results.append(r)
     with_c = [r for r in results if r.concentration_mg_kg is not None]
     total = hi = None

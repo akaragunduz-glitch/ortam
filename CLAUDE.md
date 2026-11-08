@@ -140,4 +140,7 @@ docs/              Documentation
   `data/reference/je/v6-2017/`); workflow `workflows/vapor_intrusion`
   (`visl_screening`, `visl_risk_from_subsurface`, `je_risk`). VISL calculator
   4/4; J&E spreadsheet 16/16 cases to 1e-9.
-- Next task: D1.1d — doses (CDI, DAD, EC) as outputs; then D1.3 (food chain).
+- D1.1d complete (2026-11-08): doses (CDI, DAD, EC) by route and age segment
+  in all nine risk tools (`modules/risk/equations/dose.py`); RAGS E Exhibit B-3
+  209/209 within rounding; risk/HQ from doses = tool risk/HQ for all chemicals.
+- Next task: D1.3 — food chain (RAIS farmer, HHRAP 2005) and VLEACH.

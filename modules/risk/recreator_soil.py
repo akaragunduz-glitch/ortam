@@ -19,7 +19,7 @@ from pydantic import BaseModel, Field
 
 from modules.risk.common import (cancer_method, governing, label, linear, load_defaults, one_hit, ratio,
                                  resolve_chemical, routes)
-from modules.risk.equations import factors, recreator, soil
+from modules.risk.equations import dose, factors, recreator, soil
 from modules.risk.resident_soil import ChemicalInput, ChemicalResult
 from ortam_core.chemicals.rsl_import import DATA
 from ortam_core.model import ModelInput, ModelOutput, Module
@@ -109,6 +109,7 @@ class RecreatorSoilModule(Module):
             if ci.concentration_mg_kg is not None:
                 C = r.concentration_mg_kg = ci.concentration_mg_kg
                 r.risk, r.hq_child, r.hq_adult = ratio(C, tr, ca, True), ratio(C, thq, nc_c), ratio(C, thq, nc_a)
+                r.doses = dose.resident_soil(C, c, rba, ci.vf_m3_kg, d, method)
             results.append(r)
         with_c = [r for r in results if r.concentration_mg_kg is not None]
         total = hc = ha = None

@@ -17,7 +17,8 @@ from pydantic import BaseModel, Field
 
 from modules.risk.common import (ChemicalInputBase, ExposureOverrides, Routes, cancer_method, governing,
                                  label, linear, load_defaults, one_hit, ratio, resolve_chemical, routes)
-from modules.risk.equations import dermal_water, factors, tapwater
+from modules.risk.equations import dermal_water, dose, factors, tapwater
+from modules.risk.equations.dose import Dose
 from ortam_core.model import ModelInput, ModelOutput, Module
 
 
@@ -59,6 +60,7 @@ class ChemicalResult(BaseModel):
     overridden: list[str] = []
     toxicity_keys: dict[str, str] = {}
     notes: list[str] = []
+    doses: list[Dose] | None = Field(None, description="CDI/DAD (mg/kg-day) and EC (ug/m3) by route, basis and age segment")
 
 
 class ResidentTapwaterOutput(ModelOutput):
@@ -110,6 +112,7 @@ class ResidentTapwaterModule(Module):
                 res.risk = ratio(C, tr, ca, risk=True)
                 res.hq_child = ratio(C, thq, nc_c)
                 res.hq_adult = ratio(C, thq, nc_a)
+                res.doses = dose.resident_water(C, c, d, f, method)
             results.append(res)
 
         with_c = [r for r in results if r.concentration_ug_l is not None]

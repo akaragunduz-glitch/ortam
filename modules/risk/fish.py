@@ -13,6 +13,8 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+from modules.risk.equations import dose
+from modules.risk.equations.dose import Dose
 from modules.risk.common import ChemicalInputBase, governing, label, load_defaults, one_hit, resolve_chemical
 from ortam_core.model import ModelInput, ModelOutput, Module
 
@@ -43,6 +45,7 @@ class FishResult(BaseModel):
     risk: float | None = None
     hq: float | None = None
     overridden: list[str] = []
+    doses: list[Dose] | None = Field(None, description="CDI/DAD (mg/kg-day) and EC (ug/m3) by route, basis and age segment")
 
 
 class FishOutput(ModelOutput):
@@ -79,6 +82,7 @@ class FishModule(Module):
                 C = r.concentration_mg_kg = ci.concentration_mg_kg
                 r.risk = one_hit(C * tr / ca) if ca else None
                 r.hq = C * thq / nc if nc else None
+                r.doses = dose.fish(C, irf, ef, ed, bw, p["lt_yr"])
             results.append(r)
         with_c = [r for r in results if r.concentration_mg_kg is not None]
         total = hi = None

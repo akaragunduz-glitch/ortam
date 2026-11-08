@@ -11,7 +11,9 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 from modules.risk.common import ChemicalInputBase, governing, label, one_hit, resolve_chemical
+from modules.risk.equations import dose
 from modules.risk.equations import worker as eq
+from modules.risk.equations.dose import Dose
 from modules.risk.workers_common import WorkerExposure, make_worker
 from ortam_core.model import ModelInput, ModelOutput, Module
 
@@ -40,6 +42,7 @@ class AirResult(BaseModel):
     risk: float | None = None
     hq: float | None = None
     overridden: list[str] = []
+    doses: list[Dose] | None = Field(None, description="CDI/DAD (mg/kg-day) and EC (ug/m3) by route, basis and age segment")
 
 
 class WorkerAirOutput(ModelOutput):
@@ -73,6 +76,7 @@ class WorkerAirModule(Module):
                 C = r.concentration_ug_m3 = ci.concentration_ug_m3
                 r.risk = one_hit(C * tr / ca) if ca else None
                 r.hq = C * thq / nc if nc else None
+                r.doses = dose.worker_air(C, w)
             results.append(r)
         with_c = [r for r in results if r.concentration_ug_m3 is not None]
         total = hi = None

@@ -196,12 +196,54 @@ identical results.
 **Fish.** SL in fish tissue (mg/kg), adult resident, not age-adjusted;
 IRF is site-specific (§4.7).
 
+## Doses: CDI, DAD, EC (task D1.1d)
+
+When a concentration is given, every risk tool reports a `doses` list
+(`modules/risk/equations/dose.py`): one row per route, basis (noncancer child,
+noncancer adult, noncancer, cancer) and age segment, with its unit and a weight.
+
+| Quantity | Equation | Source (printed page [PDF page]) |
+|----------|----------|----------------------------------|
+| CDI, mg/kg-day | I = C·CR·CF·EF·ED/(BW·AT) | RAGS A Exhibit 6-9, p. 6-21 [130]; soil: Exhibit 6-14, p. 6-40 [149] |
+| DAD, mg/kg-day | DAD = DA_event·EV·ED·EF·SA/(BW·AT) | RAGS E Eq. 3.1, p. 3-3 [24] |
+| DA_event, water | 2·FA·Kp·Cw·√(6τt/π) (t ≤ t*); FA·Kp·Cw·[t/(1+B) + 2τ(1+3B+3B²)/(1+B)²] (t > t*); Kp·Cw·t (inorganics) | RAGS E Eq. 3.2-3.3, p. 3-4 [25]; Eq. 3.4, p. 3-5 [26] |
+| DA_event, soil | C_soil·10⁻⁶·AF·ABS_d | RAGS E Eq. 3.12, p. 3-9 [30] |
+| EC, µg/m3 | EC = CA·ET·EF·ED/AT (AT in h) | RAGS F Eq. 6, p. 14 [22]; Eq. 8, p. 18 [26] |
+| Risk, HQ | Risk = CDI·SF; HQ = CDI/RfD | RAGS A p. 8-6 [195], p. 8-11 [200] |
+| Dermal toxicity | SF_ABS = SFO/ABS_GI; RfD_ABS = RfD·ABS_GI | RAGS E Eq. 4.2-4.3, pp. 4-3, 4-4 [45-46] |
+| Inhalation | Risk = IUR·EC; HQ = EC/(RfC·1000) | RAGS F Eq. 11, p. 22 [30]; Eq. 12, p. 24 [32] |
+
+Averaging time: noncancer AT = ED·365 d (construction worker EW·7·ED); cancer
+AT = LT·365 d. Air concentration from soil CA = C·(1/VF + 1/PEF)·1000 µg/m3; from
+tap water CA = C·K (Andelman K = 0.5 L/m3). Cw (mg/cm3) = C (µg/L)·10⁻⁶.
+
+**Terminology.** RAGS terms are used: CDI (oral), DAD (dermal), EC (inhalation).
+The cancer rows are lifetime-averaged (AT = 70 yr), i.e. the RAGS equivalent of a
+LADD; the noncancer rows are averaged over the exposure duration.
+
+**Weights.** risk_route = Σ dose·weight·toxicity; HQ_route = Σ dose·weight / toxicity.
+The weight carries RBA (soil ingestion), ADAF (mutagens, four age segments
+0-2, 2-6, 6-16, 16-26 yr) and CAF/MAF (TCE). Vinyl chloride has an additional
+early-life row without averaging time (RSL UG 4.1.1.5, 4.1.2.5, 4.1.3.4). The
+cancer dermal dose for tap water uses the ED-weighted event time ET_event-adj
+(or -madj), as in RSL UG 4.1.2.3-4.1.2.6.
+
+**Verification** (`modules/risk/tests/test_dose.py`):
+- RAGS E Exhibit B-3 (209 organic chemicals in water, Cw = 1 mg/L, t_event 0.58 h,
+  SA 18 000 cm2, ED 30 yr, BW 70 kg, AT 25 550 d): DA_event and DAD recomputed from
+  the printed Kp, B, τ, t*, FA. All within 10 %, median deviation < 2 %; the
+  printed inputs and results have two significant figures. Benzene: DA_event
+  1.7E-05 mg/cm2-event, DAD 1.8E-03 mg/kg-day, as printed.
+- For every RSL chemical with a toxicity value and all nine risk tools, the risk
+  and HQ rebuilt from the doses equal the tools' risk and HQ (relative 1e-9),
+  including mutagens, vinyl chloride and TCE.
+
 ### Planned extensions
 
 | Task | Content |
 |------|---------|
 | D1.1b | Done: mutagens (ADAF), TCE, vinyl chloride; tap water and air |
-| D1.1d | Doses (CDI, DAD, EC) as outputs, verified against RAGS A/E/F |
+| D1.1d | Done: doses (CDI, DAD, EC) as outputs of all risk tools |
 | D1.1c | Done: workers, construction worker, recreator (soil/sediment, surface water), fish |
-| D1.2 | VF and PEF calculation (SSL), Johnson & Ettinger |
+| D1.2 | Done: VF and PEF (SSL), soil-to-groundwater SSL, VISL, Johnson & Ettinger |
 | D1.3 | `foodchain` module (RAIS farmer, HHRAP) and food ingestion in `risk` |

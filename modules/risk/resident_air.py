@@ -16,7 +16,8 @@ from pydantic import BaseModel, Field
 
 from modules.risk.common import (ChemicalInputBase, ExposureOverrides, cancer_method, governing, label,
                                  load_defaults, one_hit, resolve_chemical)
-from modules.risk.equations import air, factors
+from modules.risk.equations import air, dose, factors
+from modules.risk.equations.dose import Dose
 from ortam_core.model import ModelInput, ModelOutput, Module
 
 
@@ -47,6 +48,7 @@ class ChemicalResult(BaseModel):
     hq: float | None = None
     overridden: list[str] = []
     toxicity_keys: dict[str, str] = {}
+    doses: list[Dose] | None = Field(None, description="CDI/DAD (mg/kg-day) and EC (ug/m3) by route, basis and age segment")
 
 
 class ResidentAirOutput(ModelOutput):
@@ -92,6 +94,7 @@ class ResidentAirModule(Module):
                 C = res.concentration_ug_m3 = ci.concentration_ug_m3
                 res.risk = one_hit(C * tr / ca) if ca else None   # RSL UG 2.6.1-2.6.2
                 res.hq = C * thq / nc if nc else None
+                res.doses = dose.resident_air(C, d, method)
             results.append(res)
         with_c = [r for r in results if r.concentration_ug_m3 is not None]
         total_risk = hi = None

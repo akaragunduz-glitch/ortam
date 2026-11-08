@@ -16,7 +16,7 @@ from typing import Literal
 from pydantic import Field
 
 from modules.risk.common import cancer_method, governing, label, linear, one_hit, ratio, resolve_chemical, routes
-from modules.risk.equations import dermal_water, factors, tapwater
+from modules.risk.equations import dermal_water, dose, factors, tapwater
 from modules.risk.recreator_soil import Four, build_defaults, four
 from modules.risk.resident_tapwater import ChemicalInput, ChemicalResult
 from ortam_core.model import ModelInput, ModelOutput, Module
@@ -78,6 +78,7 @@ class RecreatorSurfaceWaterModule(Module):
             if ci.concentration_ug_l is not None:
                 C = r.concentration_ug_l = ci.concentration_ug_l
                 r.risk, r.hq_child, r.hq_adult = ratio(C, tr, ca, True), ratio(C, thq, nc_c), ratio(C, thq, nc_a)
+                r.doses = dose.resident_water(C, cw, d, f, method, inhalation=False)
             results.append(r)
         with_c = [r for r in results if r.concentration_ug_l is not None]
         total = hc = ha = None

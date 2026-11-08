@@ -25,7 +25,8 @@ from pydantic import BaseModel, Field
 
 from modules.risk.common import (ChemicalInputBase, ExposureOverrides, Routes, cancer_method, governing,
                                  label, linear, load_defaults, one_hit, ratio, resolve_chemical, routes)
-from modules.risk.equations import factors, soil
+from modules.risk.equations import dose, factors, soil
+from modules.risk.equations.dose import Dose
 from ortam_core.model import ModelInput, ModelOutput, Module
 
 CEILING_MG_KG = 1.0e5        # RSL UG 5.13: theoretical ceiling limit (flagged, not applied)
@@ -77,6 +78,7 @@ class ChemicalResult(BaseModel):
     overridden: list[str] = []
     toxicity_keys: dict[str, str] = {}
     notes: list[str] = []
+    doses: list[Dose] | None = Field(None, description="CDI/DAD (mg/kg-day) and EC (ug/m3) by route, basis and age segment")
 
 
 class ResidentSoilOutput(ModelOutput):
@@ -142,6 +144,7 @@ class ResidentSoilModule(Module):
                 res.risk = ratio(C, tr, ca, risk=True)
                 res.hq_child = ratio(C, thq, nc_c)
                 res.hq_adult = ratio(C, thq, nc_a)
+                res.doses = dose.resident_soil(C, c, rba, ci.vf_m3_kg, d, method)
             results.append(res)
 
         with_c = [r for r in results if r.concentration_mg_kg is not None]
