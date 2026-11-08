@@ -50,9 +50,12 @@ RSL tables version: **November 2024** (worksheet names end in `1124`).
 | `je_documentation_v6_2017.pdf` | J&E v6 (2017) | Documentation for EPA's Implementation of the Johnson and Ettinger Model to Evaluate Site Specific Vapor Intrusion into Buildings, Version 6.0 | 82 | https://semspub.epa.gov/work/HQ/100000489.pdf |
 | `visl_users_guide_2014.pdf` | VISL UG (2014) | Vapor Intrusion Screening Level (VISL) Calculator User's Guide, May 2014 | 11 | https://semspub.epa.gov/work/HQ/196703.pdf |
 | `oswer_vi_technical_guide_2015.pdf` | OSWER VI Guide (2015) | OSWER Technical Guide for Assessing and Mitigating the Vapor Intrusion Pathway from Subsurface Vapor Sources to Indoor Air, OSWER 9200.2-154, June 2015 | 267 | https://www.epa.gov/sites/default/files/2015-09/documents/oswer-vapor-intrusion-technical-guide-final.pdf |
+| `je_spreadsheet_v6_2017.xlsm` | J&E spreadsheet v6 | EPA J&E model spreadsheet, Version 6.0, September 2017 (downloaded as 100000499.xlsm); data tables imported to `data/reference/je/v6-2017/` | - | https://semspub.epa.gov/work/HQ/100000499.xlsm |
+| `visl_calculator_resident_2026-11-08.xlsx` | VISL output (2026-11-08) | Output of the EPA VISL calculator, resident, THQ 0.1, benzene/PCE/TCE/vinyl chloride; reference values for `vapor.visl` | - | https://epa-visl.ornl.gov/ |
 
-The downloaded SSG file had a damaged cross-reference table (text could be
-read from page 1 only); it was repaired with `qpdf` (content unchanged).
+The downloaded SSG and J&E documentation files had damaged cross-reference
+tables (text could be read from page 1 only); they were repaired with `qpdf`
+(content unchanged).
 
 ## Notes
 

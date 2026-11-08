@@ -1,0 +1,19 @@
+# Johnson & Ettinger (EPA v6.0, 2017): indoor air from groundwater under a slab-on-grade house.
+# Same inputs as reference case 7 (TCE, 2 m sandy loam over 3 m clay, Ts = 18 C).
+# Run: uv run ortam run vapor.johnson-ettinger modules/vapor/examples/johnson_ettinger.yaml
+source: groundwater          # groundwater | exterior-soil-gas | subslab-soil-gas
+depth_to_source_m: 5         # Ls: depth to the water table, m
+temperature_c: 18            # average groundwater temperature, C
+foundation: Slab-on-grade    # residential defaults of the J&E spreadsheet (BLDG_DATA)
+# building:                  # optional overrides: lb_m, lf_m, eta, abf_m2, hb_m, ach_per_h, qsoil_qb
+#   ach_per_h: 0.45
+strata:                      # from the surface down; thicknesses must add up to Ls
+  - soil: Sandy Loam
+    thickness_m: 2
+  - soil: Clay
+    thickness_m: 3
+chemicals:
+  - cas: "79-01-6"           # Trichloroethylene
+    concentration: 50        # ug/L
+  - cas: "127-18-4"          # Tetrachloroethylene
+    concentration: 20        # ug/L

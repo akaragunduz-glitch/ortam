@@ -1,0 +1,6 @@
+foundation,lb_m,lf_m,eta,abf_m2,hb_m,ach_per_h,qsoil_qb
+Closed crawl space w/ slab,1,0.1,0.001,150,1.3,0.45,0.003
+Closed crawl space w/ dirt floor,1,0,1,150,1.3,0.45,
+Basement w/ slab,2,0.1,0.001,150,3.66,0.45,0.003
+Basement w/ dirt floor,2,0,1,150,3.66,0.45,
+Slab-on-grade,0.1,0.1,0.001,150,2.44,0.45,0.003

@@ -82,7 +82,7 @@ ortam_core/        Shared core: module contract, units, CLI, chemical database
 modules/           Standalone modules (each runs on its own)
   groundwater/     Three-point, analytical solutions, MODFLOW 6 flow + GWT, MODPATH
   vadose/          SSL leaching, VLEACH, Richards solver, UZF
-  vapor/           Johnson & Ettinger vapor intrusion
+  vapor/           Vapor intrusion: VISL screening levels, Johnson & Ettinger
   air/             AERMOD, emission factors
   surface/         RUSLE, surface runoff
   foodchain/       HHRAP plant and food chain uptake
@@ -135,5 +135,9 @@ docs/              Documentation
 - D1.2b complete (2026-11-07): `vadose.ssl-leaching` (Method 1/2, DAF);
   workflow `workflows/soil_to_groundwater`; MCL-based SSL 91/91, risk-based
   SSL 741/747 (6 documented deviations).
-- Next task: D1.2c — Johnson & Ettinger and VISL (`modules/vapor/`); reference
-  documents are in `docs/references/`.
+- D1.2c complete (2026-11-08): `vapor.visl` (AF_ss 0.03, AF_gw 0.001, OSWER
+  2015) and `vapor.johnson-ettinger` (EPA J&E v6.0, 2017; data in
+  `data/reference/je/v6-2017/`); workflow `workflows/vapor_intrusion`
+  (`visl_screening`, `visl_risk_from_subsurface`, `je_risk`). VISL calculator
+  4/4; J&E spreadsheet 16/16 cases to 1e-9.
+- Next task: D1.1d — doses (CDI, DAD, EC) as outputs; then D1.3 (food chain).

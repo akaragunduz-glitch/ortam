@@ -20,7 +20,8 @@ MODULES: dict[str, str] = {
     "air.ssl-pef":             "modules.air.ssl_pef:SslPefModule",
     # "groundwater.modflow":  "modules.groundwater.modflow:ModflowModule",       # Phase 5
     "vadose.ssl-leaching":     "modules.vadose.ssl_leaching:SslLeachingModule",
-    # "vapor.johnson-ettinger": "modules.vapor.johnson_ettinger:JEModule",       # Phase 1
+    "vapor.visl":              "modules.vapor.visl:ViSlModule",
+    "vapor.johnson-ettinger":  "modules.vapor.johnson_ettinger:JohnsonEttingerModule",
     # "air.aermod":           "modules.air.aermod:AermodModule",                 # Phase 5
     # "geochem.phreeqc":      "modules.geochem.phreeqc:PhreeqcModule",           # Phase 5
 }

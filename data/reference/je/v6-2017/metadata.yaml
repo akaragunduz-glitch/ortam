@@ -1,0 +1,20 @@
+je_version: 6.0 (September 2017)
+imported_on: '2026-11-08'
+source: je_spreadsheet_v6_2017.xlsm
+source_sha256: 89e53588449cfb921e01e5176e94bdb75cfd534e5b79146b4bed3c99fccaf57e
+files:
+  chemicals.csv:
+    rows: 283
+    worksheet: CHEM_DATA
+    source_rows: 6-288
+  soils.csv:
+    rows: 12
+    worksheet: SOIL_DATA
+    source_rows: 6-17
+  buildings.csv:
+    rows: 5
+    worksheet: BLDG_DATA
+    source_rows: 10-14 (Residential)
+  reference_cases.csv:
+    rows: 16
+    note: Spreadsheet results for 16 cases, recalculated with LibreOffice; see modules/vapor/tests/generate_je_reference_cases.py

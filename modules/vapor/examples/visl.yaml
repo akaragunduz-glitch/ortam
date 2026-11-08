@@ -1,0 +1,14 @@
+# Vapor intrusion screening levels from target indoor air concentrations (ug/m3).
+# Here the targets are the RSL resident air SLs (Nov 2024); the workflow
+# workflows/vapor_intrusion computes them automatically.
+# Run: uv run ortam run vapor.visl modules/vapor/examples/visl.yaml
+af_subslab: 0.03          # OSWER (2015) Table 6-1
+af_groundwater: 0.001
+groundwater_temp_c: 25
+chemicals:
+  - cas: "71-43-2"        # Benzene
+    target_ia_ug_m3: 0.36
+  - cas: "79-01-6"        # Trichloroethylene
+    target_ia_ug_m3: 0.48
+  - cas: "127-18-4"       # Tetrachloroethylene
+    target_ia_ug_m3: 11
