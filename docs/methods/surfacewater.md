@@ -78,7 +78,8 @@ rate is 0.48·Q (loss to the global cycle) with Fv = 0.85 in Ds, LDEP, LRI and L
 (mercuric chloride, methyl mercury) and soil loss constant (B-4-1, p. B-169 [172]); LR and LE are
 the sums of the two species (B-4-11, p. B-211 [214]); the water body uses the mercuric chloride
 parameters and Cdw is split into 85 % Hg²⁺ and 15 % MHg (B-4-24, p. B-260 [263]). Measured total
-soil mercury is split 98/2 % like the deposition (ORTAM assumption; noted in the output).
+soil mercury is split 98/2 % like the deposition (ORTAM assumption; noted in the output). Owner's
+decision (2026-11-10): species-specific soil measurements are not required.
 The workflow `water_body_fish_risk` passes both species to `foodchain.media`.
 
 ## 5. Verification
