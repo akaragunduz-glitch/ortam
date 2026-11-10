@@ -102,6 +102,7 @@ workflows/         Workflows that connect modules
   soil_volatiles/  air.ssl-vf -> risk soil tools (volatile chemicals)
   soil_to_groundwater/ risk.resident-tapwater -> vadose.ssl-leaching
   napl_plume/      napl.equilibrium -> napl.source-plume -> risk.resident-tapwater
+  surface_water/   napl.source-plume / surfacewater.watershed -> foodchain (fish) -> risk
 engines/           Fortran and external codes (MODFLOW, AERMOD, VLEACH, ...)
 api/               FastAPI server (Phase 2)
 worker/            Celery background workers (Phase 5)
@@ -174,4 +175,9 @@ docs/              Documentation
   Workflow `workflows/napl_plume`. Instantaneous model: default `instantaneous_source:
   mass-balance` (BC constant, source mass and concentration vanish together; §4.8),
   `bioscreen` keeps BIOSCREEN's depletion. Q1-Q3 are not reported to the developers (owner).
-  Next: D1.4a `surfacewater.watershed` (HHRAP B-4).
+- D1.4a complete (2026-11-10): `surfacewater.watershed` (HHRAP App. B Tables B-4-1 to B-4-25:
+  watershed soil measured or from deposition, loads, USLE/SD, river/lake transfer, Cwtot, Cdw, Csb;
+  mercury rules; external loads as ORTAM extension). Independent LibreOffice hand calculation
+  (`data/reference/hhrap/2005/b4_hand_calculation.ods`): 193 values to 1e-11. Workflow
+  `workflows/surface_water` (`plume_to_water_body`, `water_body_fish_risk`).
+  Next: D1.4b river and lake (Mills et al. 1985).

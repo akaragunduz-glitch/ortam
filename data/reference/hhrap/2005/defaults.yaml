@@ -54,3 +54,52 @@ exposure:
   ed_yr: {farmer: 40, farmer_child: 6, resident: 30, resident_child: 6, fisher: 30, fisher_child: 6}
   ef_d_yr: 350
   at_cancer_yr: 70
+# Surface water (watershed and water body), App. B Tables B-4-1 to B-4-25, used by
+# surfacewater.watershed. Printed page [PDF page] of hhrap_2005_appendix_b.pdf.
+surface_water:
+  deposition_period_yr: {value: 30, source: "Table B-4-1, p. B-170 [173] (tD)"}
+  t1_yr: {value: 0, source: "Table B-4-1, p. B-171 [174] (T1)"}
+  exposure_duration_yr: {value: 30, source: "Table B-4-1, p. B-171 [174] (T2; adult resident and fisher 30, child 6, farmer 40)"}
+  soil_mixing_depth_cm: {untilled: 2, tilled: 20, source: "Table B-4-1, p. B-172 [175] (Zs)"}
+  soil_bulk_density_g_cm3: {value: 1.5, source: "Table B-4-1, p. B-172 [175] (BD)"}
+  soil_water_content: {value: 0.2, source: "Table B-4-3, p. B-182 [185] (theta_sw)"}
+  soil_particle_density_g_cm3: {value: 2.7, source: "Table B-4-6, p. B-196 [199] (rho_soil)"}
+  air_temperature_k: {value: 298, source: "Table B-4-6, p. B-196 [199] (Ta)"}
+  gas_constant_atm_m3_mol_k: {value: 8.205e-5, source: "Table B-4-6, p. B-195 [198] (R)"}
+  irrigation_cm_yr: {value: 0, source: "Table B-4-5, p. B-190 [193] (I, range 0 to 100; site-specific)"}
+  soil_erosion_loss_constant: {value: 0, source: "Table B-4-2, p. B-177 [180]; Table B-4-3, p. B-180 [183] (kse = 0)"}
+  enrichment_ratio: {organic: 3, inorganic: 1, source: "Table B-4-3, p. B-181 [184] (ER)"}
+  usle:
+    erodibility_k_ton_acre: {value: 0.39, source: "Table B-4-13, p. B-219 [222] (K; p. B-222 cites 0.36 for U.S. EPA 1994)"}
+    length_slope_ls: {value: 1.5, source: "Table B-4-13, p. B-220 [223] (LS)"}
+    cover_management_c: {value: 0.1, source: "Table B-4-13, p. B-220 [223] (C)"}
+    supporting_practice_pf: {value: 1.0, source: "Table B-4-13, p. B-220 [223] (PF)"}
+    rainfall_rf_range_per_yr: {range: [50, 300], source: "Table B-4-13, p. B-219 [222] (RF, site-specific)"}
+  sediment_delivery:
+    a_by_area_sq_mi: [[0.1, 2.1], [1.0, 1.9], [10.0, 1.4], [100.0, 1.2], [.inf, 0.6]]   # upper bound (<=), a
+    m2_per_sq_mi: 2.59e+6
+    b: 0.125
+    source: "Table B-4-14, pp. B-223 to B-224 [226-227] (a, b)"
+  benthic_depth_m: {value: 0.03, source: "Table B-4-15, p. B-228 [231] (dbs)"}
+  tss_mg_l: {value: 10, source: "Table B-4-16, p. B-231 [234] (TSS)"}
+  bed_sediment_concentration_g_cm3: {value: 1.0, source: "Table B-4-16, p. B-232 [235] (CBS)"}
+  bed_sediment_porosity: {value: 0.6, source: "Table B-4-16, p. B-233 [236] (theta_bs)"}
+  water_temperature_k: {value: 298, source: "Table B-4-12, p. B-217 [220]; Table B-4-19, p. B-243 [246] (Twk)"}
+  temperature_correction_theta: {value: 1.026, source: "Table B-4-19, p. B-243 [246]"}
+  gas_transfer_river_m_yr: {value: 36500, source: "Table B-4-21, p. B-249 [252] (KG, flowing streams or rivers)"}
+  drag_coefficient: {value: 0.0011, source: "Table B-4-20, p. B-246 [249]; Table B-4-21, p. B-249 [252] (Cd)"}
+  wind_speed_m_s: {value: 3.9, source: "Table B-4-20, p. B-246 [249] (W)"}
+  von_karman: {value: 0.4, source: "Table B-4-20, p. B-246 [249]; Table B-4-21, p. B-250 [253] (k)"}
+  viscous_sublayer: {value: 4, source: "Table B-4-20, p. B-247 [250] (lambda_z)"}
+  air_density_g_cm3: {value: 0.0012, source: "Table B-4-20, p. B-246 [249] (rho_a)"}
+  water_density_g_cm3: {value: 1.0, source: "Table B-4-20, p. B-246 [249] (rho_w)"}
+  water_viscosity_g_cm_s: {value: 1.69e-2, source: "Table B-4-20, p. B-247 [250] (mu_w)"}
+  air_viscosity_g_cm_s: {value: 1.81e-4, source: "Table B-4-21, p. B-250 [253] (mu_a)"}
+  burial_rate_negative: {value: 0, source: "HHRAP Chapter 5, Section 5.7.4.7, p. 5-81 [82]: negative kb -> 0; kb > 1: re-evaluate Xe"}
+  mercury:
+    emission_fraction: {value: 0.48, source: "Table B-4-1, p. B-169 [172]; Tables B-4-8, -9, -12 (0.48 Q)"}
+    vapor_fraction: {value: 0.85, source: "Table B-4-1, p. B-169 [172] (Fv = 0.85)"}
+    soil_split: {Hg2+: 0.98, MHg: 0.02, source: "Table B-4-1, p. B-169 [172]"}
+    water_split: {Hg2+: 0.85, MHg: 0.15, source: "Table B-4-24, p. B-260 [263]"}
+    water_body_parameters_cas: "7487-94-7"     # mercuric chloride (Table B-4-24)
+    species_cas: {Hg2+: "7487-94-7", MHg: "22967-92-6"}

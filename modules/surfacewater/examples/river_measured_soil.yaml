@@ -1,0 +1,18 @@
+# Naphthalene in watershed soil (measured) draining to a river (illustrative values).
+# HHRAP 2005 Appendix B, Tables B-4-2 to B-4-25; chemical parameters from the HHRAP Companion Database.
+# Run: uv run ortam run surfacewater.watershed modules/surfacewater/examples/river_measured_soil.yaml
+chemical: {cas: "91-20-3"}
+watershed:
+  area_m2: 3.0e+6               # AL
+  impervious_area_m2: 1.0e+5    # AI
+  runoff_cm_yr: 12              # RO
+  precipitation_cm_yr: 60       # P (central Anatolia order of magnitude)
+  evapotranspiration_cm_yr: 40  # Ev
+  usle: {rainfall_rf_per_yr: 80}
+soil: {concentration_mg_kg: 2.0}
+water_body:
+  type: river
+  area_m2: 4.0e+4
+  flow_m3_yr: 6.0e+7            # about 1.9 m3/s
+  water_column_depth_m: 1.2
+  current_velocity_m_s: 0.4

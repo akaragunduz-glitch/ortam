@@ -1,0 +1,23 @@
+# Mercury from stack emissions deposited on a lake and its watershed (illustrative values).
+# Total Hg emission; HHRAP mercury rules (0.48 Q, Fv 0.85, soil 98/2 % and water 85/15 % Hg2+/MHg).
+# Unitized deposition and air concentration from an air dispersion model (HHRAP Chapter 3).
+# Run: uv run ortam run surfacewater.watershed modules/surfacewater/examples/lake_deposition_mercury.yaml
+chemical: {cas: "7439-97-6"}
+watershed:
+  area_m2: 5.0e+6
+  runoff_cm_yr: 10
+  precipitation_cm_yr: 70
+  evapotranspiration_cm_yr: 45
+  usle: {rainfall_rf_per_yr: 100}
+air:
+  emission_rate_g_s: 0.002
+  watershed_dytwv_s_m2_yr: 0.03
+  watershed_dytwp_s_m2_yr: 0.25
+  water_body_dytwv_s_m2_yr: 0.03
+  water_body_dytwp_s_m2_yr: 0.3
+  water_body_cywv_ug_s_g_m3: 0.5
+water_body:
+  type: lake
+  area_m2: 1.5e+5
+  flow_m3_yr: 2.0e+6
+  water_column_depth_m: 5
