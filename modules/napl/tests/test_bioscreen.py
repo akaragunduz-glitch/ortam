@@ -44,7 +44,8 @@ def case_from_workbook(rec) -> bs.Case:
         zones=[(ic["y1_ft"] or 0.0, ic["c1_mg_l"] or 0.0), (ic["y2_ft"] or 0.0, ic["c2_mg_l"] or 0.0),
                (ic["y3_ft"] or 0.0, ic["c3_mg_l"] or 0.0)],
         mass_kg=None if mass == "Infinite" else mass,
-        electron_acceptors={v: ic[k] or 0.0 for k, v in EA_KEYS.items()})
+        electron_acceptors={v: ic[k] or 0.0 for k, v in EA_KEYS.items()},
+        instantaneous_source="bioscreen")
 
 
 @pytest.fixture(scope="module", params=list(CASES))
@@ -246,3 +247,88 @@ def test_source_flux_equals_darcy_flux_times_concentration():
     c = case_from_workbook(CASES["single_zone_steady"])
     src = bs.source_terms(c, s)
     assert src.flux_kg_yr == pytest.approx(c.vs_ft_yr * c.porosity * c.thickness_ft * 50 * 10.0 * bs.L_PER_FT3_EXACT / 1e6)
+
+
+# --- Mass-balance source for the instantaneous model (docs/methods/napl.md §4.8) -------------------
+def mb_case(cid="keesler_example1"):
+    c = case_from_workbook(CASES[cid])
+    c.instantaneous_source = "mass-balance"
+    return c
+
+
+def remaining(src, t):
+    b = src.biodegradation_capacity_mg_l / src.c_avg_mg_l
+    return max(0.0, (1 + b) * math.exp(-src.ks_per_yr * t) - b)
+
+
+def test_mass_balance_source_column_analytical():
+    """At the source (y = 0, all layers present): C_inst = Co3 f(tau), f = (1 + b) e^(-ks tau) - b."""
+    c = mb_case()
+    for s in (COMPAT, bs.Settings(compatible=False)):
+        src = bs.source_terms(c, s)
+        for t in (1.0, 6.0, 30.0, 80.0):
+            tau = t - bs.X_SOURCE_FT * c.retardation / c.vs_ft_yr
+            got = bs.concentrations(c, src, s, [0.0], [0.0], t_yr=t).instantaneous[0]
+            assert close(got, c.zones[2][1] * remaining(src, tau), abs_=1e-12), t
+
+
+def test_mass_balance_source_mass_integral():
+    """M0 - M(t) = integral of Q (C_obs + BC) dt with C_obs = Cavg M/M0 (BSCR App. A.3 Eq. 4, BC constant)."""
+    from scipy.integrate import quad
+    c = mb_case()
+    src = bs.source_terms(c, COMPAT)
+    for t in (5.0, 40.0, 0.99 * src.depletion_time_inst_yr):
+        lost, _ = quad(lambda u: src.flow_l_yr * (src.c_avg_mg_l * remaining(src, u) + src.biodegradation_capacity_mg_l)
+                       / 1e6, 0, t, epsabs=1e-12, epsrel=1e-12)
+        assert lost == pytest.approx(c.mass_kg * (1 - remaining(src, t)), rel=1e-9)
+
+
+def test_mass_balance_depletion_time():
+    c = mb_case()
+    src = bs.source_terms(c, COMPAT)
+    te = src.depletion_time_inst_yr
+    b = src.biodegradation_capacity_mg_l / src.c_avg_mg_l
+    assert te == pytest.approx(math.log((1 + b) / b) / src.ks_per_yr, rel=1e-12)
+    assert remaining(src, te) == pytest.approx(0.0, abs=1e-12)
+    near = bs.concentrations(c, src, COMPAT, [0.0], [0.0], t_yr=0.99 * te).instantaneous[0]
+    after = bs.concentrations(c, src, COMPAT, [0.0], [0.0], t_yr=1.01 * te).instantaneous[0]
+    assert near > 0 and after == 0
+    r = bs.run(dataclasses_replace(c, time_yr=1.5 * te), COMPAT)
+    m = r.models["instantaneous"]
+    assert m.source_mass_now_kg == 0 and r.mass_left_source_inst_kg == pytest.approx(c.mass_kg)
+
+
+def test_mass_balance_screen_values():
+    c = mb_case()
+    r = bs.run(c, COMPAT)
+    f = remaining(r.source, c.time_yr)
+    assert r.mass_left_source_inst_kg == pytest.approx(c.mass_kg * (1 - f), rel=1e-12)
+    assert r.models["instantaneous"].source_mass_now_kg == pytest.approx(c.mass_kg * f, rel=1e-12)
+    # no-degradation and first-order models are not affected
+    rb = bs.run(case_from_workbook(CASES["keesler_example1"]), COMPAT)
+    for k in ("no_decay", "first_order"):
+        assert_close(r.arrays[k], rb.arrays[k], rel=1e-15)
+
+
+@pytest.mark.parametrize("cid", ["no_electron_acceptors", "hill_example2", "single_zone_steady"])
+def test_mass_balance_equals_bioscreen_without_bc_or_with_infinite_source(cid):
+    c = mb_case(cid)
+    r, rb = bs.run(c, COMPAT), bs.run(case_from_workbook(CASES[cid]), COMPAT)
+    assert_close(r.arrays["instantaneous"], rb.arrays["instantaneous"], rel=1e-12)
+    assert_close(r.centerline["instantaneous"], rb.centerline["instantaneous"], rel=1e-12)
+
+
+def test_mass_balance_initial_state_equals_bioscreen():
+    """At t -> 0 both forms start from the same effective source C0 + BC."""
+    c, cb = mb_case(), case_from_workbook(CASES["keesler_example1"])
+    for cc in (c, cb):
+        cc.time_yr = 1e-6
+    x = np.array([0.0])
+    a = bs.concentrations(c, bs.source_terms(c, COMPAT), COMPAT, x, x).instantaneous
+    b = bs.concentrations(cb, bs.source_terms(cb, COMPAT), COMPAT, x, x).instantaneous
+    assert_close(a, b, rel=1e-6)
+
+
+def dataclasses_replace(c, **kw):
+    import dataclasses
+    return dataclasses.replace(c, **kw)

@@ -1,6 +1,7 @@
 # BIOSCREEN 1.4 Example 1: SWMU 66, Keesler AFB, Mississippi (BIOSCREEN 1.4 Revisions, July 1997,
 # Appendix 1, Fig. 2-4). Lumped BTEX; calibrated dispersivities (32.5 ft, 3.25 ft). The input of the
 # manual (ft, cm/s) converted exactly to SI. Hypothetical stream 210 ft (64.0 m) downgradient.
+# instantaneous_source: bioscreen reproduces the manual; the ORTAM default is mass-balance.
 # Run: uv run ortam run napl.source-plume modules/napl/examples/bioscreen_keesler_example1.yaml
 chemical: {name: BTEX (lumped)}
 chemical_table: none
@@ -37,3 +38,4 @@ source:
 receptors:
   - {name: hypothetical stream, x_m: 64.008, y_m: 0}
 receptor_times_yr: [1, 2, 4, 6, 10, 20]
+instantaneous_source: bioscreen       # BIOSCREEN 1.4 source depletion (as in the manual)

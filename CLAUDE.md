@@ -171,4 +171,7 @@ docs/              Documentation
   inconsistencies Q1-Q3 (`docs/methods/napl.md` §4.6), false corrects them. BIOSCRN4.xls
   recalculated in LibreOffice for 14 cases: 163/163 to 1e-9 (data in
   `data/reference/bioscreen/v1.4/`); Examples 1 (Keesler) and 2 (Hill) match the printed output.
-  Workflow `workflows/napl_plume`. Next: D1.4a `surfacewater.watershed` (HHRAP B-4).
+  Workflow `workflows/napl_plume`. Instantaneous model: default `instantaneous_source:
+  mass-balance` (BC constant, source mass and concentration vanish together; §4.8),
+  `bioscreen` keeps BIOSCREEN's depletion. Q1-Q3 are not reported to the developers (owner).
+  Next: D1.4a `surfacewater.watershed` (HHRAP B-4).

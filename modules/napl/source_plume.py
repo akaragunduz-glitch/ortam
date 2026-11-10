@@ -13,7 +13,9 @@ bioscreen_compatible (default true) reproduces BIOSCREEN 1.4 exactly, including 
 and three workbook inconsistencies; false gives the corrected, consistent form
 (docs/methods/napl.md §4).
 Sources: BIOSCREEN User's Manual 1.3 (EPA/600/R-96/087) with the Version 1.4 revisions;
-BIOSCRN4.xls. Verification: modules/napl/tests/test_bioscreen.py, test_source_plume.py.
+BIOSCRN4.xls. instantaneous_source (default "mass-balance") replaces BIOSCREEN's source depletion
+of the instantaneous model by a mass-balanced one (docs/methods/napl.md §4.8); "bioscreen" keeps it.
+Verification: modules/napl/tests/test_bioscreen.py, test_source_plume.py.
 """
 from __future__ import annotations
 
@@ -133,6 +135,9 @@ class SourcePlumeInput(ModelInput):
     integration_points: int = Field(201, ge=21, le=2001, description="Grid points per direction for the "
                                     "numerical plume mass and mass flux")
     bioscreen_compatible: bool = True
+    instantaneous_source: Literal["mass-balance", "bioscreen"] = Field(
+        "mass-balance", description="Source depletion of the instantaneous model: 'mass-balance' (BC constant, "
+        "source mass and concentration vanish together) or 'bioscreen' (BIOSCREEN 1.4)")
 
 
 class Derived(BaseModel):
@@ -152,8 +157,11 @@ class Derived(BaseModel):
     source_half_life_yr: float | None = Field(None, description="No degradation and first-order models; None: infinite")
     source_concentration_avg_inst_mg_l: float
     source_flux_inst_kg_yr: float
-    source_decay_rate_inst_per_yr: float
-    source_half_life_inst_yr: float | None = None
+    instantaneous_source: str
+    source_decay_rate_inst_per_yr: float | None = Field(None, description="'bioscreen' source only")
+    source_half_life_inst_yr: float | None = Field(None, description="'bioscreen' source only; None: infinite or n/a")
+    source_depletion_time_inst_yr: float | None = Field(None, description="'mass-balance' source: time at which "
+                                                        "source mass and concentration reach zero; None: never")
     layer_widths_m: list[float]
     layer_increments_mg_l: list[float]
     layer_increments_inst_mg_l: list[float]
@@ -274,7 +282,8 @@ class SourcePlumeModule(Module):
         c = bs.Case(vs_ft_yr=vs_ft, porosity=n, alpha_x_ft=ax, alpha_y_ft=ay, alpha_z_ft=d.alpha_z_m / FT,
                     retardation=r, lambda_per_yr=lam, length_ft=g.model_length_m / FT, width_ft=g.model_width_m / FT,
                     time_yr=g.simulation_time_yr, thickness_ft=inp.source.thickness_m / FT, zones=zones,
-                    mass_kg=inp.source.soluble_mass_kg, electron_acceptors=ea, utilization_factors=uf)
+                    mass_kg=inp.source.soluble_mass_kg, electron_acceptors=ea, utilization_factors=uf,
+                    instantaneous_source=inp.instantaneous_source)
         if inp.chemical is not None and chem_name is None:
             chem_name = inp.chemical.name or inp.chemical.cas
         return c, s, notes, chem_name
@@ -293,7 +302,11 @@ class SourcePlumeModule(Module):
             source_concentration_avg_mg_l=src.c_avg_mg_l, source_flux_kg_yr=src.flux_kg_yr,
             source_decay_rate_per_yr=src.ks_per_yr, source_half_life_yr=_hl(src.half_life_yr),
             source_concentration_avg_inst_mg_l=src.c_avg_inst_mg_l, source_flux_inst_kg_yr=src.flux_inst_kg_yr,
-            source_decay_rate_inst_per_yr=src.ks_inst_per_yr, source_half_life_inst_yr=_hl(src.half_life_inst_yr),
+            instantaneous_source=c.instantaneous_source,
+            source_decay_rate_inst_per_yr=src.ks_inst_per_yr if c.instantaneous_source == "bioscreen" else None,
+            source_half_life_inst_yr=_hl(src.half_life_inst_yr) if c.instantaneous_source == "bioscreen" else None,
+            source_depletion_time_inst_yr=_hl(src.depletion_time_inst_yr) if c.instantaneous_source == "mass-balance"
+            else None,
             layer_widths_m=[w * FT for w in src.widths_ft], layer_increments_mg_l=list(src.increments_mg_l),
             layer_increments_inst_mg_l=list(src.bioc_mg_l))
         x_m = [float(x) * FT for x in res.x_ft]
@@ -343,8 +356,13 @@ class SourcePlumeModule(Module):
             warnings.append(f"R = {c.retardation:.3g} > 6: the instantaneous reaction (superposition) model should be "
                             "used with caution and checked with a numerical model (BSCR p. 21 [27], p. 49 [55]).")
         if c.mass_kg is not None and src.biodegradation_capacity_mg_l > 0:
-            notes.append("Declining source with the instantaneous model: the source of C0 + BC decays with the "
-                         "shorter half-life while BC stays constant (BSCR p. 35 [41]).")
+            if c.instantaneous_source == "bioscreen":
+                notes.append("Declining source with the instantaneous model (BIOSCREEN): the source of C0 + BC decays "
+                             "with the shorter half-life while BC stays constant, so the source concentration can "
+                             "reach zero before the source mass is depleted (BSCR p. 35 [41]; docs/methods/napl.md §4.8).")
+            else:
+                notes.append(f"Instantaneous model, mass-balance source: source mass and concentration reach zero "
+                             f"at t = {src.depletion_time_inst_yr:.4g} yr (docs/methods/napl.md §4.8).")
         if s.compatible:
             notes.append("bioscreen_compatible: BIOSCREEN 1.4 constants and workbook logic reproduced exactly "
                          "(docs/methods/napl.md §4.6, Q1-Q3).")
@@ -380,12 +398,16 @@ class SourcePlumeModule(Module):
             lines.append(f"Chemical: {out.chemical}")
         d = out.derived
         hl = "infinite" if d.source_half_life_yr is None else f"{d.source_half_life_yr:.3g} yr"
-        hli = "infinite" if d.source_half_life_inst_yr is None else f"{d.source_half_life_inst_yr:.3g} yr"
+        if d.instantaneous_source == "bioscreen":
+            hli = "infinite" if d.source_half_life_inst_yr is None else f"half-life {d.source_half_life_inst_yr:.3g} yr"
+        else:
+            hli = ("not depleted" if d.source_depletion_time_inst_yr is None
+                   else f"depleted at {d.source_depletion_time_inst_yr:.3g} yr")
         lines.append(f"Vs = {d.seepage_velocity_m_yr:.4g} m/yr, R = {d.retardation_factor:.4g}, alpha x/y/z = "
                      f"{d.alpha_x_m:.3g}/{d.alpha_y_m:.3g}/{d.alpha_z_m:.3g} m, lambda = {d.decay_rate_per_yr:.4g} 1/yr, "
                      f"BC = {d.biodegradation_capacity_mg_l:.4g} mg/L")
         lines.append(f"Source: Q = {d.source_flow_m3_yr:.4g} m3/yr, flux = {d.source_flux_kg_yr:.4g} kg/yr, "
-                     f"half-life {hl} (inst. reaction {hli})")
+                     f"half-life {hl} (inst. reaction, {d.instantaneous_source} source: {hli})")
         lines.append(f"{'x (m)':>10} {'no decay':>11} {'1st order':>11} {'inst.':>11}   (mg/L, centreline)")
         for p in out.centerline:
             lines.append(f"{p.x_m:10.2f} {p.no_decay_mg_l:11.4g} {p.first_order_mg_l:11.4g} {p.instantaneous_mg_l:11.4g}")

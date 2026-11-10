@@ -189,6 +189,10 @@ transcribing its formulas. `false` uses exact constants and erf and corrects the
   equal concentrations in two zones it is added twice. The SI input requires positive zone
   concentrations; Q3 can still occur when two zones have the same concentration.
 
+Q1 concerns only `instantaneous_source: bioscreen`; with the default mass-balance source (§4.8)
+all layers share the same depletion function and BC is added once, to the outermost layer.
+Decision of the owner (2026-11-10): Q1-Q3 are documented here and not reported to the developers.
+
 Further observations: the manual text says 1837 kg remain in the source of Example 1, the
 output screen (Fig. 4) and the workbook 1873.7 kg; the Example 2 data table gives
 K = 8.05E-03 cm/s and R = 1.3, the input screen (Fig. 6) 8.1E-03 cm/s (Vs 1609.1 ft/yr) and
@@ -205,11 +209,56 @@ flux at x = 0 is the source flux Q·Cavg for all three models.
 | Example 2, Hill AFB (BSCR Fig. 7, 8 [98-99], Version 1.3 output) | 33 centreline values, array row | ≤ 0.001 mg/L |
 | Steady state, infinite source: closed-form limit of the Domenico solution | 3 | relative 1e-12 |
 | No decay, constant source: integrated plume mass vs Q·C0·t; mass flux at L/10 vs Q·C0 | 2 | 1 %, 2 % |
+| Mass-balance source (§4.8): source column vs Co3·f(τ) (8), ∫Q·(C_obs + BC)dt vs M0·(1 − f) by quadrature (3), depletion at t_end, mass balance screen, identity with BIOSCREEN for BC = 0 and infinite sources (3 cases), equal initial state | 10 tests | relative 1e-9 to 1e-12 |
 
 The LibreOffice recalculation needs the workbook's VBA functions `gerf`/`gerfC`, which LibreOffice
 imports but does not resolve from worksheet formulas; the generator script copies the two
 functions verbatim from the workbook's "Macro Module" into the document's Standard library
 (`modules/napl/tests/generate_bioscreen_reference_cases.py`).
+
+### 4.8 Source depletion of the instantaneous model: `instantaneous_source`
+
+Owner's decision (2026-11-10): the default is `mass-balance`; `bioscreen` reproduces BIOSCREEN 1.4.
+
+**BIOSCREEN** (`bioscreen`). The effective source C0 + BC (observed concentration plus biodegradation
+capacity, BSCR p. 35 [41]) decays as e^(−ks,inst·t) with ks,inst = Q·(Cavg + BC)/M0, because the
+proportionality between source concentration and source mass (BSCR App. A.3, p. 51 [57]) is applied
+to C0 + BC; BC is then subtracted. As BC is constant, the observed source concentration
+(C0 + BC)·e^(−ks,inst·t) − BC reaches zero at t = ln((Cavg + BC)/BC)/ks,inst while the mass
+M0·e^(−ks,inst·t) is still in the source (Example 1: 15 yr, 85 % of the mass; the gas station
+example: 12 yr, 75 %). Afterwards the model predicts no dissolved plume from a source that still
+holds most of its mass.
+
+**Mass balance** (`mass-balance`). Two statements of the manual are kept apart:
+(a) BC is a property of the upgradient groundwater and constant in time (BSCR p. 39 [45]: "the
+biodegradation capacity of the upgradient groundwater"); (b) the source concentration is proportional
+to the source mass (BSCR App. A.3, p. 51 [57]), applied to the observed (dissolved) concentration only.
+With the source mass balance M(t) = M0 − ∫Q·C(t)dt (BSCR App. A.3 Eq. 4, p. 51 [57]) and the
+concentration leaving the source C = C_obs + BC (App. A.3 step 2, p. 50 [56]):
+
+    dM/dt = −Q·(Cavg·M/M0 + BC)
+    M(t) = M0·f(t),   f(t) = (1 + b)·e^(−ks·t) − b,   b = BC/Cavg,   ks = Q·Cavg/M0
+    C_obs,k(t) = Co,k·f(t)
+    t_end = ln((1 + b)/b)/ks;   f = 0 for t ≥ t_end
+
+(check: df/dt = −ks·(1 + b)·e^(−ks·t) = −ks·(f + b), i.e. dM/dt = −Q·(Cavg·f + BC).)
+The instantaneous model then uses the source of the superposition algorithm (BSCR App. A.2) with
+layer increments Ck·f(t − x/v) plus BC on the outermost layer, and subtracts BC. Source mass and source
+concentration reach zero together at t_end. Mass left in the source: M0·f(t); mass that has left
+it: M0·(1 − f(t)). The no-degradation and first-order models are unchanged (no biodegradation in the
+source zone: dM/dt = −Q·Cavg·M/M0, the BIOSCREEN form).
+
+Properties: identical to `bioscreen` for BC = 0 (f = e^(−ks·t)) and for an infinite source (f = 1),
+and at t = 0. The derivation combines the cited relations; it is not itself printed in a reference
+document. Verified by quadrature of the mass balance and by the analytical source-column value (§4.7).
+
+Effect (receptor on the centreline, instantaneous model):
+
+| Example | t (yr) | BIOSCREEN | mass-balance |
+|---------|--------|-----------|--------------|
+| Keesler (Example 1), x = 64 m | 15 | 0.19 mg/L | 1.77 mg/L |
+| | 30 | 0.00 mg/L | 1.24 mg/L |
+| Gas station (`gas_station_plume.yaml`), x = 50 m | 15 | 0.43 mg/L | 0.55 mg/L |
 
 ## 5. Verification of napl.equilibrium
 

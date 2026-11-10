@@ -38,7 +38,7 @@ def si_input(rec) -> dict:
         if ic[y]:
             zones.append({"width_m": ic[y] * FT, "concentration_mg_l": ic[cc]})
     return {
-        "chemical_table": "none",
+        "chemical_table": "none", "instantaneous_source": "bioscreen",
         "hydrogeology": {"seepage_velocity_m_yr": ic["vs_ft_yr"] * FT, "effective_porosity": ic["porosity"]},
         "dispersion": {"alpha_x_m": ic["alpha_x_ft"] * FT, "alpha_y_m": ic["alpha_y_ft"] * FT,
                        "alpha_z_m": (ic["alpha_z_ft"] or 0) * FT},
@@ -268,3 +268,34 @@ def test_examples_run_from_cli_files():
         data = yaml.safe_load((ROOT / "modules/napl/examples" / f).read_text(encoding="utf-8"))
         out = run(data)
         assert out.centerline[0].no_decay_mg_l > 0 and M.summary(out)
+
+
+# --- Mass-balance source of the instantaneous model (default) -------------------------------------
+def test_default_instantaneous_source_is_mass_balance():
+    data = copy.deepcopy(EX1)
+    data.pop("instantaneous_source")
+    out = run(data)
+    d = out.derived
+    assert d.instantaneous_source == "mass-balance"
+    assert d.source_half_life_inst_yr is None and d.source_decay_rate_inst_per_yr is None
+    b = d.biodegradation_capacity_mg_l / d.source_concentration_avg_mg_l
+    assert d.source_depletion_time_inst_yr == pytest.approx(math.log((1 + b) / b) / d.source_decay_rate_per_yr)
+    i = out.mass_balance[2]
+    f = (1 + b) * math.exp(-d.source_decay_rate_per_yr * 6) - b
+    assert i.source_mass_now_kg == pytest.approx(2000 * f) and i.mass_left_source_kg == pytest.approx(2000 * (1 - f))
+    # no-degradation and first-order results are unchanged; instantaneous plume is longer
+    ex1 = run(EX1)
+    for p, q in zip(ex1.centerline, out.centerline):
+        assert q.no_decay_mg_l == p.no_decay_mg_l and q.first_order_mg_l == p.first_order_mg_l
+        assert q.instantaneous_mg_l >= p.instantaneous_mg_l - 1e-12
+    assert any("mass-balance source" in n for n in out.notes)
+
+
+def test_mass_balance_receptor_time_series_reaches_zero_after_depletion():
+    data = copy.deepcopy(EX1)
+    data["instantaneous_source"] = "mass-balance"
+    te = run(data).derived.source_depletion_time_inst_yr
+    data["receptors"] = [{"name": "source", "x_m": 0.0}]
+    data["receptor_times_yr"] = [0.5 * te, 0.99 * te, 1.01 * te]
+    ts = run(data).receptors[0].time_series
+    assert ts[0]["instantaneous_mg_l"] > ts[1]["instantaneous_mg_l"] > 0 and ts[2]["instantaneous_mg_l"] == 0

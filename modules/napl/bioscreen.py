@@ -23,6 +23,18 @@ Two settings (Settings.compatible):
            Q3 the biodegradation capacity is added to a source layer whenever the next outer
               layer increment is zero ('Input'!T46-T47), so it can be added twice.
   False  consistent form: exact erf, 0.3048 m/ft, 28.316846592 L/ft3, ln 2, and Q1-Q3 corrected.
+
+Source depletion of the instantaneous model (Case.instantaneous_source):
+  "bioscreen"     BIOSCREEN 1.4: the effective source C0 + BC decays as e^(-ks_inst t),
+                  ks_inst = Q (Cavg + BC)/M0, and BC is subtracted (BSCR p. 35 [41]); the observed
+                  source concentration reaches zero while most of the mass is still in the source.
+  "mass-balance"  (default) BC is constant (property of the upgradient groundwater, BSCR p. 39 [45]);
+                  the proportionality between source concentration and source mass (BSCR App. A.3,
+                  p. 51 [57]) applies to the observed concentration only. With BSCR App. A.3 Eq. 4,
+                  dM/dt = -Q (Cavg M/M0 + BC), so M = M0 f(t), f = (1 + b) e^(-ks t) - b, b = BC/Cavg,
+                  ks = Q Cavg/M0, every zone concentration is Co,k f(t), and source mass and source
+                  concentration reach zero together at t_end = ln((1 + b)/b)/ks (derivation:
+                  docs/methods/napl.md §4.8). Equal to "bioscreen" for BC = 0 or an infinite source.
 """
 from __future__ import annotations
 
@@ -133,6 +145,7 @@ class Case:
     mass_kg: float | None = None                      # None: infinite source
     electron_acceptors: dict[str, float] = field(default_factory=dict)   # mg/L, keys of UTILIZATION_FACTORS
     utilization_factors: dict[str, float] = field(default_factory=lambda: dict(UTILIZATION_FACTORS))
+    instantaneous_source: str = "mass-balance"          # or "bioscreen"
 
 
 @dataclass
@@ -152,6 +165,15 @@ class Source:
     ks_inst_per_yr: float                        # source decay, instantaneous reaction (Input!F67)
     half_life_yr: float                          # 0.693/ks (Input!F63), inf for an infinite source
     half_life_inst_yr: float                     # 0.693/ks_inst (Input!F68)
+    b_ratio: float = 0.0                         # BC/Cavg (mass-balance source)
+    depletion_time_inst_yr: float = math.inf     # t_end of the mass-balance source
+
+    def remaining_fraction(self, t):
+        """f(t) = M(t)/M0 of the mass-balance source of the instantaneous model (docs/methods/napl.md §4.8)."""
+        t = np.asarray(t, dtype=float)
+        if self.ks_per_yr == 0:
+            return np.ones_like(t)
+        return np.maximum(0.0, (1.0 + self.b_ratio) * np.exp(-self.ks_per_yr * t) - self.b_ratio)
 
 
 def source_terms(c: Case, s: Settings) -> Source:
@@ -193,8 +215,12 @@ def source_terms(c: Case, s: Settings) -> Source:
         ks, ksi = flux / c.mass_kg, flux_i / c.mass_kg
     hl = math.inf if ks == 0 else s.ln2 / ks
     hli = math.inf if ks == 0 else s.ln2 / ksi     # Input!F68 tests F62 (ks), not F67
+    if c.instantaneous_source not in ("bioscreen", "mass-balance"):
+        raise ValueError("instantaneous_source must be 'bioscreen' or 'mass-balance'.")
+    b = bc / cavg if cavg > 0 else 0.0
+    t_end = math.inf if (ks == 0 or b == 0) else math.log((1.0 + b) / b) / ks
     return Source((y1, y2, y3), (c1, c2, c3), (b1, b2, b3), bc, share, w, q, cavg, flux, ks, cavg_i, flux_i,
-                  ksi, hl, hli)
+                  ksi, hl, hli, b, t_end)
 
 
 # ---------------------------------------------------------------------------------------------
@@ -262,12 +288,21 @@ def concentrations(c: Case, src: Source, s: Settings, x_ft, y_ft, t_yr=None) -> 
             direct = sum(ck * dec * fxl * fz * fy / 8.0 for ck, fy in zip(src.increments_mg_l, fys))
             first = np.where(at_source, no_decay, direct)
         before = 0.0
-        for k, (ck, bk, g) in enumerate(zip(src.increments_mg_l, src.bioc_mg_l, geo)):
-            if ck == 0:
-                continue
-            # Q1: XLS zone-2 term uses ks (not ks_inst) in compatible mode
-            d = dec if (s.compatible and k == 1) else deci
-            before = before + bk * d * g
+        if c.instantaneous_source == "mass-balance":
+            # effective source = observed zone concentrations x f(tau) + BC (BC once, outermost layer)
+            f = src.remaining_fraction(tau)
+            nonzero = [k for k, ck in enumerate(src.increments_mg_l) if ck != 0]
+            for k in nonzero:
+                before = before + src.increments_mg_l[k] * f * geo[k]
+            if nonzero:
+                before = before + src.biodegradation_capacity_mg_l * geo[nonzero[0]]
+        else:
+            for k, (ck, bk, g) in enumerate(zip(src.increments_mg_l, src.bioc_mg_l, geo)):
+                if ck == 0:
+                    continue
+                # Q1: XLS zone-2 term uses ks (not ks_inst) in compatible mode
+                d = dec if (s.compatible and k == 1) else deci
+                before = before + bk * d * g
         before = np.broadcast_to(np.asarray(before, dtype=float), x.shape).copy()
         inst = np.maximum(0.0, before - src.biodegradation_capacity_mg_l)
     nd = np.broadcast_to(np.asarray(no_decay, dtype=float), x.shape).copy()
@@ -343,7 +378,10 @@ def run(c: Case, s: Settings, volume_threshold_mg_l: float = 0.005) -> Result:
         left, left_i = src.flux_kg_yr * t, src.flux_inst_kg_yr * t
     else:
         left = c.mass_kg - c.mass_kg * math.exp(-src.ks_per_yr * t)
-        left_i = c.mass_kg - c.mass_kg * math.exp(-src.ks_inst_per_yr * t)
+        if c.instantaneous_source == "mass-balance":
+            left_i = c.mass_kg * (1.0 - float(src.remaining_fraction(t)))
+        else:
+            left_i = c.mass_kg - c.mass_kg * math.exp(-src.ks_inst_per_yr * t)
     frac_fo = (m_nd - m_fo) / m_nd if m_nd else math.nan     # P107
     frac_in = (m_ib - m_in) / m_ib if m_ib else math.nan     # P125
     cant = m_nd < 0.5 * left or m_nd > 1.5 * left             # M17 test (also used for the inst. model)
@@ -364,6 +402,8 @@ def run(c: Case, s: Settings, volume_threshold_mg_l: float = 0.005) -> Result:
             ea = {k: EA_SIGN[k] * removed * src.ea_share[k] * c.utilization_factors[k] for k in UTILIZATION_FACTORS}
         ks = src.ks_inst_per_yr if name == "instantaneous" else src.ks_per_yr
         now = None if c.mass_kg is None else c.mass_kg * math.exp(-ks * t)     # M28
+        if now is not None and name == "instantaneous" and c.instantaneous_source == "mass-balance":
+            now = c.mass_kg * float(src.remaining_fraction(t))
         # M30: cells above 0.005 mg/L x cell volume; the cell length is D57 - C57 = dx - 1e-4 ft
         dxv = dx - X_SOURCE_FT if s.compatible else dx
         vol = None if cant else float((a > volume_threshold_mg_l).sum()) * dxv * dy * c.thickness_ft * c.porosity
