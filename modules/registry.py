@@ -27,6 +27,7 @@ MODULES: dict[str, str] = {
     "vapor.visl":              "modules.vapor.visl:ViSlModule",
     "vapor.johnson-ettinger":  "modules.vapor.johnson_ettinger:JohnsonEttingerModule",
     "napl.equilibrium":        "modules.napl.equilibrium:NaplEquilibriumModule",
+    "napl.source-plume":       "modules.napl.source_plume:SourcePlumeModule",
     # "air.aermod":           "modules.air.aermod:AermodModule",                 # Phase 5
     # "geochem.phreeqc":      "modules.geochem.phreeqc:PhreeqcModule",           # Phase 5
 }

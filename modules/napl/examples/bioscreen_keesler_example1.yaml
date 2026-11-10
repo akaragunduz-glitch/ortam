@@ -1,0 +1,39 @@
+# BIOSCREEN 1.4 Example 1: SWMU 66, Keesler AFB, Mississippi (BIOSCREEN 1.4 Revisions, July 1997,
+# Appendix 1, Fig. 2-4). Lumped BTEX; calibrated dispersivities (32.5 ft, 3.25 ft). The input of the
+# manual (ft, cm/s) converted exactly to SI. Hypothetical stream 210 ft (64.0 m) downgradient.
+# Run: uv run ortam run napl.source-plume modules/napl/examples/bioscreen_keesler_example1.yaml
+chemical: {name: BTEX (lumped)}
+chemical_table: none
+hydrogeology:
+  hydraulic_conductivity_m_s: 1.1e-4    # 1.1E-02 cm/s
+  hydraulic_gradient: 0.003
+  effective_porosity: 0.3
+dispersion:
+  alpha_x_m: 9.906                      # 32.5 ft (calibrated)
+  alpha_y_m: 0.9906                     # 3.25 ft
+  alpha_z_m: 0
+adsorption:
+  bulk_density_kg_l: 1.7
+  koc_l_kg: 38                          # benzene, used for lumped BTEX
+  foc: 5.7e-5
+biodegradation:
+  solute_half_life_yr: 0.15
+  delta_oxygen_mg_l: 1.65
+  delta_nitrate_mg_l: 0.7
+  ferrous_iron_mg_l: 16.6
+  delta_sulfate_mg_l: 22.4
+  methane_mg_l: 6.6
+general:
+  model_length_m: 97.536                # 320 ft
+  model_width_m: 60.96                  # 200 ft
+  simulation_time_yr: 6
+source:
+  thickness_m: 3.048                    # 10 ft
+  zones:                                # from the centre outward (BIOSCREEN zones 3, 2, 1)
+    - {width_m: 4.2672, concentration_mg_l: 13.68}   # 14 ft
+    - {width_m: 9.144, concentration_mg_l: 2.508}    # 30 ft on each side
+    - {width_m: 8.5344, concentration_mg_l: 0.057}   # 28 ft on each side
+  soluble_mass_kg: 2000
+receptors:
+  - {name: hypothetical stream, x_m: 64.008, y_m: 0}
+receptor_times_yr: [1, 2, 4, 6, 10, 20]

@@ -101,6 +101,7 @@ workflows/         Workflows that connect modules
   risk_chain/      Sampling -> modelling -> risk -> remediation
   soil_volatiles/  air.ssl-vf -> risk soil tools (volatile chemicals)
   soil_to_groundwater/ risk.resident-tapwater -> vadose.ssl-leaching
+  napl_plume/      napl.equilibrium -> napl.source-plume -> risk.resident-tapwater
 engines/           Fortran and external codes (MODFLOW, AERMOD, VLEACH, ...)
 api/               FastAPI server (Phase 2)
 worker/            Celery background workers (Phase 5)
@@ -162,4 +163,12 @@ docs/              Documentation
 - D1.5a complete (2026-11-08): `napl.equilibrium` (Raoult's law Ko HSSM Eq. 44-45,
   effective solubility, NAPL presence/composition/saturation in soil, PVI LNAPL
   indicators); HSSM RAOULT 9/9, BIOSCREEN 15/16 (1 source misprint), RSL Csat
-  206/206. Next: D1.5b `napl.source-plume` (BIOSCREEN 1.4).
+  206/206.
+- D1.5b complete (2026-11-10): `napl.source-plume` (BIOSCREEN 1.4: Domenico model, layer-cake
+  source, source decay, no degradation / first order / instantaneous reaction, mass balance, 1.4
+  mass flux, receptors, numerical plume mass); engine `modules/napl/bioscreen.py` in ft/yr, SI at
+  the module boundary; `bioscreen_compatible` (default) reproduces the workbook incl. three
+  inconsistencies Q1-Q3 (`docs/methods/napl.md` §4.6), false corrects them. BIOSCRN4.xls
+  recalculated in LibreOffice for 14 cases: 163/163 to 1e-9 (data in
+  `data/reference/bioscreen/v1.4/`); Examples 1 (Keesler) and 2 (Hill) match the printed output.
+  Workflow `workflows/napl_plume`. Next: D1.4a `surfacewater.watershed` (HHRAP B-4).

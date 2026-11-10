@@ -267,7 +267,8 @@ def test_input_checks():
         m.run(m.validate({"basis": "napl", "components": [{"name": "paraffins", "napl_g_cm3": 0.3}]}))
 
 
-@pytest.mark.parametrize("example", sorted(EXAMPLES.glob("*.yaml")), ids=lambda p: p.name)
+@pytest.mark.parametrize("example", [p for p in sorted(EXAMPLES.glob("*.yaml"))
+                                     if "basis" in yaml.safe_load(p.read_text())], ids=lambda p: p.name)
 def test_examples_run(example):
     m = get_module("napl.equilibrium")
     o = m.run(m.validate(yaml.safe_load(example.read_text())))

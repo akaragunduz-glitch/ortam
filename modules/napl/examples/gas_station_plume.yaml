@@ -1,0 +1,38 @@
+# Benzene plume downgradient of a service station (illustrative values).
+# Source concentration: dissolved benzene measured in the source-area wells (could also be the
+# effective solubility from napl.equilibrium; see workflows/napl_plume). Soluble benzene mass from
+# soil and LNAPL delineation. Koc of benzene from the RSL table; electron acceptor demand of
+# toluene, ethylbenzene and xylenes is accounted for by reducing the electron acceptor changes
+# (BSCR p. 31 [37]): here by 75 % (equal BTEX concentrations).
+# Run: uv run ortam run napl.source-plume modules/napl/examples/gas_station_plume.yaml
+chemical: {cas: "71-43-2"}
+hydrogeology:
+  hydraulic_conductivity_m_s: 5.0e-5
+  hydraulic_gradient: 0.005
+  effective_porosity: 0.25
+dispersion:
+  plume_length_m: 150                   # alpha_x from Xu and Eckstein (1995), alpha_y = 0.1 alpha_x
+adsorption:
+  bulk_density_kg_l: 1.7
+  foc: 0.001
+biodegradation:
+  solute_half_life_yr: 1.0
+  delta_oxygen_mg_l: 1.5                # 25 % of the measured changes (benzene share of BTEX)
+  delta_nitrate_mg_l: 2.0
+  ferrous_iron_mg_l: 4.0
+  delta_sulfate_mg_l: 10.0
+  methane_mg_l: 1.5
+general:
+  model_length_m: 200
+  model_width_m: 60
+  simulation_time_yr: 15
+source:
+  thickness_m: 3.0
+  zones:
+    - {width_m: 6, concentration_mg_l: 4.0}
+    - {width_m: 8, concentration_mg_l: 0.8}
+  soluble_mass_kg: 150
+receptors:
+  - {name: property boundary well, x_m: 50}
+  - {name: residential well, x_m: 150, y_m: 5}
+receptor_times_yr: [5, 10, 15, 25, 50]
